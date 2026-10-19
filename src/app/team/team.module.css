@@ -33,6 +33,56 @@
   color: #fff;
 }
 
+.founderProfile {
+  padding: 120px 0;
+  background: var(--warm);
+}
+
+.founderGrid {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: clamp(55px, 9vw, 140px);
+}
+
+.founderGrid > div > p:not(.eyebrow) {
+  max-width: 470px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.founderGrid > div > a {
+  display: inline-block;
+  margin-top: 18px;
+  border-bottom: 1px solid currentColor;
+}
+
+.founderGrid dl {
+  margin: 0;
+}
+
+.founderGrid dl > div {
+  display: grid;
+  grid-template-columns: 145px 1fr;
+  gap: 28px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+}
+
+.founderGrid dl > div:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.founderGrid dt {
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+}
+
+.founderGrid dd {
+  margin: 0;
+  line-height: 1.7;
+}
+
 .team {
   padding: 140px 0 120px;
 }
@@ -116,6 +166,9 @@
   .awardRow {
     grid-template-columns: 55px 1fr 70px;
   }
+  .founderGrid {
+    grid-template-columns: 1fr;
+  }
   .awardRow span:nth-child(3),
   .awardRow span:nth-child(4) {
     display: none;
@@ -130,6 +183,10 @@
   }
   .teamGrid {
     grid-template-columns: 1fr;
+  }
+  .founderGrid dl > div {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
   .teamImage {
     min-height: 520px;

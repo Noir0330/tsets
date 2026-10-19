@@ -5,6 +5,8 @@ import { FloatingContact } from "@/components/layout/FloatingContact";
 import { MotionController } from "@/components/layout/MotionController";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { SkipLink } from "@/components/layout/SkipLink";
+import { PublicI18nProvider } from "@/lib/i18n/PublicI18nProvider";
 import "./globals.css";
 
 const displayFont = localFont({
@@ -37,6 +39,7 @@ export default function RootLayout({
   return (
     <html
       className={`${displayFont.variable} ${bodyFont.variable}`}
+      data-template="hide"
       lang="mn"
       suppressHydrationWarning
     >
@@ -48,14 +51,20 @@ export default function RootLayout({
             __html: `try{var t=localStorage.getItem("tsets-theme");if(["burgundy","forest","navy"].includes(t))document.documentElement.dataset.theme=t}catch{}`,
           }}
         />
-        <a className="skipLink" href="#main-content">
-          Үндсэн хэсэг рүү шилжих
-        </a>
-        <SiteHeader />
-        <main id="main-content">{children}</main>
-        <MotionController />
-        <SiteFooter />
-        <FloatingContact />
+        <script
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: Static template-preview initialization with a local boolean preference.
+          dangerouslySetInnerHTML={{
+            __html: `try{var v=localStorage.getItem("tsets-template-sections");document.documentElement.dataset.template=v==="show"?"show":"hide"}catch{}`,
+          }}
+        />
+        <PublicI18nProvider>
+          <SkipLink />
+          <SiteHeader />
+          <main id="main-content">{children}</main>
+          <MotionController />
+          <SiteFooter />
+          <FloatingContact />
+        </PublicI18nProvider>
       </body>
     </html>
   );

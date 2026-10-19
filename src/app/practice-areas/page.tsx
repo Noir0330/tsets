@@ -1,3 +1,5 @@
+"use client";
+
 import {
   FileSearch,
   Gavel,
@@ -6,82 +8,25 @@ import {
   Scale,
   ShieldCheck,
 } from "lucide-react";
-import type { Metadata } from "next";
 import Link from "next/link";
+import { useSiteMessages } from "@/lib/i18n/PublicI18nProvider";
 import styles from "./practice.module.css";
 
-export const metadata: Metadata = {
-  title: "Үйлчилгээ",
-  description:
-    "Цэц Партнерсийн өмгөөлөл, төлөөлөл, нэг удаагийн болон тогтмол хууль зүйн зөвлөх үйлчилгээ.",
-};
-
-const areas = [
-  {
-    icon: Scale,
-    title: "Иргэний хэрэг, маргаан",
-    text: "Гэрээ, компани, хувьцаа, зээл, барьцаа, даатгал, оюуны өмч, нэр хүнд болон хөрөнгө оруулалтын маргаанд төлөөлнө.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Захиргааны хэрэг, маргаан",
-    text: "Ашигт малтмалын тусгай зөвшөөрөл, газар, бизнесийн лиценз, татвар, тендер болон өрсөлдөөний маргаанд ажиллана.",
-  },
-  {
-    icon: Globe2,
-    title: "Эрүүгийн хэрэгт өмгөөлөл",
-    text: "Эрүүгийн хэрэг хянан шийдвэрлэх бүх шатанд сэжигтэн, яллагдагч, шүүгдэгч болон хохирогчийн өмгөөлөгчөөр оролцоно.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Шийдвэр гүйцэтгэл ба арбитр",
-    text: "Шүүхийн шийдвэр гүйцэтгэх ажиллагаа, арбитр болон бусад байгууллагад үйлчлүүлэгчийг төлөөлнө.",
-  },
-  {
-    icon: Gavel,
-    title: "Нэг удаагийн хууль зүйн зөвлөгөө",
-    text: "Компани, хөрөнгө, гэрээ, хөрөнгө оруулалт, дампуурал болон тусгай зөвшөөрлийн асуудлаар баримт бичиг боловсруулна.",
-  },
-  {
-    icon: FileSearch,
-    title: "Тогтмол хууль зүйн зөвлөх",
-    text: "Компанийн өдөр тутмын үйл ажиллагаа, дотоод журам, гэрээ, төлөөлөл болон due diligence-д тогтмол дэмжлэг үзүүлнэ.",
-  },
-] as const;
-
-const faqs = [
-  [
-    "Тогтмол зөвлөх үйлчилгээний төлбөр хэрхэн тооцогдох вэ?",
-    "Сарын ажлын хэмжээ, ачаалал, зарцуулсан хугацаанаас үл хамааран гэрээнд тохирсон тогтмол төлбөртэй байдгаараа давуу.",
-  ],
-  [
-    "Нэг удаагийн зөвлөгөөнд ямар ажил багтах вэ?",
-    "Компани байгуулах, өөрчлөх, татан буулгах, өмчлөх эрх, хөрөнгө оруулалт, гэрээ, барьцаа болон тусгай зөвшөөрлийн ажил багтана.",
-  ],
-  [
-    "Шүүхийн аль шатанд өмгөөлөл үзүүлэх вэ?",
-    "Иргэн, захиргаа, эрүү, арбитр болон шийдвэр гүйцэтгэх ажиллагааны холбогдох бүх шатанд төлөөлөл, өмгөөлөл үзүүлнэ.",
-  ],
-] as const;
+const areaIcons = [Scale, Lightbulb, Globe2, ShieldCheck, Gavel, FileSearch];
 
 export default function PracticeAreasPage() {
+  const { common, practice } = useSiteMessages();
   return (
     <>
       <section className={styles.practice}>
         <div className="shell">
           <div className={styles.heading}>
-            <p className="eyebrow eyebrowLight">
-              Өмгөөлөл, төлөөлөл, хууль зүйн зөвлөгөө
-            </p>
-            <h1>
-              Таны хууль зүйн
-              <br />
-              хэрэгцээнд нийцсэн үйлчилгээ
-            </h1>
+            <p className="eyebrow eyebrowLight">{practice.hero.eyebrow}</p>
+            <h1>{practice.hero.title}</h1>
           </div>
           <div className={styles.grid}>
-            {areas.map((area) => {
-              const Icon = area.icon;
+            {practice.areas.map((area, index) => {
+              const Icon = areaIcons[index];
               return (
                 <article className={styles.card} key={area.title}>
                   <div className={styles.cardBody}>
@@ -89,7 +34,7 @@ export default function PracticeAreasPage() {
                     <h2>{area.title}</h2>
                     <p>{area.text}</p>
                   </div>
-                  <Link href="/contact">Зөвлөгөө авах</Link>
+                  <Link href="/contact">{common.consultation}</Link>
                 </article>
               );
             })}
@@ -97,18 +42,89 @@ export default function PracticeAreasPage() {
         </div>
       </section>
 
+      <section className={styles.fullServices}>
+        <div className="shell">
+          <div className={styles.fullServicesHeading}>
+            <div>
+              <p className="eyebrow">{practice.full.eyebrow}</p>
+              <h2>{practice.full.title}</h2>
+            </div>
+            <p>{practice.full.intro}</p>
+          </div>
+
+          <details className={styles.serviceDetail}>
+            <summary>
+              <span>01</span>
+              <strong>{practice.full.litigationTitle}</strong>
+              <i aria-hidden="true" />
+            </summary>
+            <div className={styles.serviceDetailBody}>
+              {practice.litigation.map((group) => (
+                <section key={group.title}>
+                  <h3>{group.title}</h3>
+                  <p>{group.description}</p>
+                  <ul>
+                    {group.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
+          </details>
+
+          <details className={styles.serviceDetail}>
+            <summary>
+              <span>02</span>
+              <strong>{practice.full.oneTimeTitle}</strong>
+              <i aria-hidden="true" />
+            </summary>
+            <div className={styles.serviceDetailBody}>
+              <section>
+                <h3>{practice.full.oneTimeHeading}</h3>
+                <p>{practice.full.oneTimeIntro}</p>
+                <ul>
+                  {practice.oneTime.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </section>
+            </div>
+          </details>
+
+          <details className={styles.serviceDetail}>
+            <summary>
+              <span>03</span>
+              <strong>{practice.full.retainedTitle}</strong>
+              <i aria-hidden="true" />
+            </summary>
+            <div className={styles.serviceDetailBody}>
+              <section>
+                <h3>{practice.full.retainedHeading}</h3>
+                <p>{practice.retained.description}</p>
+                <ul>
+                  {practice.retained.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </section>
+            </div>
+          </details>
+        </div>
+      </section>
+
       <section className={styles.faq} id="faq">
         <div className="shell">
-          <p className="eyebrow">Үйлчилгээний мэдээлэл</p>
-          <h2>Түгээмэл асуултууд</h2>
-          {faqs.map(([question, answer], index) => (
-            <details key={question} open={index === 1}>
+          <p className="eyebrow">{practice.faq.eyebrow}</p>
+          <h2>{practice.faq.title}</h2>
+          {practice.faq.items.map((item, index) => (
+            <details key={item.question} open={index === 1}>
               <summary>
                 <span className={styles.number}>0{index + 1}</span>
-                <span className={styles.question}>{question}</span>
+                <span className={styles.question}>{item.question}</span>
                 <span className={styles.toggle} />
               </summary>
-              <p>{answer}</p>
+              <p>{item.answer}</p>
             </details>
           ))}
         </div>

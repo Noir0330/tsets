@@ -1,60 +1,52 @@
+"use client";
+
 import { ArrowRight } from "lucide-react";
-import type { Metadata } from "next";
 import { LibraryContact } from "@/components/sections/ThemeSections";
+import { useSiteMessages } from "@/lib/i18n/PublicI18nProvider";
 import styles from "./contact.module.css";
 
-export const metadata: Metadata = {
-  title: "Холбоо барих",
-  description: "Цэц Партнерстай холбогдож хууль зүйн зөвлөгөөний цаг товлох.",
-};
-
-const offices = [
-  {
-    city: "Төв оффис",
-    address: [
-      "Улаанбаатар хот",
-      "Нарийн хаягийг нийтлэхийн өмнө баталгаажуулна",
-    ],
-    note: "Уулзалтыг имэйлээр урьдчилан товлоно",
-    email: "Lkhagvalawyer@gmail.com",
-  },
-  {
-    city: "Салбар оффис",
-    address: [
-      "Улаанбаатар хот",
-      "Нарийн хаягийг нийтлэхийн өмнө баталгаажуулна",
-    ],
-    note: "Уулзалтыг имэйлээр урьдчилан товлоно",
-    email: "Lkhagvalawyer@gmail.com",
-  },
-] as const;
-
 export default function ContactPage() {
+  const { contact } = useSiteMessages();
+  const email = "Lkhagvalawyer@gmail.com";
   return (
     <>
       <section className={styles.title}>
-        <h1>Холбоо барих</h1>
+        <div>
+          <h1>{contact.title}</h1>
+          <p>
+            <a href="mailto:Lkhagvalawyer@gmail.com">Lkhagvalawyer@gmail.com</a>
+            <span aria-hidden="true"> · </span>
+            <a
+              href="https://www.facebook.com/LkhagvaLawyer"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Facebook
+            </a>
+          </p>
+        </div>
       </section>
       <LibraryContact />
-      <section className={styles.offices}>
+      <section className={styles.offices} data-template-only>
         <div className="shell">
-          <h2>Манай оффисууд:</h2>
-          {offices.map((office) => (
+          <h2>{contact.officesTitle}</h2>
+          {contact.offices.map((office) => (
             <article className={styles.office} key={office.city}>
               <h3>{office.city}</h3>
               <address>
-                {office.address[0]}
+                {office.lineOne}
                 <br />
-                {office.address[1]}
+                {office.lineTwo}
               </address>
               <div className={styles.contactInfo}>
                 <span>{office.note}</span>
-                <a href={`mailto:${office.email}`}>{office.email}</a>
+                <a href={`mailto:${email}`}>{email}</a>
               </div>
               <a
-                href={`mailto:${office.email}?subject=${encodeURIComponent(`${office.city} — уулзалтын хүсэлт`)}`}
+                href={`mailto:${email}?subject=${encodeURIComponent(`${office.city} — ${contact.appointmentSubject}`)}`}
               >
-                Уулзалт товлох <ArrowRight aria-hidden="true" size={20} />
+                {contact.appointment}{" "}
+                <ArrowRight aria-hidden="true" size={20} />
               </a>
             </article>
           ))}

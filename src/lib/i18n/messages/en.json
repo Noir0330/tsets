@@ -1,0 +1,517 @@
+{
+  "publicLanguage": {
+    "changeLanguage": "Change language",
+    "label": "Choose language",
+    "short": { "mn": "MN", "en": "EN", "zh": "中" },
+    "names": { "mn": "Монгол", "en": "English", "zh": "中文" }
+  },
+  "meta": {
+    "title": "Tsets Partners — Law Firm",
+    "description": "Tsets Partners Law Firm provides advocacy, legal representation, and legal advisory services."
+  },
+  "common": {
+    "company": "Tsets Partners",
+    "founder": "G. Lkhagvasuren",
+    "founderRole": "Founding Partner and Attorney",
+    "contact": "Contact Us",
+    "consultation": "Request a Consultation"
+  },
+  "header": {
+    "logoLabel": "Tsets Partners — Home",
+    "mainNav": "Main navigation",
+    "mobileNav": "Mobile navigation",
+    "openMenu": "Open menu",
+    "skipToContent": "Skip to main content",
+    "email": "Email Us",
+    "nav": {
+      "home": "Home",
+      "services": "Services",
+      "about": "About Us",
+      "team": "Our Team",
+      "interview": "Interview",
+      "contact": "Contact Us"
+    },
+    "demos": ["Legal Representation", "Legal Advisory", "Retained Counsel"],
+    "practiceLinks": [
+      "Civil Disputes",
+      "Administrative Disputes",
+      "Criminal Defense",
+      "Business Advisory",
+      "Retained Counsel"
+    ],
+    "pageLinks": [
+      "Founder Interview",
+      "Our Advantages",
+      "Frequently Asked Questions",
+      "Insurance Law",
+      "Retained Counsel",
+      "One-Time Advisory"
+    ]
+  },
+  "theme": {
+    "label": "Choose a color theme",
+    "items": ["Burgundy · Ivory", "Green · Forest", "Blue · Navy"]
+  },
+  "template": {
+    "label": "Template",
+    "show": "Show additional template sections",
+    "hide": "Hide additional template sections"
+  },
+  "footer": {
+    "description": "Tsets Partners Law Firm has provided legal representation, advocacy, and legal advisory services to individuals and organizations since 2017.",
+    "contactTitle": "Contact",
+    "city": "Ulaanbaatar, Mongolia",
+    "offices": "2 branch offices",
+    "appointment": "Meetings by appointment",
+    "linksTitle": "Links",
+    "linksLabel": "Footer links",
+    "socialTitle": "Social Links",
+    "emailLabel": "Email",
+    "interviewLabel": "Business.mn interview",
+    "homeLabel": "Home page",
+    "copyright": "© 2026 Tsets Partners. All rights reserved.",
+    "services": "Advocacy · Representation · Legal Advisory"
+  },
+  "floatingContact": {
+    "label": "Contact Tsets Partners",
+    "text": "Contact Us"
+  },
+  "form": {
+    "defaultSubject": "Legal Consultation",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "consent": "I consent to the use of the information submitted for contact purposes.",
+    "submit": "Send Email"
+  },
+  "shared": {
+    "clients": "Organizations We Work With",
+    "clientLogoAlt": "Client organization logo",
+    "valuesLabel": "Tsets Partners values",
+    "marquee": [
+      "rights",
+      "protection",
+      "trust",
+      "advice",
+      "advocacy",
+      "solutions"
+    ],
+    "contactEyebrow": "Get in Touch",
+    "contactTitle": "Do you need legal advice?"
+  },
+  "home": {
+    "hero": {
+      "imageAlt": "Managing Partner of Tsets Partners",
+      "before": "We",
+      "beforeSeparator": " ",
+      "emphasis": "anticipate risk",
+      "afterSeparator": ", ",
+      "after": "and steadfastly protect your interests",
+      "tagline": "Reliable protection within the law"
+    },
+    "strengthsIntro": {
+      "eyebrow": "Our Values",
+      "title": "Our strengths, your assurance",
+      "text": "Since 2017, we have placed our clients’ rights and interests first, making service quality, professional ethics, and confidentiality the guiding principles of our work."
+    },
+    "strengths": [
+      {
+        "kicker": "Clients First",
+        "title": "Reliable Protection",
+        "text": "We place our clients’ rights and interests first and defend them steadfastly within the law."
+      },
+      {
+        "kicker": "Specialized Experience",
+        "title": "Quality Service",
+        "text": "Our lawyers combine advanced legal theory and practice to develop practical solutions."
+      },
+      {
+        "kicker": "Integrity",
+        "title": "Confidentiality and Trust",
+        "text": "We safeguard client information to the highest standards and value long-term trust."
+      }
+    ],
+    "expertise": {
+      "imageAlt": "Attorney advising a client",
+      "eyebrow": "Experience and Responsibility",
+      "title": "Managing risk through professional legal advice",
+      "text": "Tsets Partners provides litigation representation, one-time legal advisory, and retained counsel services tailored to the needs of individuals and organizations."
+    },
+    "showcase": {
+      "title": "Legal solutions tailored to every client.",
+      "text": "We anticipate the risks of day-to-day business and the uncertainties of major transactions, and ensure that solutions to potential disputes are clearly addressed in contracts.",
+      "gallery": [
+        "Litigation and Advocacy",
+        "Contracts and Transactions",
+        "Business Advisory",
+        "Retained Legal Counsel"
+      ],
+      "quote": "Legal services are a strategic tool that enables you to foresee risks three moves ahead.",
+      "quoteMeta": "Founding Partner and Attorney · 2025.06.10 · Read the Interview"
+    },
+    "leaders": {
+      "eyebrow": "Our Professional Team",
+      "title": "Lawyers you can trust",
+      "text": "A team specializing in disputes and legal advisory services.",
+      "litigationAlt": "Litigation attorneys",
+      "litigationTitle": "Litigation Team",
+      "litigationText": "Advocacy and legal representation",
+      "advisoryAlt": "Legal advisory team",
+      "advisoryTitle": "Legal Advisory Team",
+      "advisoryText": "Business and retained legal counsel"
+    },
+    "contactImageAlt": "Legal consultation at Tsets Partners"
+  },
+  "about": {
+    "hero": {
+      "imageAlt": "Attorneys meeting with a client",
+      "eyebrow": "Since 2017",
+      "title": "Protecting your interests and guiding you to the right solution",
+      "text": "Tsets Partners Law Firm continuously provides legal representation and assistance to domestic and foreign individuals and legal entities.",
+      "cta": "Request a Consultation",
+      "principlesTitle": "Our Guiding Principles",
+      "principlesText": "We place our clients’ rights and interests first, provide reliable legal protection, uphold service quality and professional integrity, and safeguard confidentiality."
+    },
+    "leadership": {
+      "eyebrow": "Professional Collaboration",
+      "title": "A team built on experience",
+      "text": "Integrated service combining legal theory and practice.",
+      "litigationAlt": "Litigation team",
+      "litigationTitle": "Litigation Team",
+      "litigationText": "Advocacy and legal representation",
+      "advisoryAlt": "Legal advisory team",
+      "advisoryTitle": "Advisory Team",
+      "advisoryText": "Contracts, business, and investment"
+    },
+    "advantages": {
+      "eyebrow": "Why Tsets Partners?",
+      "title": "Our Key Advantages",
+      "intro": "We value client interests, practical outcomes, confidentiality, and lasting professional relationships.",
+      "items": [
+        "We prioritize client satisfaction as a fundamental principle of our practice.",
+        "Our team consists of highly experienced attorneys specializing in various fields of law.",
+        "We offer flexible, results-based fee arrangements designed to minimize financial burden on our clients.",
+        "We possess extensive experience in successfully protecting the rights and legitimate interests of foreign investors.",
+        "We maintain and safeguard client confidentiality at the highest professional standards.",
+        "Our firm operates from privately owned office premises and is fully equipped with the necessary resources.",
+        "We implement a stable human resources policy to ensure the long-term retention and development of our legal professionals."
+      ]
+    },
+    "ribbon": "Protecting your interests with professional expertise",
+    "metrics": {
+      "title": "Tsets Partners at a Glance",
+      "text": "Figures from the firm profile and the June 2025 interview are shown together with their dates.",
+      "founded": "Established",
+      "branches": "Ulaanbaatar offices",
+      "serviceAreas": "Core service areas",
+      "attorneys": "Attorneys · 2025 interview",
+      "assistants": "Legal assistants · 2025 interview",
+      "awards": "Insurance awards granted in cases studied"
+    },
+    "testimonial": {
+      "imageAlt": "Client receiving legal advice",
+      "quote": "We anticipate the risks of daily business and the uncertainties of major transactions, and ensure that solutions to potential disputes are clearly stipulated in contracts."
+    },
+    "faq": {
+      "eyebrow": "Useful Information",
+      "title": "Frequently Asked Questions",
+      "intro": "Brief answers about our services and how to work with us.",
+      "items": [
+        {
+          "question": "How do we begin working together?",
+          "answer": "Email us a brief description of your matter, and we will arrange an initial meeting and the appropriate office in advance."
+        },
+        {
+          "question": "What services do you provide?",
+          "answer": "We provide litigation advocacy and representation, one-time legal advisory, and retained legal counsel services."
+        },
+        {
+          "question": "What is the firm’s current team size?",
+          "answer": "The firm profile lists 12 lawyers, while the 2025 interview refers to 4 attorneys and 6 legal assistants. The current roster should be confirmed before publication."
+        },
+        {
+          "question": "Do you advise foreign investors?",
+          "answer": "Yes. We assist with the legal and regulatory environment, documentation, representation before government authorities, and investment disputes."
+        }
+      ]
+    }
+  },
+  "practice": {
+    "hero": {
+      "eyebrow": "Advocacy, Representation, and Legal Advisory",
+      "title": "Services tailored to your legal needs"
+    },
+    "areas": [
+      {
+        "title": "Civil Cases and Disputes",
+        "text": "Representation in disputes involving contracts, companies, shares, loans, collateral, insurance, intellectual property, reputation, and investments."
+      },
+      {
+        "title": "Administrative Cases and Disputes",
+        "text": "Advice and representation in mining license, land, business permit, tax, tender, procurement, and competition disputes."
+      },
+      {
+        "title": "Criminal Defense",
+        "text": "Defense of suspects, accused persons, defendants, and victims at all stages of criminal proceedings."
+      },
+      {
+        "title": "Enforcement and Arbitration",
+        "text": "Representation in enforcement proceedings, arbitration, and proceedings before other institutions."
+      },
+      {
+        "title": "One-Time Legal Advisory",
+        "text": "Preparation of legal documents for corporate, property, contract, investment, bankruptcy, and licensing matters."
+      },
+      {
+        "title": "Retained Legal Counsel",
+        "text": "Ongoing support for day-to-day operations, internal policies, contracts, representation, and legal due diligence."
+      }
+    ],
+    "full": {
+      "eyebrow": "Complete Service Information",
+      "title": "Explore the area relevant to your needs",
+      "intro": "Every service in the firm profile is presented below by category. Select a heading to expand or collapse it.",
+      "litigationTitle": "Legal Representation and Assistance in Judicial Proceedings",
+      "oneTimeTitle": "One-Time Legal Advisory Services",
+      "oneTimeHeading": "One-Time Legal Advisory",
+      "oneTimeIntro": "Comprehensive advice, documentation, and representation for a specific matter, assignment, or transaction.",
+      "retainedTitle": "Retained Legal Advisory Services",
+      "retainedHeading": "Benefits of Retained Legal Counsel"
+    },
+    "litigation": [
+      {
+        "title": "Civil Cases and Disputes",
+        "description": "We represent and defend clients in the following civil matters:",
+        "items": [
+          "Disputes arising from all types of contracts and agreements",
+          "Corporate and shareholder disputes",
+          "Disputes related to loans, collateral, guarantees, sureties, and related obligations",
+          "Securities and insurance disputes",
+          "Intellectual property disputes",
+          "Disputes concerning the protection and restoration of the honor, reputation, and business reputation of individuals and legal entities",
+          "Investment-related disputes"
+        ]
+      },
+      {
+        "title": "Administrative Cases and Disputes",
+        "description": "We represent and defend clients in the following administrative matters:",
+        "items": [
+          "Disputes related to mining and mineral exploration licenses",
+          "Land-related disputes",
+          "Disputes concerning special permits for business operations",
+          "Tax disputes",
+          "Disputes related to tenders, procurement processes, and competition matters"
+        ]
+      },
+      {
+        "title": "Criminal Defense",
+        "description": "We provide defense throughout criminal proceedings:",
+        "items": [
+          "Acting as defense counsel for suspects, accused persons, defendants, and victims at all stages of criminal proceedings"
+        ]
+      },
+      {
+        "title": "Enforcement Proceedings",
+        "description": "Representation during enforcement proceedings:",
+        "items": [
+          "Representing clients and providing legal assistance in enforcement proceedings and disputes related to the execution of court decisions"
+        ]
+      },
+      {
+        "title": "Arbitration and Other Institutions",
+        "description": "Representation in proceedings outside the courts:",
+        "items": [
+          "Acting as legal counsel and representative in arbitration proceedings and before other relevant institutions"
+        ]
+      }
+    ],
+    "oneTime": [
+      "Drafting and registration of documents related to the incorporation, amendment, and dissolution of companies",
+      "Establishment and registration of companies, partnerships, foreign-invested companies, non-governmental organizations, and branches or representative offices of foreign legal entities",
+      "Certification of documents evidencing property ownership, transfer of ownership rights, registration of immovable property, and related amendments or transfers",
+      "Representation in bankruptcy proceedings, financial restructuring and liquidation, and professional legal advice in such proceedings",
+      "Comprehensive advice to foreign and domestic investors on the applicable legal framework and regulatory environment, drafting legally significant documents, and representation before government authorities",
+      "Legal opinions on agreements, memoranda of understanding, loan guarantees, pledges, collateral, and other security arrangements, as well as contract drafting",
+      "Legal advice and representation in the sale, purchase, transfer, and pledging of mineral licenses, including transactions involving shares in license-holding companies and preparation of related documents"
+    ],
+    "retained": {
+      "description": "The service fee remains fixed regardless of the volume of legal services, workload, time spent, or scope of services provided during the month. In effect, you gain access to the full range of our legal services for a fee comparable to the salary of one employee.",
+      "items": [
+        "Ongoing legal advice for the company’s day-to-day operations",
+        "Reviewing and drafting internal policies, regulations, and contracts to ensure compliance with Mongolian law",
+        "Drafting all types of contracts and legal agreements",
+        "Representing clients and acting as legal counsel in civil and administrative proceedings",
+        "Acting as legal representative and counsel in court decision enforcement proceedings",
+        "Preparing legal opinions and conducting legal due diligence"
+      ]
+    },
+    "faq": {
+      "eyebrow": "Service Information",
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "How are retained advisory fees calculated?",
+          "answer": "The agreed monthly fee remains fixed regardless of the volume of work, workload, or time spent during the month."
+        },
+        {
+          "question": "What is included in a one-time advisory engagement?",
+          "answer": "It may include company formation, amendment or dissolution, ownership matters, investments, contracts, collateral, and licensing work."
+        },
+        {
+          "question": "At which stages do you provide representation?",
+          "answer": "We provide advocacy and representation at all relevant stages of civil, administrative and criminal proceedings, arbitration, and enforcement."
+        }
+      ]
+    }
+  },
+  "team": {
+    "hero": {
+      "imageAlt": "Professional legal team at Tsets Partners",
+      "eyebrow": "Professional Legal Team",
+      "title": "Bringing together experience, research, and responsibility",
+      "text": "Founding Partner and Attorney G. Lkhagvasuren specializes in insurance law, holds a Master’s degree in Business Administration, and is pursuing doctoral research in law."
+    },
+    "founder": {
+      "bio": "An attorney specializing in insurance law who combines business administration, legal research, and practical experience.",
+      "readInterview": "Read the Full Interview",
+      "facts": [
+        {
+          "term": "2020–2022",
+          "text": "Earned a Master’s degree in Business Administration from the University of Finance and Economics."
+        },
+        {
+          "term": "Doctoral Candidate",
+          "text": "Pursuing doctoral studies in law at the National University of Mongolia."
+        },
+        {
+          "term": "4 years",
+          "text": "Served as Head of the Claims Department at Practical Insurance."
+        },
+        {
+          "term": "Since 2019",
+          "text": "Teaches Insurance Law and the Application of Law to senior law students at Ikh Zasag International University."
+        }
+      ]
+    },
+    "teamNote": "The firm profile states that the team comprises 12 lawyers, while the June 2025 interview refers to 4 attorneys and 6 legal assistants. Named profiles will be published here once the current roster has been confirmed.",
+    "groups": [
+      {
+        "name": "Litigation Team",
+        "role": "Advocacy and legal representation"
+      },
+      { "name": "Legal Assistants", "role": "Research and case support" },
+      {
+        "name": "Business Advisory Team",
+        "role": "One-time and retained legal advisory"
+      },
+      {
+        "name": "International Relations",
+        "role": "Legal support for foreign investors"
+      }
+    ],
+    "awards": {
+      "eyebrow": "How We Work",
+      "title": "Our Team’s Strengths",
+      "items": [
+        [
+          "01.",
+          "Client Satisfaction",
+          "Principle",
+          "First Priority",
+          "Commitment"
+        ],
+        [
+          "02.",
+          "Foreign Investors",
+          "Experience",
+          "Rights Protection",
+          "Results"
+        ],
+        ["03.", "Confidentiality", "High Standards", "Trust", "Ethics"],
+        ["04.", "Stable Team", "Development", "Expertise", "Long Term"]
+      ]
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "officesTitle": "Our Offices:",
+    "appointment": "Schedule a Meeting",
+    "appointmentSubject": "meeting request",
+    "offices": [
+      {
+        "city": "Head Office",
+        "lineOne": "Ulaanbaatar, Mongolia",
+        "lineTwo": "Detailed address to be confirmed before publication",
+        "note": "Meetings are arranged by email in advance"
+      },
+      {
+        "city": "Branch Office",
+        "lineOne": "Ulaanbaatar, Mongolia",
+        "lineTwo": "Detailed address to be confirmed before publication",
+        "note": "Meetings are arranged by email in advance"
+      }
+    ]
+  },
+  "interview": {
+    "publishedAt": "June 10, 2025",
+    "title": "G. Lkhagvasuren: Sound legal advice is the compass that guides the future of your business",
+    "intro": "An interview with G. Lkhagvasuren, Founding Partner and Attorney at Tsets Partners, a professional law firm providing legal advisory services for the day-to-day operations of businesses.",
+    "imageAlt": "G. Lkhagvasuren, Founding Partner and Attorney at Tsets Partners",
+    "source": "View Original Source",
+    "contents": "Interview Contents",
+    "contentsLabel": "Interview contents",
+    "sections": [
+      {
+        "title": "Tsets Partners and Its Practice",
+        "paragraphs": [
+          "Established in 2017, Tsets Partners Law Firm currently operates two offices in Ulaanbaatar and employs four attorneys and six legal assistants. Over the past eight years, the number of organizations maintaining long-term cooperation with the firm has continued to grow.",
+          "Regular clients include Alco Group, Practical Insurance, Milaya Foods, and the Agricultural Corporation SOE LLC. The firm provides ongoing legal advice, debt recovery support, contract drafting and negotiation, assistance in tender procedures, dispute resolution, and other legal support across business activities."
+        ],
+        "quote": "In the day-to-day operations of businesses, numerous legal risks arise, particularly when entering into major contractual arrangements. Our priority is to anticipate such uncertainties and ensure that contracts clearly stipulate solutions to potential disputes."
+      },
+      {
+        "title": "Education and Professional Experience",
+        "paragraphs": [
+          "G. Lkhagvasuren obtained a Master’s degree in Business Administration from the University of Finance and Economics between 2020 and 2022. He continues to manage Tsets Partners LLC while pursuing doctoral studies in law at the National University of Mongolia.",
+          "He specializes in insurance law and previously served as Head of the Claims Department at Practical Insurance for four years, gaining extensive professional experience in the insurance sector.",
+          "Entrepreneurs who address legal uncertainty at the earliest stage and seek professional advice can protect themselves from many potential risks. Legal services are comparable to chess: they are a strategic tool that enables you to foresee risks three moves ahead."
+        ],
+        "quote": ""
+      },
+      {
+        "title": "Research on Court Decisions in Insurance Disputes",
+        "paragraphs": [
+          "G. Lkhagvasuren published a research paper titled “Analysis of Court Decisions in Insurance Disputes” on the Legal Data platform. It examines how Mongolian courts resolved insurance-related disputes between 2019 and 2024.",
+          "A similar study was conducted in Mongolia in 2016. By 2024, however, both the business environment and insurance contracts had changed significantly, making it necessary to examine how courts currently resolve such disputes.",
+          "Since 2019, he has taught Insurance Law and the Application of Law to senior law students at Ikh Zasag International University. He selected three students as assistant researchers for the project. The report gives citizens a general understanding of insurance issues and provides legal practitioners with practical guidance on judicial interpretation and application.",
+          "The study found that most insurance disputes arise when policyholders cannot obtain compensation. In more than 70 percent of the disputes studied, courts ruled in favor of compensation. The findings indicate that insurers sometimes refuse claims without sufficient legal grounds, while many people do not pursue litigation because they perceive it as burdensome."
+        ],
+        "quote": ""
+      },
+      {
+        "title": "International Cooperation",
+        "paragraphs": [
+          "In 2025, the firm planned to enter into cooperation agreements with law firms in the People’s Republic of China. Many Mongolian companies receive investment, equipment, and materials from China, and the two countries maintain extensive cooperation across multiple sectors. Because many of the firm’s clients are Chinese citizens and legal entities, cooperation with Chinese law firms has become a practical necessity.",
+          "The firm is also working to increase the number of Chinese-speaking lawyers so that legal teams from both jurisdictions can cooperate effectively when cross-border disputes or other matters arise."
+        ],
+        "quote": ""
+      },
+      {
+        "title": "Professional Values",
+        "paragraphs": [
+          "G. Lkhagvasuren believes that law firms should not rely heavily on self-promotional marketing and that word-of-mouth is the most effective form of reputation. Clients should feel that every possible effort has been made on their behalf. Genuine, continuous relationships in which clients feel they have a personal attorney are the strongest form of professional trust.",
+          "Legal practice can also involve psychological reassurance. People often seek help while facing serious debt or unjust liability. Once they understand their legal protections, rights, and obligations, they can leave with renewed confidence and hope. Providing that support alongside legal advice is one reason he takes pride in the profession."
+        ],
+        "quote": "Attorneys not only protect people from losses caused by a lack of legal knowledge; they also help create economic stability and peace of mind by safeguarding their legal rights and interests."
+      }
+    ],
+    "noteTitle": "About the Team Figures",
+    "note": "The general firm profile states that Tsets Partners has 12 lawyers, while the interview published on June 10, 2025 refers to 4 attorneys and 6 legal assistants. The interview figures are therefore retained together with their publication date."
+  },
+  "notFound": {
+    "eyebrow": "404 · Page Not Found",
+    "title": "The page you are looking for does not exist.",
+    "back": "Return to Home"
+  }
+}

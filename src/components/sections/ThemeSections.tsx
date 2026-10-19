@@ -1,17 +1,22 @@
+"use client";
+
 import Image from "next/image";
+import { Fragment } from "react";
+import { useSiteMessages } from "@/lib/i18n/PublicI18nProvider";
 import { ContactForm } from "./ContactForm";
 import styles from "./ThemeSections.module.css";
 
 const logos = ["03", "04", "05", "06", "07"] as const;
 
 export function TrustedLogos() {
+  const { shared } = useSiteMessages();
   return (
-    <section className={styles.logos} data-motion-scope>
+    <section className={styles.logos} data-motion-scope data-template-only>
       <div className={`shell ${styles.logoRow}`}>
-        <p data-reveal="fade">Хамтран ажилладаг байгууллагууд</p>
+        <p data-reveal="fade">{shared.clients}</p>
         {logos.map((logo, index) => (
           <Image
-            alt="Харилцагч байгууллагын тэмдэг"
+            alt={shared.clientLogoAlt}
             data-reveal="fade"
             data-reveal-delay={(index + 1) * 80}
             height={42}
@@ -26,17 +31,21 @@ export function TrustedLogos() {
 }
 
 export function LegalMarquee() {
+  const { shared } = useSiteMessages();
   const words = (
     <>
-      <span>✦</span> эрх <span>✦</span> хамгаалалт <span>✦</span> итгэл
-      <span>✦</span> зөвлөгөө <span>✦</span> өмгөөлөл <span>✦</span> шийдэл
+      {shared.marquee.map((word) => (
+        <Fragment key={word}>
+          <span>✦</span> {word}{" "}
+        </Fragment>
+      ))}
     </>
   );
 
   return (
     <section
       className={styles.marquee}
-      aria-label="Цэц Партнерсийн үнэт зүйлс"
+      aria-label={shared.valuesLabel}
       data-motion-scope
     >
       <div className={styles.marqueeTrack}>
@@ -48,15 +57,12 @@ export function LegalMarquee() {
 }
 
 export function LibraryContact() {
+  const { shared } = useSiteMessages();
   return (
     <section className={styles.libraryContact}>
       <div className={`shell ${styles.contactShell}`}>
         <div className={styles.contactCard}>
-          <h2>
-            Хууль зүйн
-            <br />
-            зөвлөгөө хэрэгтэй юу?
-          </h2>
+          <h2>{shared.contactTitle}</h2>
           <ContactForm />
         </div>
       </div>

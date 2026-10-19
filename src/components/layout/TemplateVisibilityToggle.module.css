@@ -1,0 +1,58 @@
+.toggle {
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 7px;
+  padding: 0 9px;
+  border: 1px solid var(--nav-border);
+  border-radius: 8px;
+  background: var(--nav-bg);
+  color: var(--nav-ink);
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.toggle i {
+  position: relative;
+  width: 26px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--line);
+  transition: background-color 180ms ease;
+}
+
+.toggle i::after {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--paper);
+  content: "";
+  transition: transform 180ms ease;
+}
+
+.toggle[aria-checked="true"] i {
+  background: var(--gold);
+}
+
+.toggle[aria-checked="true"] i::after {
+  transform: translateX(12px);
+}
+
+@media (max-width: 650px) {
+  .toggle span,
+  .toggle i {
+    display: none;
+  }
+
+  .toggle {
+    width: 38px;
+    min-height: 38px;
+    justify-content: center;
+    padding: 0;
+  }
+}

@@ -1,36 +1,22 @@
+"use client";
+
 import { Gavel, Quote } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import type { CSSProperties } from "react";
 import { ContactForm } from "@/components/sections/ContactForm";
 import {
   LegalMarquee,
   TrustedLogos,
 } from "@/components/sections/ThemeSections";
+import { useSiteMessages } from "@/lib/i18n/PublicI18nProvider";
 import styles from "./page.module.css";
 
-const strengths = [
-  {
-    kicker: "Үйлчлүүлэгч нэгдүгээрт",
-    title: "Найдвартай хамгаалалт",
-    text: "Үйлчлүүлэгчийн эрх, ашиг сонирхлыг тэргүүнд тавьж, хуулийн хүрээнд тууштай хамгаална.",
-  },
-  {
-    kicker: "Мэргэшсэн туршлага",
-    title: "Чанартай үйлчилгээ",
-    text: "Онол, хууль хэрэглээний өндөр түвшинд бэлтгэгдсэн хуульчдын баг бодит шийдэл боловсруулна.",
-  },
-  {
-    kicker: "Чин үнэнч зарчим",
-    title: "Нууцлал ба итгэл",
-    text: "Харилцагчийн мэдээллийн нууцлалыг өндөр түвшинд хадгалж, урт хугацааны итгэлцлийг эрхэмлэнэ.",
-  },
-] as const;
-
-const gallery = [
-  ["/images/legal-strategy.jpg", "Шүүхийн өмгөөлөл"],
-  ["/images/trusted-counsel.jpg", "Гэрээ ба хэлцэл"],
-  ["/images/client-advocates.jpg", "Бизнесийн зөвлөгөө"],
-  ["/images/expert-guidance.jpg", "Тогтмол зөвлөх үйлчилгээ"],
+const galleryImages = [
+  "/images/legal-strategy.jpg",
+  "/images/trusted-counsel.jpg",
+  "/images/client-advocates.jpg",
+  "/images/expert-guidance.jpg",
 ] as const;
 
 const heroTitleCharacters = Array.from("Tsets Partners", (character, index) => [
@@ -39,26 +25,29 @@ const heroTitleCharacters = Array.from("Tsets Partners", (character, index) => [
 ]);
 
 export default function HomePage() {
+  const { common, home, shared } = useSiteMessages();
   return (
     <>
       <section className={styles.hero} data-motion-scope>
         <div className={styles.heroImage} data-reveal="up">
           <Image
-            alt="Хууль зүйн мэргэжлийн зөвлөгөө"
+            alt={home.hero.imageAlt}
             fill
             priority
             sizes="(max-width: 800px) 100vw, 50vw"
-            src="/images/law-firm-hero.jpg"
+            src="/images/tsets-zahiral.jpg"
           />
         </div>
         <div className={styles.heroCopy}>
           <h1 data-reveal="up" data-reveal-delay="100">
-            Бид эрсдэлийг <u>урьдчилан тооцож</u>, таны эрх ашгийг тууштай
-            хамгаална
+            {home.hero.before}
+            {home.hero.beforeSeparator}
+            <u>{home.hero.emphasis}</u>
+            {home.hero.afterSeparator}
+            {home.hero.after}
           </h1>
           <p data-reveal="popup" data-reveal-delay="400">
-            <Gavel aria-hidden="true" size={31} /> Хуулийн хүрээнд найдвартай
-            хамгаална
+            <Gavel aria-hidden="true" size={31} /> {home.hero.tagline}
           </p>
         </div>
         <div className={styles.heroTitle} data-reveal="chars">
@@ -78,21 +67,15 @@ export default function HomePage() {
         <div className="shell">
           <div className={styles.strengthIntro}>
             <div data-reveal="up">
-              <p className="eyebrow">Бидний үнэт зүйл</p>
-              <h2>
-                Манай давуу тал,
-                <br />
-                таны баталгаа
-              </h2>
+              <p className="eyebrow">{home.strengthsIntro.eyebrow}</p>
+              <h2>{home.strengthsIntro.title}</h2>
             </div>
             <p data-reveal="up" data-reveal-delay="100">
-              2017 оноос хойш бид үйлчлүүлэгчийн эрх, ашиг сонирхлыг тэргүүнд
-              тавьж, чанартай үйлчилгээ, мэргэжлийн ёс зүй, нууцлалыг үйл
-              ажиллагааныхаа үндсэн зарчим болгож ирсэн.
+              {home.strengthsIntro.text}
             </p>
           </div>
           <div className={styles.strengthGrid}>
-            {strengths.map((item, index) => (
+            {home.strengths.map((item, index) => (
               <article
                 data-reveal="up"
                 data-reveal-delay={index * 100}
@@ -113,20 +96,16 @@ export default function HomePage() {
         <div className={`shell ${styles.expertiseGrid}`}>
           <div className={styles.expertiseImage} data-reveal="up">
             <Image
-              alt="Үйлчлүүлэгчид зөвлөгөө өгч буй хуульч"
+              alt={home.expertise.imageAlt}
               fill
               sizes="(max-width: 800px) 100vw, 45vw"
               src="/images/law-firm-consultation.jpg"
             />
           </div>
           <div data-reveal="up" data-reveal-delay="100">
-            <p className="eyebrow">Туршлага ба хариуцлага</p>
-            <h2>Мэргэжлийн зөвлөгөөгөөр эрсдэлийг удирдана</h2>
-            <p>
-              “Цэц Партнерс” нь шүүхийн өмгөөлөл, нэг удаагийн хууль зүйн
-              зөвлөгөө, тогтмол зөвлөх үйлчилгээг иргэн, байгууллагын хэрэгцээнд
-              нийцүүлэн үзүүлдэг.
-            </p>
+            <p className="eyebrow">{home.expertise.eyebrow}</p>
+            <h2>{home.expertise.title}</h2>
+            <p>{home.expertise.text}</p>
           </div>
         </div>
       </section>
@@ -136,21 +115,17 @@ export default function HomePage() {
       <section className={styles.darkShowcase} data-motion-scope id="news">
         <div className="shell">
           <div className={styles.darkIntro}>
-            <h2 data-reveal="up">
-              Үйлчлүүлэгч бүрд тохирсон хууль зүйн шийдэл.
-            </h2>
+            <h2 data-reveal="up">{home.showcase.title}</h2>
             <p data-reveal="up" data-reveal-delay="100">
-              Бид өдөр тутмын бизнесийн эрсдэл болон томоохон гэрээ хэлцлийн
-              тодорхойгүй байдлыг урьдчилан тооцож, болзошгүй маргааны шийдлийг
-              гэрээнд тодорхой тусгахыг чухалчилдаг.
+              {home.showcase.text}
             </p>
           </div>
         </div>
         <div className={styles.gallery}>
-          {gallery.map(([image, label], index) => (
-            <div data-reveal="up" data-reveal-delay={index * 100} key={label}>
+          {galleryImages.map((image, index) => (
+            <div data-reveal="up" data-reveal-delay={index * 100} key={image}>
               <Image alt="" fill sizes="25vw" src={image} />
-              <span>{label}</span>
+              <span>{home.showcase.gallery[index]}</span>
             </div>
           ))}
         </div>
@@ -158,54 +133,41 @@ export default function HomePage() {
         <div className={`shell ${styles.testimonial}`} data-reveal="up">
           <Quote aria-hidden="true" size={38} strokeWidth={1} />
           <div className={styles.stars}>★★★★★</div>
-          <blockquote>
-            Хуулийн үйлчилгээ бол гурван нүүдлийн дараах эрсдэлийг урьдчилан
-            харуулах стратегийн хэрэгсэл юм.
-          </blockquote>
-          <strong>Г. Лхагвасүрэн</strong>
+          <blockquote>{home.showcase.quote}</blockquote>
+          <strong>{common.founder}</strong>
           <span>
-            <a
-              href="https://business.mn/?p=47642"
-              rel="noreferrer"
-              target="_blank"
-            >
-              Үүсгэн байгуулагч, өмгөөлөгч · 2025.06.10 · Бүрэн унших
-            </a>
+            <Link href="/interview">{home.showcase.quoteMeta}</Link>
           </span>
         </div>
 
-        <div className={`shell ${styles.leaders}`}>
+        <div className={`shell ${styles.leaders}`} data-template-only>
           <div data-reveal="up">
-            <p className="eyebrow eyebrowLight">Манай мэргэжлийн баг</p>
-            <h2>
-              Итгэл даах
-              <br />
-              хуульчид
-            </h2>
-            <p>Хэрэг маргаан, зөвлөх үйлчилгээнд мэргэшсэн баг.</p>
+            <p className="eyebrow eyebrowLight">{home.leaders.eyebrow}</p>
+            <h2>{home.leaders.title}</h2>
+            <p>{home.leaders.text}</p>
           </div>
           <article data-reveal="up" data-reveal-delay="150">
             <Image
-              alt="Өмгөөлөгчдийн баг"
+              alt={home.leaders.litigationAlt}
               fill
               sizes="300px"
               src="/images/elizabeth-carter.jpg"
             />
             <div>
-              <strong>Өмгөөлөгчдийн баг</strong>
-              <span>Шүүхийн өмгөөлөл, төлөөлөл</span>
+              <strong>{home.leaders.litigationTitle}</strong>
+              <span>{home.leaders.litigationText}</span>
             </div>
           </article>
           <article data-reveal="up" data-reveal-delay="250">
             <Image
-              alt="Хууль зүйн зөвлөх баг"
+              alt={home.leaders.advisoryAlt}
               fill
               sizes="300px"
               src="/images/sophia-hartman.jpg"
             />
             <div>
-              <strong>Хууль зүйн зөвлөх баг</strong>
-              <span>Бизнес ба тогтмол зөвлөх үйлчилгээ</span>
+              <strong>{home.leaders.advisoryTitle}</strong>
+              <span>{home.leaders.advisoryText}</span>
             </div>
           </article>
         </div>
@@ -215,7 +177,7 @@ export default function HomePage() {
         <div className={`shell ${styles.homeContactGrid}`}>
           <div className={styles.homeContactImage} data-reveal="up">
             <Image
-              alt="Цэц Партнерсийн хууль зүйн зөвлөгөө"
+              alt={home.contactImageAlt}
               fill
               sizes="(max-width: 800px) 100vw, 45vw"
               src="/images/contact-attorney.jpg"
@@ -226,12 +188,8 @@ export default function HomePage() {
             data-reveal="up"
             data-reveal-delay="100"
           >
-            <p className="eyebrow">Бидэнтэй холбогдоорой</p>
-            <h2>
-              Хууль зүйн зөвлөгөө
-              <br />
-              хэрэгтэй юу?
-            </h2>
+            <p className="eyebrow">{shared.contactEyebrow}</p>
+            <h2>{shared.contactTitle}</h2>
             <ContactForm />
           </div>
         </div>

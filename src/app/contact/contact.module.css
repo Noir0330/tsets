@@ -3,9 +3,19 @@
   min-height: 330px;
   place-items: center;
 }
+.title > div {
+  text-align: center;
+}
 .title h1 {
   margin: 0;
   font-size: clamp(3.2rem, 5vw, 5rem);
+}
+.title p {
+  margin: 20px 0 0;
+  color: var(--muted);
+}
+.title p a:hover {
+  color: var(--gold);
 }
 .offices {
   padding: 135px 0 150px;

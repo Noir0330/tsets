@@ -179,6 +179,10 @@ h3 {
   outline-offset: 4px;
 }
 
+:root[data-template="hide"] [data-template-only] {
+  display: none !important;
+}
+
 .shell {
   width: calc(100% - 4rem);
   max-width: 1300px;

@@ -1,41 +1,20 @@
-import type { Metadata } from "next";
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { TrustedLogos } from "@/components/sections/ThemeSections";
+import { useSiteMessages } from "@/lib/i18n/PublicI18nProvider";
 import styles from "./about.module.css";
 
-export const metadata: Metadata = {
-  title: "Бидний тухай",
-  description: "Цэц Партнерс хуулийн фирмийн түүх, зарчим, давуу тал.",
-};
-
-const faqs = [
-  [
-    "Хамтын ажиллагааг хэрхэн эхлүүлэх вэ?",
-    "Имэйлээр асуудлынхаа товч мэдээллийг илгээвэл бид анхны уулзалтын цаг, тохирох оффисыг урьдчилан тохирно.",
-  ],
-  [
-    "Ямар төрлийн үйлчилгээ үзүүлдэг вэ?",
-    "Шүүхийн шатны өмгөөлөл, төлөөлөл, нэг удаагийн зөвлөгөө болон тогтмол хууль зүйн зөвлөх үйлчилгээг үзүүлдэг.",
-  ],
-  [
-    "Багийн одоогийн бүрэлдэхүүн хэд вэ?",
-    "Танилцуулгад 12 хуульч гэж, харин 2025 оны ярилцлагад 4 өмгөөлөгч, 6 хуульчийн туслах гэж дурдсан тул нийтлэхийн өмнө одоогийн бүрэлдэхүүнийг баталгаажуулна.",
-  ],
-  [
-    "Гадаадын хөрөнгө оруулагчдад зөвлөгөө өгдөг үү?",
-    "Тийм. Эрх зүйн орчин, баримт бичиг, төрийн байгууллагын төлөөлөл болон хөрөнгө оруулалтын маргаанд дэмжлэг үзүүлдэг.",
-  ],
-] as const;
-
 export default function AboutPage() {
+  const { about, common } = useSiteMessages();
   return (
     <>
       <section className={styles.intro} id="services">
         <div className={`shell ${styles.introGrid}`}>
           <div className={styles.introImage}>
             <Image
-              alt="Хуульчид үйлчлүүлэгчтэй уулзаж буй нь"
+              alt={about.hero.imageAlt}
               fill
               priority
               sizes="(max-width: 850px) 100vw, 50vw"
@@ -43,77 +22,74 @@ export default function AboutPage() {
             />
           </div>
           <div className={styles.introCopy}>
-            <p className="eyebrow">2017 оноос хойш</p>
-            <h1>
-              Эрх ашгийг хамгаалж,
-              <br />
-              зөв шийдэлд чиглүүлнэ
-            </h1>
-            <p>
-              Өмгөөллийн “Цэц Партнерс” хуулийн фирм нь гадаад, дотоодын иргэн,
-              хуулийн этгээдэд өмгөөлөл, хууль зүйн туслалцааг тогтмол үзүүлэн
-              ажиллаж байна.
-            </p>
-            <Link href="/contact">Зөвлөгөө авах хүсэлт илгээх</Link>
-            <h2>Бидний баримтлах зарчим</h2>
-            <p>
-              Үйлчлүүлэгчийн эрх, ашиг сонирхлыг тэргүүнд тавьж, хуулийн хүрээнд
-              найдвартай хамгаалах, үйлчилгээний чанар, өмгөөлөгчийн чин үнэнч
-              байдал, мэдээллийн нууцлалыг эрхэмлэнэ.
-            </p>
+            <p className="eyebrow">{about.hero.eyebrow}</p>
+            <h1>{about.hero.title}</h1>
+            <p>{about.hero.text}</p>
+            <Link href="/contact">{about.hero.cta}</Link>
+            <h2>{about.hero.principlesTitle}</h2>
+            <p>{about.hero.principlesText}</p>
           </div>
         </div>
       </section>
 
       <TrustedLogos />
 
-      <section className={styles.leadership}>
+      <section className={styles.leadership} data-template-only>
         <div className={`shell ${styles.leadGrid}`}>
           <div className={styles.leadTitle}>
-            <p className="eyebrow">Мэргэжлийн хамтын ажиллагаа</p>
-            <h2>
-              Туршлага дээр
-              <br />
-              тулгуурласан баг
-            </h2>
-            <p>Онол, хууль хэрэглээг хослуулсан нэгдмэл үйлчилгээ.</p>
+            <p className="eyebrow">{about.leadership.eyebrow}</p>
+            <h2>{about.leadership.title}</h2>
+            <p>{about.leadership.text}</p>
           </div>
           <article className={styles.person}>
             <div className={styles.personImage}>
               <Image
-                alt="Шүүхийн өмгөөллийн баг"
+                alt={about.leadership.litigationAlt}
                 fill
                 sizes="400px"
                 src="/images/elizabeth-carter.jpg"
               />
             </div>
-            <h3>Өмгөөлөгчдийн баг</h3>
-            <p>Шүүхийн өмгөөлөл, төлөөлөл</p>
+            <h3>{about.leadership.litigationTitle}</h3>
+            <p>{about.leadership.litigationText}</p>
           </article>
           <article className={styles.person}>
             <div className={styles.personImage}>
               <Image
-                alt="Хууль зүйн зөвлөх баг"
+                alt={about.leadership.advisoryAlt}
                 fill
                 sizes="400px"
                 src="/images/sophia-hartman.jpg"
               />
             </div>
-            <h3>Зөвлөх үйлчилгээний баг</h3>
-            <p>Гэрээ, бизнес, хөрөнгө оруулалт</p>
+            <h3>{about.leadership.advisoryTitle}</h3>
+            <p>{about.leadership.advisoryText}</p>
           </article>
         </div>
       </section>
 
-      <section
-        className={styles.ribbons}
-        aria-label="Эрх ашгийг мэргэжлийн түвшинд хамгаална"
-      >
-        <div className={styles.ribbon}>
-          Эрх ашгийг мэргэжлийн түвшинд хамгаална
+      <section className={styles.advantages}>
+        <div className={`shell ${styles.advantagesGrid}`}>
+          <div>
+            <p className="eyebrow">{about.advantages.eyebrow}</p>
+            <h2>{about.advantages.title}</h2>
+            <p>{about.advantages.intro}</p>
+          </div>
+          <ol>
+            {about.advantages.items.map((advantage, index) => (
+              <li key={advantage}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <p>{advantage}</p>
+              </li>
+            ))}
+          </ol>
         </div>
+      </section>
+
+      <section className={styles.ribbons} aria-label={about.ribbon}>
+        <div className={styles.ribbon}>{about.ribbon}</div>
         <div className={`${styles.ribbon} ${styles.ribbonGold}`}>
-          Эрх ашгийг мэргэжлийн түвшинд хамгаална
+          {about.ribbon}
         </div>
       </section>
 
@@ -121,76 +97,66 @@ export default function AboutPage() {
         <div className="shell">
           <div className={styles.metricsTop}>
             <div>
-              <h2>Цэц Партнерсийн тухай тоон мэдээлэл</h2>
-              <p>
-                Танилцуулга болон 2025 оны 6 дугаар сарын ярилцлагад дурдсан
-                мэдээллийг огнооны хамт харууллаа.
-              </p>
+              <h2>{about.metrics.title}</h2>
+              <p>{about.metrics.text}</p>
             </div>
             <div className={styles.metric}>
               <strong>2017</strong>
-              <span>Үүсгэн байгуулагдсан</span>
+              <span>{about.metrics.founded}</span>
             </div>
             <div className={styles.metric}>
               <strong>2</strong>
-              <span>Улаанбаатар дахь салбар</span>
+              <span>{about.metrics.branches}</span>
             </div>
           </div>
           <div className={styles.metricGrid}>
             <div>
               <strong>3</strong>
-              <span>Үйлчилгээний үндсэн чиглэл</span>
+              <span>{about.metrics.serviceAreas}</span>
             </div>
             <div>
               <strong>4</strong>
-              <span>Өмгөөлөгч · 2025 оны ярилцлага</span>
+              <span>{about.metrics.attorneys}</span>
             </div>
             <div>
               <strong>6</strong>
-              <span>Хуульчийн туслах · 2025 оны ярилцлага</span>
+              <span>{about.metrics.assistants}</span>
             </div>
             <div>
               <strong>70%+</strong>
-              <span>Судалгаанд нөхөн төлбөр олгосон шийдвэр</span>
+              <span>{about.metrics.awards}</span>
             </div>
           </div>
 
           <div className={styles.testimonial} id="testimonials">
             <div className={styles.testimonialImage}>
               <Image
-                alt="Хууль зүйн зөвлөгөө авч буй үйлчлүүлэгч"
+                alt={about.testimonial.imageAlt}
                 fill
                 sizes="(max-width: 850px) 100vw, 40vw"
                 src="/images/client-henry.jpg"
               />
             </div>
             <div className={styles.quote}>
-              <blockquote>
-                Бид өдөр тутмын бизнесийн эрсдэл, томоохон гэрээ хэлцлийн
-                тодорхойгүй байдлыг урьдчилан тооцож, маргаан үүсэх асуудал
-                бүрийн шийдлийг гэрээнд тодорхой тусгахыг чухалчилдаг.
-              </blockquote>
+              <blockquote>{about.testimonial.quote}</blockquote>
               <div>
-                <strong>Г. Лхагвасүрэн</strong>
-                <span>Үүсгэн байгуулагч, өмгөөлөгч</span>
+                <strong>{common.founder}</strong>
+                <span>{common.founderRole}</span>
               </div>
             </div>
           </div>
 
           <div className={styles.faqGrid}>
             <div>
-              <p className="eyebrow">Танд хэрэгтэй мэдээлэл</p>
-              <h2>Түгээмэл асуултууд</h2>
-              <p>
-                Үйлчилгээний хүрээ болон хамтын ажиллагааны талаар товч
-                хариултуудтай танилцана уу.
-              </p>
+              <p className="eyebrow">{about.faq.eyebrow}</p>
+              <h2>{about.faq.title}</h2>
+              <p>{about.faq.intro}</p>
             </div>
             <div className={styles.faqs}>
-              {faqs.map(([question, answer], index) => (
-                <details key={question} open={index === 1}>
-                  <summary>{question}</summary>
-                  <p>{answer}</p>
+              {about.faq.items.map((item, index) => (
+                <details key={item.question} open={index === 1}>
+                  <summary>{item.question}</summary>
+                  <p>{item.answer}</p>
                 </details>
               ))}
             </div>

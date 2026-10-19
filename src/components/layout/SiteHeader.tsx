@@ -5,50 +5,52 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRef } from "react";
+import { useSiteMessages } from "@/lib/i18n/PublicI18nProvider";
+import { LanguageSelector } from "./LanguageSelector";
 import styles from "./SiteHeader.module.css";
+import { TemplateVisibilityToggle } from "./TemplateVisibilityToggle";
 import { ThemeSelector } from "./ThemeSelector";
 
-const links = [
-  { href: "/", label: "Нүүр" },
-  { href: "/practice-areas", label: "Үйлчилгээ" },
-  { href: "/about", label: "Бидний тухай" },
-  { href: "/team", label: "Манай баг" },
-  { href: "/contact", label: "Холбоо барих" },
-] as const;
-
 const demos = [
-  { image: "/images/demo-lawyer.jpg", label: "Өмгөөлөл", selected: false },
-  {
-    image: "/images/demo-law-firm.jpg",
-    label: "Зөвлөх үйлчилгээ",
-    selected: true,
-  },
-  {
-    image: "/images/demo-legal-bureau.jpg",
-    label: "Тогтмол зөвлөх",
-    selected: false,
-  },
+  { image: "/images/demo-lawyer.jpg", selected: false },
+  { image: "/images/demo-law-firm.jpg", selected: true },
+  { image: "/images/demo-legal-bureau.jpg", selected: false },
 ] as const;
 
 const practiceLinks = [
-  { image: "/images/practice-menu-99.jpg", label: "Иргэний маргаан" },
-  { image: "/images/practice-menu-100.jpg", label: "Захиргааны маргаан" },
-  { image: "/images/practice-menu-101.jpg", label: "Эрүүгийн өмгөөлөл" },
-  { image: "/images/practice-menu-102.jpg", label: "Бизнесийн зөвлөгөө" },
-  { image: "/images/practice-menu-103.jpg", label: "Тогтмол зөвлөх" },
+  {
+    href: "/practice-areas/civil-disputes",
+    image: "/images/practice-menu-99.jpg",
+  },
+  {
+    href: "/practice-areas/administrative-disputes",
+    image: "/images/practice-menu-100.jpg",
+  },
+  {
+    href: "/practice-areas/criminal-defense",
+    image: "/images/practice-menu-101.jpg",
+  },
+  {
+    href: "/practice-areas/business-advisory",
+    image: "/images/practice-menu-102.jpg",
+  },
+  {
+    href: "/practice-areas/retained-advisory",
+    image: "/images/practice-menu-103.jpg",
+  },
 ] as const;
 
 const pageLinks = [
-  { href: "/about", label: "Бидний тухай" },
-  { href: "/practice-areas", label: "Үйлчилгээ" },
-  { href: "/team", label: "Манай баг" },
-  { href: "/#news", label: "Үүсгэн байгуулагчийн ярилцлага" },
-  { href: "/about#services", label: "Манай давуу тал" },
-  { href: "/contact", label: "Холбоо барих" },
-  { href: "/practice-areas#faq", label: "Түгээмэл асуулт" },
-  { href: "/#news", label: "Даатгалын эрх зүй" },
-  { href: "/practice-areas", label: "Тогтмол зөвлөх" },
-  { href: "/practice-areas", label: "Нэг удаагийн зөвлөгөө" },
+  "/about",
+  "/practice-areas",
+  "/team",
+  "/interview",
+  "/about#services",
+  "/contact",
+  "/practice-areas#faq",
+  "/#news",
+  "/practice-areas",
+  "/practice-areas",
 ] as const;
 
 function ChevronIcon() {
@@ -70,16 +72,35 @@ function PhoneIcon() {
 }
 
 export function SiteHeader() {
+  const messages = useSiteMessages();
+  const { header } = messages;
   const pathname = usePathname();
   const menuRef = useRef<HTMLDetailsElement>(null);
   const closeMenu = () => {
     if (menuRef.current) menuRef.current.open = false;
   };
+  const links = [
+    { href: "/", label: header.nav.home },
+    { href: "/practice-areas", label: header.nav.services },
+    { href: "/about", label: header.nav.about },
+    { href: "/team", label: header.nav.team, templateOnly: true },
+    { href: "/interview", label: header.nav.interview },
+    { href: "/contact", label: header.nav.contact },
+  ] as const;
+  const smallMenuLabels = [
+    header.nav.about,
+    header.nav.services,
+    header.nav.team,
+    header.pageLinks[0],
+    header.pageLinks[1],
+    header.nav.contact,
+    ...header.pageLinks.slice(2),
+  ];
 
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <Link className={styles.logo} href="/" aria-label="Цэц Партнерс — нүүр">
+        <Link className={styles.logo} href="/" aria-label={header.logoLabel}>
           <Image
             alt="Tsets Partners"
             height={724}
@@ -89,26 +110,32 @@ export function SiteHeader() {
           />
         </Link>
 
-        <nav className={styles.desktopNav} aria-label="Үндсэн цэс">
+        <nav className={styles.desktopNav} aria-label={header.mainNav}>
           <div className={styles.homeGroup}>
             <Link href="/">
-              Нүүр <ChevronIcon />
+              {header.nav.home}
+              <span data-template-only>
+                <ChevronIcon />
+              </span>
             </Link>
-            <div className={`${styles.megaMenu} ${styles.homeMenu}`}>
+            <div
+              className={`${styles.megaMenu} ${styles.homeMenu}`}
+              data-template-only
+            >
               <div className={styles.demoGrid}>
-                {demos.map((demo) => (
+                {demos.map((demo, index) => (
                   <div
                     className={demo.selected ? styles.selectedDemo : undefined}
-                    key={demo.label}
+                    key={demo.image}
                   >
                     <Image
-                      alt={`${demo.label} үйлчилгээ`}
+                      alt={header.demos[index]}
                       height={869}
                       sizes="340px"
                       src={demo.image}
                       width={740}
                     />
-                    <span>{demo.label}</span>
+                    <span>{header.demos[index]}</span>
                   </div>
                 ))}
               </div>
@@ -118,31 +145,36 @@ export function SiteHeader() {
           <div className={styles.practiceGroup}>
             <Link
               className={
-                pathname === "/practice-areas" ? styles.active : undefined
+                pathname.startsWith("/practice-areas")
+                  ? styles.active
+                  : undefined
               }
               href="/practice-areas"
             >
-              Үйлчилгээ <ChevronIcon />
+              {header.nav.services}
+              <span>
+                <ChevronIcon />
+              </span>
             </Link>
             <div className={`${styles.megaMenu} ${styles.practiceMenu}`}>
               <div className={styles.practiceMenuInner}>
                 <div className={styles.practiceIndex}>
-                  <p>Үйлчилгээ</p>
-                  <nav aria-label="Үйлчилгээний холбоос">
-                    {practiceLinks.map((item) => (
-                      <Link href="/practice-areas" key={item.label}>
-                        {item.label}
+                  <p>{header.nav.services}</p>
+                  <nav aria-label={header.nav.services}>
+                    {practiceLinks.map((item, index) => (
+                      <Link href={item.href} key={item.href}>
+                        {header.practiceLinks[index]}
                       </Link>
                     ))}
                   </nav>
                 </div>
                 <div className={styles.practiceCards}>
-                  {practiceLinks.map((item) => (
-                    <Link href="/practice-areas" key={item.label}>
+                  {practiceLinks.map((item, index) => (
+                    <Link href={item.href} key={item.href}>
                       <span className={styles.practiceImage}>
                         <Image alt="" fill sizes="190px" src={item.image} />
                       </span>
-                      <strong>{item.label}</strong>
+                      <strong>{header.practiceLinks[index]}</strong>
                     </Link>
                   ))}
                 </div>
@@ -159,49 +191,63 @@ export function SiteHeader() {
               }
               href="/about"
             >
-              Бидний тухай <ChevronIcon />
+              {header.nav.about}
+              <span data-template-only>
+                <ChevronIcon />
+              </span>
             </Link>
-            <div className={styles.smallMenu}>
-              {pageLinks.map((item) => (
-                <Link href={item.href} key={item.label}>
-                  {item.label}
+            <div className={styles.smallMenu} data-template-only>
+              {pageLinks.map((href, index) => (
+                <Link href={href} key={smallMenuLabels[index]}>
+                  {smallMenuLabels[index]}
                 </Link>
               ))}
             </div>
           </div>
 
-          <Link href="/#news">
-            Ярилцлага <ChevronIcon />
+          <Link
+            className={pathname === "/interview" ? styles.active : undefined}
+            href="/interview"
+          >
+            {header.nav.interview}
           </Link>
           <Link
             className={pathname === "/contact" ? styles.active : undefined}
             href="/contact"
           >
-            Холбоо барих
+            {header.nav.contact}
           </Link>
         </nav>
 
         <div className={styles.actions}>
           <a className={styles.phone} href="mailto:Lkhagvalawyer@gmail.com">
             <PhoneIcon />
-            Имэйл бичих
+            {header.email}
           </a>
-          <Link className={styles.cta} href="/contact">
-            Холбоо барих
-          </Link>
         </div>
 
-        <ThemeSelector />
+        <div className={styles.viewTools}>
+          <LanguageSelector />
+          <ThemeSelector />
+          <TemplateVisibilityToggle />
+        </div>
 
         <details className={styles.mobileMenu} ref={menuRef}>
-          <summary aria-label="Цэс нээх">
+          <summary aria-label={header.openMenu}>
             <Menu className={styles.menuIcon} aria-hidden="true" />
             <X className={styles.closeIcon} aria-hidden="true" />
           </summary>
           <div className={styles.mobilePanel}>
-            <nav aria-label="Гар утасны цэс">
+            <nav aria-label={header.mobileNav}>
               {links.map((item) => (
-                <Link href={item.href} key={item.href} onClick={closeMenu}>
+                <Link
+                  data-template-only={
+                    "templateOnly" in item && item.templateOnly ? "" : undefined
+                  }
+                  href={item.href}
+                  key={item.href}
+                  onClick={closeMenu}
+                >
                   {item.label}
                 </Link>
               ))}

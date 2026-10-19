@@ -1,0 +1,297 @@
+.hero {
+  position: relative;
+  min-height: 690px;
+  overflow: hidden;
+  background: var(--forest);
+  color: #fff;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-height: 690px;
+  align-items: center;
+}
+
+.heroCopy {
+  width: min(52%, 680px);
+  min-width: 0;
+  padding: 85px 0;
+}
+
+.hero :global(.eyebrow) {
+  color: var(--gold-light);
+}
+
+.hero h1 {
+  max-width: 660px;
+  margin: 22px 0 30px;
+  font-size: clamp(2.65rem, 3.85vw, 4.35rem);
+  line-height: 1.1;
+  overflow-wrap: break-word;
+}
+
+.intro {
+  max-width: 650px;
+  color: #c0cece;
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 38px;
+}
+
+.heroImage {
+  position: absolute;
+  z-index: 0;
+  inset: 0 0 0 35%;
+}
+
+.heroImage img {
+  object-fit: cover;
+  object-position: 48% center;
+  opacity: 0.9;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.28) 20%,
+    #000 50%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.28) 20%,
+    #000 50%
+  );
+}
+
+.heroImage::after {
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.52));
+  content: "";
+}
+
+.photoCaption {
+  position: absolute;
+  right: clamp(30px, 5vw, 80px);
+  bottom: 35px;
+  z-index: 2;
+  display: grid;
+  text-align: right;
+}
+
+.photoCaption strong {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.photoCaption span {
+  color: #d5dddd;
+  font-size: 0.75rem;
+}
+
+.article {
+  padding: 130px 0 150px;
+}
+
+.articleGrid {
+  display: grid;
+  grid-template-columns: 270px minmax(0, 780px);
+  justify-content: space-between;
+  gap: 90px;
+}
+
+.article aside {
+  position: sticky;
+  top: 110px;
+  height: fit-content;
+}
+
+.article aside > p {
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+
+.article aside nav {
+  display: grid;
+}
+
+.article aside a {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 10px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.article aside a:hover {
+  color: var(--ink);
+}
+
+.article aside a span {
+  color: var(--gold);
+  font-family: var(--font-display);
+}
+
+.content > section {
+  scroll-margin-top: 110px;
+  padding: 0 0 85px;
+}
+
+.content > section + section {
+  padding-top: 85px;
+  border-top: 1px solid var(--line);
+}
+
+.sectionNumber {
+  margin-bottom: 10px;
+  color: var(--gold);
+  font-family: var(--font-display);
+}
+
+.content h2 {
+  margin: 0 0 35px;
+}
+
+.content section > p:not(.sectionNumber) {
+  color: var(--muted-dark);
+  font-size: 1.02rem;
+  line-height: 1.9;
+}
+
+.content blockquote {
+  margin: 45px 0 0;
+  padding: 34px;
+  background: var(--warm);
+  border-left: 3px solid var(--gold);
+}
+
+.content blockquote svg {
+  color: var(--gold);
+}
+
+.content blockquote p {
+  margin: 18px 0;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  line-height: 1.55;
+}
+
+.content blockquote cite {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-style: normal;
+}
+
+.note {
+  padding: 30px;
+  background: var(--forest);
+  border-radius: 12px;
+  color: #fff;
+}
+
+.note strong {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.note p {
+  margin: 12px 0 0;
+  color: #bfcccc;
+  line-height: 1.75;
+}
+
+@media (max-width: 850px) {
+  .hero {
+    min-height: 0;
+  }
+
+  .heroInner {
+    display: block;
+    min-height: 0;
+  }
+
+  .heroCopy {
+    width: 100%;
+    padding: 75px 0 450px;
+  }
+
+  .heroImage {
+    inset: auto 0 0;
+    height: 470px;
+  }
+
+  .heroImage img {
+    object-position: center;
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.7) 28%,
+      #000 48%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.7) 28%,
+      #000 48%
+    );
+  }
+
+  .article {
+    padding: 90px 0;
+  }
+
+  .articleGrid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .article aside {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: clamp(2.15rem, 9vw, 2.75rem);
+  }
+
+  .intro {
+    font-size: 0.9rem;
+  }
+
+  .heroActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .content blockquote {
+    padding: 25px 22px;
+  }
+
+  .heroCopy {
+    padding: 65px 0 365px;
+  }
+
+  .heroImage {
+    height: 385px;
+  }
+
+  .photoCaption {
+    right: 18px;
+    bottom: 18px;
+  }
+}

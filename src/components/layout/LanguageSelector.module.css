@@ -1,0 +1,123 @@
+.selector {
+  position: relative;
+  z-index: 3;
+  color: var(--nav-ink);
+}
+
+.selector summary {
+  display: flex;
+  min-width: 82px;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 11px;
+  border: 1px solid var(--nav-border);
+  border-radius: 10px;
+  background: var(--nav-bg);
+  cursor: pointer;
+  list-style: none;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.selector summary::-webkit-details-marker {
+  display: none;
+}
+
+.selector summary:hover,
+.selector[open] summary {
+  border-color: var(--gold);
+  background: var(--warm);
+}
+
+.current,
+.code {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.chevron {
+  transition: transform 180ms ease;
+}
+
+.selector[open] .chevron {
+  transform: rotate(180deg);
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 190px;
+  padding: 6px;
+  background: var(--nav-bg);
+  border: 1px solid var(--nav-border);
+  border-radius: 12px;
+  box-shadow: 0 18px 45px rgba(4, 36, 39, 0.16);
+}
+
+.menu::before {
+  position: absolute;
+  top: -9px;
+  right: 0;
+  left: 0;
+  height: 9px;
+  content: "";
+}
+
+.menu button {
+  display: grid;
+  width: 100%;
+  min-height: 42px;
+  grid-template-columns: 30px 1fr 16px;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 9px;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  color: var(--nav-ink);
+  cursor: pointer;
+  font-size: 13px;
+  text-align: left;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.menu button:hover,
+.menu button:focus-visible {
+  background: var(--warm);
+}
+
+.menu .active {
+  background: var(--warm);
+  color: var(--ink);
+}
+
+.menu button svg {
+  color: var(--gold);
+}
+
+@media (max-width: 600px) {
+  .selector summary {
+    width: 42px;
+    min-width: 42px;
+    min-height: 38px;
+    padding: 0;
+  }
+
+  .languageIcon,
+  .chevron {
+    display: none;
+  }
+
+  .menu {
+    width: 180px;
+  }
+}

@@ -2,15 +2,13 @@
 
 import { Palette } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useSiteMessages } from "@/lib/i18n/PublicI18nProvider";
 import styles from "./ThemeSelector.module.css";
 
-const themes = [
-  { id: "burgundy", label: "Бордо · Ivory" },
-  { id: "forest", label: "Ногоон · Forest" },
-  { id: "navy", label: "Хөх · Navy" },
-] as const;
+const themeIds = ["burgundy", "forest", "navy"] as const;
 
 export function ThemeSelector() {
+  const { theme: themeMessages } = useSiteMessages();
   const [theme, setTheme] = useState("burgundy");
 
   useEffect(() => {
@@ -18,7 +16,7 @@ export function ThemeSelector() {
   }, []);
 
   function changeTheme(value: string) {
-    if (!themes.some((item) => item.id === value)) return;
+    if (!themeIds.some((item) => item === value)) return;
     document.documentElement.dataset.theme = value;
     setTheme(value);
     try {
@@ -31,14 +29,14 @@ export function ThemeSelector() {
   return (
     <label className={styles.selector}>
       <Palette aria-hidden="true" size={16} />
-      <span className={styles.srOnly}>Өнгөний загвар сонгох</span>
+      <span className={styles.srOnly}>{themeMessages.label}</span>
       <select
         value={theme}
         onChange={(event) => changeTheme(event.target.value)}
       >
-        {themes.map((item) => (
-          <option key={item.id} value={item.id}>
-            {item.label}
+        {themeIds.map((item, index) => (
+          <option key={item} value={item}>
+            {themeMessages.items[index]}
           </option>
         ))}
       </select>

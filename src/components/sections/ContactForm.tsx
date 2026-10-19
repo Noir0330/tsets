@@ -1,18 +1,25 @@
 "use client";
 
 import type { FormEvent } from "react";
+import { useSiteMessages } from "@/lib/i18n/PublicI18nProvider";
 import styles from "./ContactForm.module.css";
 
 export function ContactForm() {
+  const { form: formMessages } = useSiteMessages();
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const form = new FormData(event.currentTarget);
     const name = String(form.get("name") ?? "");
     const email = String(form.get("email") ?? "");
-    const topic = String(form.get("subject") ?? "Хууль зүйн зөвлөгөө");
+    const topic = String(form.get("subject") ?? formMessages.defaultSubject);
     const message = String(form.get("message") ?? "");
-    const body = [`Нэр: ${name}`, `Имэйл: ${email}`, "", message].join("\n");
+    const body = [
+      `${formMessages.name}: ${name}`,
+      `${formMessages.email}: ${email}`,
+      "",
+      message,
+    ].join("\n");
 
     window.location.href = `mailto:Lkhagvalawyer@gmail.com?subject=${encodeURIComponent(
       topic,
@@ -21,23 +28,31 @@ export function ContactForm() {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <input autoComplete="name" name="name" placeholder="Нэр" required />
+      <input
+        autoComplete="name"
+        name="name"
+        placeholder={formMessages.name}
+        required
+      />
       <input
         autoComplete="email"
         name="email"
-        placeholder="Имэйл"
+        placeholder={formMessages.email}
         required
         type="email"
       />
-      <input name="subject" placeholder="Асуудлын сэдэв" required />
-      <textarea name="message" placeholder="Мэдээлэл" required rows={5} />
+      <input name="subject" placeholder={formMessages.subject} required />
+      <textarea
+        name="message"
+        placeholder={formMessages.message}
+        required
+        rows={5}
+      />
       <label className={styles.consent}>
         <input required type="checkbox" />
-        <span>
-          Илгээсэн мэдээллийг холбоо барих зорилгоор ашиглахыг зөвшөөрч байна.
-        </span>
+        <span>{formMessages.consent}</span>
       </label>
-      <button type="submit">Имэйл илгээх</button>
+      <button type="submit">{formMessages.submit}</button>
     </form>
   );
 }

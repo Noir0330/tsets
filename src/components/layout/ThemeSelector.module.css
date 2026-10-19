@@ -35,13 +35,17 @@
   white-space: nowrap;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .selector {
-    gap: 4px;
-    padding-inline: 7px;
+    width: 38px;
+    min-height: 38px;
+    justify-content: center;
+    padding: 0;
   }
   .selector select {
-    width: 111px;
-    font-size: 11px;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    opacity: 0;
   }
 }
