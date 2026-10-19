@@ -1,0 +1,110 @@
+.logos {
+  padding: 65px 0;
+  background: #fff;
+}
+.logoRow {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(5, 1fr);
+  align-items: center;
+  gap: 35px;
+}
+.logoRow p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 15px;
+}
+.logoRow img {
+  width: 100%;
+  max-width: 115px;
+  height: 38px;
+  object-fit: contain;
+  opacity: 0.48;
+}
+
+.marquee {
+  overflow: hidden;
+  padding: 17px 0;
+  background: var(--warm);
+  color: var(--ink);
+  white-space: nowrap;
+}
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 24s linear infinite;
+  will-change: transform;
+}
+.marqueeTrack > div {
+  width: max-content;
+  min-width: 100vw;
+  padding-inline: 2.5vw;
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 3vw, 3rem);
+  text-align: center;
+  word-spacing: 18px;
+}
+.marqueeTrack span {
+  font-size: 0.55em;
+  vertical-align: middle;
+}
+
+@keyframes marquee-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.libraryContact {
+  min-height: 760px;
+  padding: 80px 0;
+  background: url("/images/library.jpg") center / cover no-repeat;
+}
+.contactShell {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 600px;
+}
+.contactCard {
+  width: min(100%, 520px);
+  padding: 48px 34px 55px;
+  background: #fff;
+  border-radius: 15px;
+}
+.contactCard h2 {
+  margin: 0 0 30px;
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+
+@media (max-width: 800px) {
+  .logoRow {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .logoRow p {
+    grid-column: 1 / -1;
+  }
+  .libraryContact {
+    min-height: 0;
+    padding: 50px 0;
+  }
+  .contactShell {
+    min-height: 0;
+  }
+  .contactCard {
+    margin-inline: auto;
+    padding: 34px 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoRow {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation-play-state: paused;
+  }
+}

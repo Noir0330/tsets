@@ -1,0 +1,274 @@
+.intro {
+  padding: 120px 0 135px;
+}
+.introGrid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: clamp(65px, 9vw, 125px);
+}
+.introImage {
+  position: relative;
+  min-height: 620px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+.introImage img {
+  object-fit: cover;
+}
+.introCopy h1 {
+  margin: 18px 0 32px;
+  font-size: clamp(3rem, 4.5vw, 5rem);
+  line-height: 1.1;
+}
+.introCopy > p {
+  max-width: 570px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+.introCopy > a {
+  display: inline-block;
+  margin: 22px 0 95px;
+  color: var(--ink);
+  font-weight: 500;
+}
+.introCopy h2 {
+  margin: 0 0 14px;
+  font-size: 1.6rem;
+}
+
+.leadership {
+  padding: 140px 0 100px;
+  border-top: 1px solid var(--line);
+}
+.leadGrid {
+  display: grid;
+  grid-template-columns: 0.7fr 1fr 1fr;
+  gap: 28px;
+}
+.leadTitle {
+  padding-right: 70px;
+}
+.leadTitle h2 {
+  margin: 20px 0;
+}
+.leadTitle p {
+  max-width: 260px;
+  color: var(--muted);
+}
+.personImage {
+  position: relative;
+  min-height: 510px;
+  overflow: hidden;
+  border-radius: 13px;
+}
+.personImage img {
+  object-fit: cover;
+  transition: transform 550ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.person:hover .personImage img {
+  transform: scale(1.045);
+}
+.person h3 {
+  margin: 18px 0 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.person p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.ribbons {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  padding-top: 80px;
+}
+.ribbon {
+  width: 110%;
+  margin-left: -5%;
+  padding: 18px 0;
+  background: var(--forest);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5.5vw, 5.6rem);
+  text-align: center;
+  white-space: nowrap;
+  transform: rotate(3deg);
+}
+.ribbonGold {
+  margin-top: -8px;
+  background: var(--gold);
+  transform: rotate(-7deg);
+}
+
+.results {
+  padding: 115px 0 130px;
+  background: var(--warm);
+}
+.metricsTop {
+  display: grid;
+  grid-template-columns: 1.1fr 0.45fr 0.45fr;
+  gap: 50px;
+  align-items: end;
+}
+.metricsTop h2 {
+  max-width: 250px;
+  font-size: 1.7rem;
+}
+.metricsTop p {
+  max-width: 330px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.metric strong,
+.metricGrid strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 300;
+}
+.metric span,
+.metricGrid span {
+  font-family: var(--font-display);
+  font-size: 12px;
+}
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 45px;
+  margin: 75px 0;
+}
+.testimonial {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  margin: 30px 0 120px;
+}
+.testimonialImage {
+  position: relative;
+  min-height: 410px;
+  overflow: hidden;
+  border-radius: 13px 0 0 13px;
+}
+.testimonialImage img {
+  object-fit: cover;
+}
+.quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 50px;
+  background: #fff;
+  border-radius: 0 13px 13px 0;
+}
+.quote blockquote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1.45;
+}
+.quote strong,
+.quote span {
+  display: block;
+  font-size: 12px;
+}
+.quote span {
+  color: var(--muted);
+}
+.faqGrid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 90px;
+}
+.faqGrid h2 {
+  margin: 15px 0;
+}
+.faqGrid > div:first-child > p:last-child {
+  color: var(--muted);
+}
+.faqs details {
+  border-bottom: 1px solid var(--line);
+}
+.faqs summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 23px 0;
+  cursor: pointer;
+  font-family: var(--font-display);
+  list-style: none;
+}
+.faqs summary::-webkit-details-marker {
+  display: none;
+}
+.faqs summary::after {
+  content: "+";
+}
+.faqs details[open] summary::after {
+  content: "−";
+}
+.faqs details p {
+  padding: 0 0 25px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+@media (max-width: 850px) {
+  .introGrid,
+  .leadGrid,
+  .metricsTop,
+  .testimonial,
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+  .intro {
+    padding-top: 70px;
+  }
+  .introImage {
+    min-height: 530px;
+  }
+  .introCopy > a {
+    margin-bottom: 55px;
+  }
+  .leadTitle {
+    padding-right: 0;
+  }
+  .leadGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .leadTitle {
+    grid-column: 1 / -1;
+  }
+  .metricGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .testimonialImage {
+    min-height: 350px;
+    border-radius: 13px 13px 0 0;
+  }
+  .quote {
+    min-height: 330px;
+    border-radius: 0 0 13px 13px;
+  }
+}
+
+@media (max-width: 520px) {
+  .introImage {
+    min-height: 420px;
+  }
+  .leadGrid,
+  .metricGrid {
+    grid-template-columns: 1fr;
+  }
+  .leadTitle {
+    grid-column: auto;
+  }
+  .ribbons {
+    min-height: 350px;
+  }
+}
