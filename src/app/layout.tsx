@@ -35,8 +35,19 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   return (
-    <html className={`${displayFont.variable} ${bodyFont.variable}`} lang="mn">
+    <html
+      className={`${displayFont.variable} ${bodyFont.variable}`}
+      lang="mn"
+      suppressHydrationWarning
+    >
       <body>
+        {/* Apply the saved palette before the first paint. */}
+        <script
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: Static theme initialization with validated local preference.
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem("tsets-theme");if(["burgundy","forest","navy"].includes(t))document.documentElement.dataset.theme=t}catch{}`,
+          }}
+        />
         <a className="skipLink" href="#main-content">
           Үндсэн хэсэг рүү шилжих
         </a>

@@ -33,11 +33,10 @@ const gallery = [
   ["/images/expert-guidance.jpg", "Тогтмол зөвлөх үйлчилгээ"],
 ] as const;
 
-const heroTitleCharacters = [
-  ["tsets-tse", "Ц"],
-  ["tsets-e", "э"],
-  ["tsets-ts", "ц"],
-] as const;
+const heroTitleCharacters = Array.from("Tsets Partners", (character, index) => [
+  `hero-title-${index}`,
+  character === " " ? "\u00a0" : character,
+]);
 
 export default function HomePage() {
   return (

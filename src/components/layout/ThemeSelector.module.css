@@ -1,0 +1,47 @@
+﻿.selector {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 10px;
+  border: 1px solid var(--nav-border);
+  border-radius: 8px;
+  background: var(--nav-bg);
+  color: var(--nav-ink);
+}
+
+.selector select {
+  width: 135px;
+  min-height: 42px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.selector option {
+  background: var(--nav-bg);
+  color: var(--nav-ink);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .selector {
+    gap: 4px;
+    padding-inline: 7px;
+  }
+  .selector select {
+    width: 111px;
+    font-size: 11px;
+  }
+}

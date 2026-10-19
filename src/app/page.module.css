@@ -54,7 +54,7 @@
   z-index: 2;
   color: var(--gold);
   font-family: var(--font-display);
-  font-size: 15.3vw;
+  font-size: 10vw;
   font-weight: 400;
   line-height: 1;
   letter-spacing: -0.04em;
@@ -92,7 +92,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 34px;
-  background: #fff;
+  background: var(--paper);
   border-radius: 12px;
   transition:
     box-shadow 260ms ease,
@@ -105,7 +105,7 @@
 }
 .strengthGrid article:nth-child(2) {
   background: var(--gold);
-  color: #fff;
+  color: var(--forest);
 }
 .strengthGrid article:nth-child(3) {
   background: var(--forest);
@@ -338,7 +338,7 @@
     top: 520px;
     bottom: auto;
     left: 20px;
-    font-size: 16.5vw;
+    font-size: 11vw;
   }
   .strengthIntro,
   .expertiseGrid,

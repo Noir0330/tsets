@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRef } from "react";
 import styles from "./SiteHeader.module.css";
+import { ThemeSelector } from "./ThemeSelector";
 
 const links = [
   { href: "/", label: "Нүүр" },
@@ -189,6 +190,8 @@ export function SiteHeader() {
             Холбоо барих
           </Link>
         </div>
+
+        <ThemeSelector />
 
         <details className={styles.mobileMenu} ref={menuRef}>
           <summary aria-label="Цэс нээх">
