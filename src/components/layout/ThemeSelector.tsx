@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { Palette } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -9,10 +9,10 @@ const themeIds = ["burgundy", "forest", "navy"] as const;
 
 export function ThemeSelector() {
   const { theme: themeMessages } = useSiteMessages();
-  const [theme, setTheme] = useState("burgundy");
+  const [theme, setTheme] = useState("navy");
 
   useEffect(() => {
-    setTheme(document.documentElement.dataset.theme || "burgundy");
+    setTheme(document.documentElement.dataset.theme || "navy");
   }, []);
 
   function changeTheme(value: string) {

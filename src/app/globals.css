@@ -19,7 +19,6 @@
 }
 
 /* Light navigation preserves the original burgundy and charcoal logo. */
-:root,
 :root[data-theme="burgundy"] {
   --paper: #fffdfb;
   --warm: #f5efea;
@@ -58,6 +57,7 @@
   --nav-border: #d3dcc9;
 }
 
+:root,
 :root[data-theme="navy"] {
   --paper: #fcfcff;
   --warm: #edf0f5;
