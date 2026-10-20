@@ -13,10 +13,10 @@ import { useSiteMessages } from "@/lib/i18n/PublicI18nProvider";
 import styles from "./page.module.css";
 
 const galleryImages = [
-  "/images/legal-strategy.jpg",
+  "/images/litigation.jpg",
   "/images/trusted-counsel.jpg",
-  "/images/client-advocates.jpg",
-  "/images/expert-guidance.jpg",
+  "/images/business-advice.jpg",
+  "/images/ongoing-counsel.jpg",
 ] as const;
 
 const heroTitleCharacters = Array.from("Tsets Partners", (character, index) => [
