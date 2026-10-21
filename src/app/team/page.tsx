@@ -2,19 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { TeamMemberCards } from "@/components/sections/TeamMemberCards";
 import {
   LegalMarquee,
   LibraryContact,
 } from "@/components/sections/ThemeSections";
 import { useSiteMessages } from "@/lib/i18n/PublicI18nProvider";
 import styles from "./team.module.css";
-
-const teamImages = [
-  "/images/emily-harper.jpg",
-  "/images/sophia-lee.jpg",
-  "/images/james-carter.jpg",
-  "/images/olivia-grant.jpg",
-] as const;
 
 export default function TeamPage() {
   const { common, team } = useSiteMessages();
@@ -63,25 +57,7 @@ export default function TeamPage() {
 
       <section className={styles.team}>
         <div className="shell">
-          <div className={styles.teamLead}>
-            <p>{team.teamNote}</p>
-          </div>
-          <div className={styles.teamGrid} data-template-only>
-            {team.groups.map((attorney, index) => (
-              <article className={styles.person} key={attorney.name}>
-                <div className={styles.teamImage}>
-                  <Image
-                    alt={attorney.name}
-                    fill
-                    sizes="(max-width: 520px) 100vw, 25vw"
-                    src={teamImages[index]}
-                  />
-                </div>
-                <h2>{attorney.name}</h2>
-                <p>{attorney.role}</p>
-              </article>
-            ))}
-          </div>
+          <TeamMemberCards />
         </div>
       </section>
 

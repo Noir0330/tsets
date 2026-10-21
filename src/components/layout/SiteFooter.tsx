@@ -39,7 +39,7 @@ export function SiteFooter() {
           <h3>{footer.linksTitle}</h3>
           <nav className={styles.links} aria-label={footer.linksLabel}>
             <Link href="/">{header.nav.home}</Link>
-            <Link href="/practice-areas">{header.nav.services}</Link>
+            <Link href="/practice-areas/litigation">{header.nav.services}</Link>
             <Link href="/about">{header.nav.about}</Link>
             <Link data-template-only href="/team">
               {header.nav.team}

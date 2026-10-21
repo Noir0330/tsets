@@ -33,20 +33,11 @@
     },
     "demos": ["诉讼代理", "法律顾问", "常年法律顾问"],
     "practiceLinks": [
-      "民事争议",
-      "行政争议",
-      "刑事辩护",
-      "商业法律顾问",
-      "常年法律顾问"
+      "诉讼阶段的辩护、代理及法律援助",
+      "法律顾问服务",
+      "常年法律顾问服务"
     ],
-    "pageLinks": [
-      "创始人专访",
-      "我们的优势",
-      "常见问题",
-      "保险法",
-      "常年法律顾问",
-      "单次法律顾问"
-    ]
+    "advantages": "我们的优势"
   },
   "theme": {
     "label": "选择配色主题",
@@ -82,6 +73,7 @@
     "defaultSubject": "法律咨询",
     "name": "姓名",
     "email": "电子邮箱",
+    "phone": "电话号码",
     "subject": "咨询主题",
     "message": "留言内容",
     "consent": "我同意所提交的信息仅用于联系沟通。",
@@ -97,13 +89,14 @@
   },
   "home": {
     "hero": {
-      "imageAlt": "Tsets Partners负责人",
+      "imageAlt": "法庭与法律象征",
       "before": "我们",
       "beforeSeparator": "",
       "emphasis": "预判风险",
       "afterSeparator": "，",
       "after": "坚定维护您的合法权益",
-      "tagline": "在法律框架内提供可靠保障"
+      "tagline": "在法律框架内提供可靠保障",
+      "viewServices": "了解更多"
     },
     "strengthsIntro": {
       "eyebrow": "我们的价值观",
@@ -137,10 +130,9 @@
       "title": "为每位客户量身制定法律解决方案。",
       "text": "我们重视预判企业日常经营风险及重大交易中的不确定因素，并在合同中明确约定潜在争议的解决机制。",
       "gallery": [
-        "诉讼代理与辩护",
-        "合同与交易",
-        "商业法律顾问",
-        "常年法律顾问"
+        "诉讼阶段的辩护、代理及法律援助",
+        "法律顾问服务",
+        "常年法律顾问服务"
       ],
       "quote": "法律服务如同战略工具，能够帮助您预见三步之后的风险。",
       "quoteMeta": "创始合伙人、律师 · 2025.06.10 · 阅读专访"
@@ -179,6 +171,11 @@
       "advisoryTitle": "法律顾问团队",
       "advisoryText": "合同、商业与投资"
     },
+    "team": {
+      "eyebrow": "专业协作",
+      "title": "我们的团队",
+      "text": "融合理论与法律实务的一体化服务。"
+    },
     "advantages": {
       "eyebrow": "为何选择Tsets Partners？",
       "title": "我们的优势",
@@ -195,41 +192,16 @@
     },
     "ribbon": "以专业能力维护您的合法权益",
     "metrics": {
-      "title": "Tsets Partners概览",
-      "text": "以下数据分别取自事务所简介及2025年6月专访，并保留对应时间信息。",
       "founded": "成立年份",
       "branches": "乌兰巴托分支机构",
       "serviceAreas": "核心服务领域",
-      "attorneys": "律师 · 2025年专访",
-      "assistants": "律师助理 · 2025年专访",
+      "attorneys": "律师",
+      "assistants": "律师助理",
       "awards": "研究中法院判决赔偿的案件比例"
     },
     "testimonial": {
       "imageAlt": "客户接受法律咨询",
       "quote": "我们重视预判日常商业活动中的风险及重大合同中的不确定因素，并在合同中明确约定可能引发争议事项的解决方案。"
-    },
-    "faq": {
-      "eyebrow": "实用信息",
-      "title": "常见问题",
-      "intro": "了解我们的服务范围及合作方式。",
-      "items": [
-        {
-          "question": "如何开始合作？",
-          "answer": "请通过电子邮件简要说明您的事项，我们将提前安排首次会面时间及合适的办公地点。"
-        },
-        {
-          "question": "你们提供哪些法律服务？",
-          "answer": "我们提供诉讼代理与法律援助、单次法律顾问及常年法律顾问服务。"
-        },
-        {
-          "question": "目前团队有多少人？",
-          "answer": "事务所简介记载有12名律师，而2025年专访提及4名律师和6名律师助理。正式发布前应确认当前团队名单。"
-        },
-        {
-          "question": "是否为外国投资者提供咨询？",
-          "answer": "是。我们就法律与监管环境、法律文件、政府机关事务代理及投资争议提供支持。"
-        }
-      ]
     }
   },
   "practice": {
@@ -237,42 +209,25 @@
       "eyebrow": "诉讼代理、法律援助与法律顾问",
       "title": "满足您法律需求的专业服务"
     },
+    "viewDetails": "查看详情",
     "areas": [
       {
-        "title": "民事案件与争议",
-        "text": "代理处理合同、公司、股权、贷款、担保、保险、知识产权、名誉及投资相关争议。"
+        "title": "诉讼阶段的辩护、代理及法律援助",
+        "text": "在民事、行政和刑事案件、执行程序、仲裁及其他机构程序中提供代理与辩护服务。"
       },
       {
-        "title": "行政案件与争议",
-        "text": "处理矿产资源许可证、土地、经营许可、税务、招标采购及竞争相关争议。"
+        "title": "法律顾问服务",
+        "text": "针对特定事项、工作或交易，综合提供法律咨询、文件起草及代理服务。"
       },
       {
-        "title": "刑事辩护",
-        "text": "在刑事诉讼各阶段为犯罪嫌疑人、被告人、受审人及被害人提供辩护与代理。"
-      },
-      {
-        "title": "执行程序与仲裁",
-        "text": "在法院判决执行、仲裁及其他机构程序中代理客户。"
-      },
-      {
-        "title": "单次法律顾问",
-        "text": "为公司、财产、合同、投资、破产及特别许可事项起草和办理法律文件。"
-      },
-      {
-        "title": "常年法律顾问",
+        "title": "常年法律顾问服务",
         "text": "为公司日常经营、内部制度、合同、争议代理及法律尽职调查提供持续支持。"
       }
     ],
     "full": {
-      "eyebrow": "完整服务内容",
-      "title": "展开查看您所需的法律服务",
-      "intro": "事务所简介中列明的各项服务已按类别完整呈现。点击标题即可展开或收起。",
       "litigationTitle": "诉讼阶段的辩护、代理及法律援助",
       "oneTimeTitle": "单次法律顾问服务",
-      "oneTimeHeading": "单次法律顾问",
-      "oneTimeIntro": "针对特定事项、工作或交易，综合提供法律咨询、文件起草及代理服务。",
-      "retainedTitle": "常年法律顾问服务",
-      "retainedHeading": "常年法律顾问服务的优势"
+      "retainedTitle": "常年法律顾问服务"
     },
     "litigation": [
       {
@@ -336,24 +291,6 @@
         "在法院判决执行程序中担任客户代理人或律师",
         "编制法律意见书并开展法律尽职调查"
       ]
-    },
-    "faq": {
-      "eyebrow": "服务信息",
-      "title": "常见问题",
-      "items": [
-        {
-          "question": "常年法律顾问服务费如何计算？",
-          "answer": "无论每月工作数量、工作量或投入时间如何，均按合同约定收取固定费用。"
-        },
-        {
-          "question": "单次法律顾问服务包括哪些工作？",
-          "answer": "可包括公司设立、变更或注销、产权事项、投资、合同、担保及特别许可相关工作。"
-        },
-        {
-          "question": "在哪些程序阶段提供代理？",
-          "answer": "我们在民事、行政及刑事诉讼、仲裁和执行程序的相关各阶段提供辩护与代理。"
-        }
-      ]
     }
   },
   "team": {
@@ -383,6 +320,33 @@
       ]
     },
     "teamNote": "事务所简介称团队由12名律师组成，而2025年6月专访提及4名律师及6名律师助理。待确认当前团队名单后，将在此发布律师个人介绍。",
+    "members": {
+      "viewProfile": "查看简介",
+      "backToTeam": "返回团队",
+      "profileEyebrow": "专业团队",
+      "intro": "我们通过紧密的团队协作和严谨的研究，为每位客户制定务实的法律解决方案。",
+      "firmLabel": "律师事务所",
+      "practiceLabel": "服务领域",
+      "practiceValue": "诉讼代理 · 法律援助 · 法律顾问",
+      "contactEyebrow": "与我们合作",
+      "contactTitle": "联系我们",
+      "contactText": "请通过电子邮件简要说明您的事项，我们将安排最合适的沟通方式。",
+      "emailLabel": "发送邮件",
+      "facebookLabel": "Facebook页面",
+      "jargalan-byambatsogt": {
+        "name": "Jargalan Byambatsogt",
+        "role": "高级律师"
+      },
+      "dulguun-erdenebulgan": {
+        "name": "Dulguun Erdenebulgan",
+        "role": "律师"
+      },
+      "byambadorj-dorjsuren": {
+        "name": "Byambadorj Dorjsuren",
+        "role": "律师"
+      },
+      "badamsuren-urtnasan": { "name": "Badamsuren Urtnasan", "role": "律师" }
+    },
     "groups": [
       { "name": "诉讼律师团队", "role": "诉讼代理与法律援助" },
       { "name": "律师助理团队", "role": "法律研究及案件支持" },
@@ -402,6 +366,16 @@
   },
   "contact": {
     "title": "联系我们",
+    "intro": "您可以通过最方便的方式联系我们，咨询相关法律事宜。",
+    "phoneLabel": "电话",
+    "phoneNote": "点击拨打",
+    "emailLabel": "电子邮箱",
+    "emailNote": "发送咨询或相关资料",
+    "facebookLabel": "Facebook",
+    "facebookNote": "访问我们的主页",
+    "officeLabel": "会面",
+    "officeValue": "蒙古国乌兰巴托",
+    "officeNote": "须提前预约",
     "officesTitle": "办公地点：",
     "appointment": "预约会面",
     "appointmentSubject": "会面申请",

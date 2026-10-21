@@ -11,11 +11,17 @@
   --forest-meta: #829495;
   --mist: #b4bebf;
   --white: #f9ffff;
+  --on-dark-muted: rgba(255, 255, 255, 0.86);
   --gold: #bfa14a;
   --gold-light: #c5aa5c;
+  --font-display: var(--font-manrope), "Helvetica Neue", Arial, sans-serif;
+  --font-body: var(--font-manrope), "Helvetica Neue", Arial, sans-serif;
+  --shadow-soft: 0 22px 65px rgba(4, 36, 39, 0.1);
+}
+
+:root[lang="zh-CN"] {
   --font-display: var(--font-trirong), Georgia, "Times New Roman", serif;
   --font-body: var(--font-work-sans), "Helvetica Neue", Arial, sans-serif;
-  --shadow-soft: 0 22px 65px rgba(4, 36, 39, 0.1);
 }
 
 /* Light navigation preserves the original burgundy and charcoal logo. */

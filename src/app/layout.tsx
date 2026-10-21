@@ -25,6 +25,12 @@ const bodyFont = localFont({
   variable: "--font-work-sans",
 });
 
+const manropeFont = localFont({
+  src: "./fonts/manrope-variable.ttf",
+  weight: "200 800",
+  variable: "--font-manrope",
+});
+
 export const metadata: Metadata = {
   title: {
     default: "Цэц Партнерс — Хуулийн фирм",
@@ -39,7 +45,7 @@ export default function RootLayout({
 }: Readonly<{ children: ReactNode }>) {
   return (
     <html
-      className={`${displayFont.variable} ${bodyFont.variable}`}
+      className={`${displayFont.variable} ${bodyFont.variable} ${manropeFont.variable}`}
       data-template="hide"
       data-theme="burgundy-gold"
       lang="mn"

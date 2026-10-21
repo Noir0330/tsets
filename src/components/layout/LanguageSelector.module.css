@@ -4,48 +4,50 @@
   color: var(--nav-ink);
 }
 
-.selector summary {
+.trigger {
   display: flex;
-  min-width: 82px;
-  min-height: 42px;
+  min-width: 104px;
+  min-height: 44px;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 0 11px;
+  gap: 10px;
+  padding: 0 14px;
   border: 1px solid var(--nav-border);
-  border-radius: 10px;
+  border-radius: 12px;
   background: var(--nav-bg);
+  color: var(--nav-ink);
   cursor: pointer;
-  list-style: none;
   transition:
     border-color 180ms ease,
     background-color 180ms ease,
     color 180ms ease;
 }
 
-.selector summary::-webkit-details-marker {
-  display: none;
-}
-
-.selector summary:hover,
-.selector[open] summary {
+.trigger:hover,
+.selectorOpen .trigger {
   border-color: var(--gold);
   background: var(--warm);
 }
 
 .current,
 .code {
-  font-size: 11px;
-  font-weight: 650;
-  letter-spacing: 0.08em;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   line-height: 1;
+}
+
+.languageIcon,
+.chevron {
+  flex: 0 0 auto;
+  stroke-width: 1.8;
 }
 
 .chevron {
   transition: transform 180ms ease;
 }
 
-.selector[open] .chevron {
+.selectorOpen .chevron {
   transform: rotate(180deg);
 }
 
@@ -105,7 +107,7 @@
 }
 
 @media (max-width: 600px) {
-  .selector summary {
+  .trigger {
     width: 42px;
     min-width: 42px;
     min-height: 38px;

@@ -33,20 +33,11 @@
     },
     "demos": ["Legal Representation", "Legal Advisory", "Retained Counsel"],
     "practiceLinks": [
-      "Civil Disputes",
-      "Administrative Disputes",
-      "Criminal Defense",
-      "Business Advisory",
-      "Retained Counsel"
+      "Legal Representation and Assistance in Judicial Proceedings",
+      "Legal Advisory Services",
+      "Retained Legal Advisory Services"
     ],
-    "pageLinks": [
-      "Founder Interview",
-      "Our Advantages",
-      "Frequently Asked Questions",
-      "Insurance Law",
-      "Retained Counsel",
-      "One-Time Advisory"
-    ]
+    "advantages": "Our Advantages"
   },
   "theme": {
     "label": "Choose a color theme",
@@ -85,6 +76,7 @@
     "defaultSubject": "Legal Consultation",
     "name": "Name",
     "email": "Email",
+    "phone": "Phone number",
     "subject": "Subject",
     "message": "Message",
     "consent": "I consent to the use of the information submitted for contact purposes.",
@@ -107,13 +99,14 @@
   },
   "home": {
     "hero": {
-      "imageAlt": "Managing Partner of Tsets Partners",
+      "imageAlt": "Courtroom with legal symbols",
       "before": "We",
       "beforeSeparator": " ",
       "emphasis": "anticipate risk",
       "afterSeparator": ", ",
-      "after": "and steadfastly protect your interests",
-      "tagline": "Reliable protection within the law"
+      "after": "and steadfastly protect interests",
+      "tagline": "Reliable protection within the law",
+      "viewServices": "Learn more"
     },
     "strengthsIntro": {
       "eyebrow": "Our Values",
@@ -147,10 +140,9 @@
       "title": "Legal solutions tailored to every client.",
       "text": "We anticipate the risks of day-to-day business and the uncertainties of major transactions, and ensure that solutions to potential disputes are clearly addressed in contracts.",
       "gallery": [
-        "Litigation and Advocacy",
-        "Contracts and Transactions",
-        "Business Advisory",
-        "Retained Legal Counsel"
+        "Legal Representation and Assistance in Judicial Proceedings",
+        "Legal Advisory Services",
+        "Retained Legal Advisory Services"
       ],
       "quote": "Legal services are a strategic tool that enables you to foresee risks three moves ahead.",
       "quoteMeta": "Founding Partner and Attorney · 2025.06.10 · Read the Interview"
@@ -189,6 +181,11 @@
       "advisoryTitle": "Advisory Team",
       "advisoryText": "Contracts, business, and investment"
     },
+    "team": {
+      "eyebrow": "Professional Collaboration",
+      "title": "Our Team",
+      "text": "An integrated service that combines legal theory and practice."
+    },
     "advantages": {
       "eyebrow": "Why Tsets Partners?",
       "title": "Our Key Advantages",
@@ -205,41 +202,16 @@
     },
     "ribbon": "Protecting your interests with professional expertise",
     "metrics": {
-      "title": "Tsets Partners at a Glance",
-      "text": "Figures from the firm profile and the June 2025 interview are shown together with their dates.",
       "founded": "Established",
       "branches": "Ulaanbaatar offices",
       "serviceAreas": "Core service areas",
-      "attorneys": "Attorneys · 2025 interview",
-      "assistants": "Legal assistants · 2025 interview",
+      "attorneys": "Attorneys",
+      "assistants": "Legal assistants",
       "awards": "Insurance awards granted in cases studied"
     },
     "testimonial": {
       "imageAlt": "Client receiving legal advice",
       "quote": "We anticipate the risks of daily business and the uncertainties of major transactions, and ensure that solutions to potential disputes are clearly stipulated in contracts."
-    },
-    "faq": {
-      "eyebrow": "Useful Information",
-      "title": "Frequently Asked Questions",
-      "intro": "Brief answers about our services and how to work with us.",
-      "items": [
-        {
-          "question": "How do we begin working together?",
-          "answer": "Email us a brief description of your matter, and we will arrange an initial meeting and the appropriate office in advance."
-        },
-        {
-          "question": "What services do you provide?",
-          "answer": "We provide litigation advocacy and representation, one-time legal advisory, and retained legal counsel services."
-        },
-        {
-          "question": "What is the firm’s current team size?",
-          "answer": "The firm profile lists 12 lawyers, while the 2025 interview refers to 4 attorneys and 6 legal assistants. The current roster should be confirmed before publication."
-        },
-        {
-          "question": "Do you advise foreign investors?",
-          "answer": "Yes. We assist with the legal and regulatory environment, documentation, representation before government authorities, and investment disputes."
-        }
-      ]
     }
   },
   "practice": {
@@ -247,42 +219,25 @@
       "eyebrow": "Advocacy, Representation, and Legal Advisory",
       "title": "Services tailored to your legal needs"
     },
+    "viewDetails": "View details",
     "areas": [
       {
-        "title": "Civil Cases and Disputes",
-        "text": "Representation in disputes involving contracts, companies, shares, loans, collateral, insurance, intellectual property, reputation, and investments."
+        "title": "Legal Representation and Assistance in Judicial Proceedings",
+        "text": "Representation and advocacy in civil, administrative, and criminal matters, enforcement proceedings, arbitration, and other institutions."
       },
       {
-        "title": "Administrative Cases and Disputes",
-        "text": "Advice and representation in mining license, land, business permit, tax, tender, procurement, and competition disputes."
+        "title": "Legal Advisory Services",
+        "text": "Comprehensive advice, documentation, and representation for a specific matter, assignment, or transaction."
       },
       {
-        "title": "Criminal Defense",
-        "text": "Defense of suspects, accused persons, defendants, and victims at all stages of criminal proceedings."
-      },
-      {
-        "title": "Enforcement and Arbitration",
-        "text": "Representation in enforcement proceedings, arbitration, and proceedings before other institutions."
-      },
-      {
-        "title": "One-Time Legal Advisory",
-        "text": "Preparation of legal documents for corporate, property, contract, investment, bankruptcy, and licensing matters."
-      },
-      {
-        "title": "Retained Legal Counsel",
+        "title": "Retained Legal Advisory Services",
         "text": "Ongoing support for day-to-day operations, internal policies, contracts, representation, and legal due diligence."
       }
     ],
     "full": {
-      "eyebrow": "Complete Service Information",
-      "title": "Explore the area relevant to your needs",
-      "intro": "Every service in the firm profile is presented below by category. Select a heading to expand or collapse it.",
       "litigationTitle": "Legal Representation and Assistance in Judicial Proceedings",
       "oneTimeTitle": "One-Time Legal Advisory Services",
-      "oneTimeHeading": "One-Time Legal Advisory",
-      "oneTimeIntro": "Comprehensive advice, documentation, and representation for a specific matter, assignment, or transaction.",
-      "retainedTitle": "Retained Legal Advisory Services",
-      "retainedHeading": "Benefits of Retained Legal Counsel"
+      "retainedTitle": "Retained Legal Advisory Services"
     },
     "litigation": [
       {
@@ -350,24 +305,6 @@
         "Acting as legal representative and counsel in court decision enforcement proceedings",
         "Preparing legal opinions and conducting legal due diligence"
       ]
-    },
-    "faq": {
-      "eyebrow": "Service Information",
-      "title": "Frequently Asked Questions",
-      "items": [
-        {
-          "question": "How are retained advisory fees calculated?",
-          "answer": "The agreed monthly fee remains fixed regardless of the volume of work, workload, or time spent during the month."
-        },
-        {
-          "question": "What is included in a one-time advisory engagement?",
-          "answer": "It may include company formation, amendment or dissolution, ownership matters, investments, contracts, collateral, and licensing work."
-        },
-        {
-          "question": "At which stages do you provide representation?",
-          "answer": "We provide advocacy and representation at all relevant stages of civil, administrative and criminal proceedings, arbitration, and enforcement."
-        }
-      ]
     }
   },
   "team": {
@@ -400,6 +337,36 @@
       ]
     },
     "teamNote": "The firm profile states that the team comprises 12 lawyers, while the June 2025 interview refers to 4 attorneys and 6 legal assistants. Named profiles will be published here once the current roster has been confirmed.",
+    "members": {
+      "viewProfile": "View Profile",
+      "backToTeam": "Back to Our Team",
+      "profileEyebrow": "Our Team",
+      "intro": "We develop practical legal solutions through close teamwork and careful research tailored to each client’s needs.",
+      "firmLabel": "Firm",
+      "practiceLabel": "Services",
+      "practiceValue": "Advocacy · Representation · Legal Advisory",
+      "contactEyebrow": "Work With Us",
+      "contactTitle": "Get in Touch",
+      "contactText": "Send us a brief outline of your matter by email, and we will arrange the most suitable way to connect.",
+      "emailLabel": "Email Us",
+      "facebookLabel": "Facebook page",
+      "jargalan-byambatsogt": {
+        "name": "Jargalan Byambatsogt",
+        "role": "Senior Associate"
+      },
+      "dulguun-erdenebulgan": {
+        "name": "Dulguun Erdenebulgan",
+        "role": "Associate"
+      },
+      "byambadorj-dorjsuren": {
+        "name": "Byambadorj Dorjsuren",
+        "role": "Associate"
+      },
+      "badamsuren-urtnasan": {
+        "name": "Badamsuren Urtnasan",
+        "role": "Associate"
+      }
+    },
     "groups": [
       {
         "name": "Litigation Team",
@@ -440,6 +407,16 @@
   },
   "contact": {
     "title": "Contact Us",
+    "intro": "Reach out through the channel that is most convenient for your legal inquiry.",
+    "phoneLabel": "Phone",
+    "phoneNote": "Tap to call",
+    "emailLabel": "Email",
+    "emailNote": "Send an inquiry or details",
+    "facebookLabel": "Facebook",
+    "facebookNote": "Visit our page",
+    "officeLabel": "Meeting",
+    "officeValue": "Ulaanbaatar, Mongolia",
+    "officeNote": "By prior appointment",
     "officesTitle": "Our Offices:",
     "appointment": "Schedule a Meeting",
     "appointmentSubject": "meeting request",

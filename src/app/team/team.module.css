@@ -1,5 +1,5 @@
 .hero {
-  padding: 120px 0 155px;
+  padding: clamp(56px, 5vw, 76px) 0 155px;
 }
 .heroGrid {
   display: grid;
@@ -86,47 +86,6 @@
 .team {
   padding: 140px 0 120px;
 }
-.teamLead {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 75px;
-}
-.teamLead p {
-  max-width: 650px;
-  color: var(--muted);
-  line-height: 1.75;
-}
-.teamGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
-}
-.teamImage {
-  position: relative;
-  min-height: 440px;
-  overflow: hidden;
-  border-radius: 13px;
-}
-.teamImage img {
-  object-fit: cover;
-  transition: transform 550ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-.person:hover .teamImage img {
-  transform: scale(1.045);
-}
-.person h2 {
-  margin: 19px 0 2px;
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0;
-}
-.person p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 11px;
-}
-
 .awards {
   padding: 130px 0 145px;
 }
@@ -160,9 +119,6 @@
   .team {
     padding-top: 80px;
   }
-  .teamGrid {
-    grid-template-columns: 1fr 1fr;
-  }
   .awardRow {
     grid-template-columns: 55px 1fr 70px;
   }
@@ -181,14 +137,8 @@
   .heroImage {
     min-height: 440px;
   }
-  .teamGrid {
-    grid-template-columns: 1fr;
-  }
   .founderGrid dl > div {
     grid-template-columns: 1fr;
     gap: 8px;
-  }
-  .teamImage {
-    min-height: 520px;
   }
 }
