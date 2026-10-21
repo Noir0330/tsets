@@ -74,7 +74,7 @@ function PhoneIcon() {
 export function SiteHeader() {
   const messages = useSiteMessages();
   const { header } = messages;
-  const pathname = usePathname();
+  const pathname = usePathname().replace(/\/$/, "") || "/";
   const menuRef = useRef<HTMLDetailsElement>(null);
   const closeMenu = () => {
     if (menuRef.current) menuRef.current.open = false;
