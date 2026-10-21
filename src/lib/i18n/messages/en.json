@@ -50,7 +50,12 @@
   },
   "theme": {
     "label": "Choose a color theme",
-    "items": ["Burgundy · Ivory", "Green · Forest", "Blue · Navy"]
+    "items": [
+      "Burgundy · Ivory",
+      "Burgundy · Gold",
+      "Green · Forest",
+      "Blue · Navy"
+    ]
   },
   "template": {
     "label": "Template",

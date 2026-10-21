@@ -5,14 +5,15 @@ import { useEffect, useState } from "react";
 import { useSiteMessages } from "@/lib/i18n/PublicI18nProvider";
 import styles from "./ThemeSelector.module.css";
 
-const themeIds = ["burgundy", "forest", "navy"] as const;
+const themeIds = ["burgundy", "burgundy-gold", "forest", "navy"] as const;
+const defaultTheme = "burgundy-gold";
 
 export function ThemeSelector() {
   const { theme: themeMessages } = useSiteMessages();
-  const [theme, setTheme] = useState("navy");
+  const [theme, setTheme] = useState(defaultTheme);
 
   useEffect(() => {
-    setTheme(document.documentElement.dataset.theme || "navy");
+    setTheme(document.documentElement.dataset.theme || defaultTheme);
   }, []);
 
   function changeTheme(value: string) {

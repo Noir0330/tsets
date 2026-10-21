@@ -38,6 +38,25 @@
   --nav-border: #dfcfca;
 }
 
+:root[data-theme="burgundy-gold"] {
+  --paper: #fffdf9;
+  --warm: #f7efe8;
+  --ink: #3d101d;
+  --muted: #775b63;
+  --muted-dark: #65434d;
+  --line: #e6d6d1;
+  --forest: #800020;
+  --forest-soft: #94163a;
+  --forest-line: #a94d67;
+  --forest-meta: #d2a9b4;
+  --mist: #dcc5cb;
+  --gold: #c6a75e;
+  --gold-light: #e0ca91;
+  --nav-bg: #fffaf2;
+  --nav-ink: #800020;
+  --nav-border: #dfcda8;
+}
+
 :root[data-theme="forest"] {
   --paper: #fcfdf9;
   --warm: #eef2e9;

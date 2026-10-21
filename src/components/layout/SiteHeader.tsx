@@ -11,12 +11,6 @@ import styles from "./SiteHeader.module.css";
 import { TemplateVisibilityToggle } from "./TemplateVisibilityToggle";
 import { ThemeSelector } from "./ThemeSelector";
 
-const demos = [
-  { image: "/images/demo-lawyer.jpg", selected: false },
-  { image: "/images/demo-law-firm.jpg", selected: true },
-  { image: "/images/demo-legal-bureau.jpg", selected: false },
-] as const;
-
 const practiceLinks = [
   {
     href: "/practice-areas/civil-disputes",
@@ -103,44 +97,20 @@ export function SiteHeader() {
         <Link className={styles.logo} href="/" aria-label={header.logoLabel}>
           <Image
             alt="Tsets Partners"
-            height={724}
+            height={1254}
             priority
-            src="/images/tsets-logo-horizontal.png"
-            width={2172}
+            src="/images/tsets-logo-transparent.png"
+            width={1254}
           />
         </Link>
 
         <nav className={styles.desktopNav} aria-label={header.mainNav}>
-          <div className={styles.homeGroup}>
-            <Link href="/">
-              {header.nav.home}
-              <span data-template-only>
-                <ChevronIcon />
-              </span>
-            </Link>
-            <div
-              className={`${styles.megaMenu} ${styles.homeMenu}`}
-              data-template-only
-            >
-              <div className={styles.demoGrid}>
-                {demos.map((demo, index) => (
-                  <div
-                    className={demo.selected ? styles.selectedDemo : undefined}
-                    key={demo.image}
-                  >
-                    <Image
-                      alt={header.demos[index]}
-                      height={869}
-                      sizes="340px"
-                      src={demo.image}
-                      width={740}
-                    />
-                    <span>{header.demos[index]}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <Link
+            className={pathname === "/" ? styles.active : undefined}
+            href="/"
+          >
+            {header.nav.home}
+          </Link>
 
           <div className={styles.practiceGroup}>
             <Link

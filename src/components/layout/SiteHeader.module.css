@@ -12,7 +12,7 @@
   display: grid;
   width: 100%;
   max-width: none;
-  min-height: 67px;
+  min-height: 88px;
   grid-template-columns: auto 1fr auto auto;
   align-items: center;
   gap: 20px;
@@ -21,7 +21,8 @@
 }
 
 .logo img {
-  width: 132px;
+  display: block;
+  width: 68px;
   height: auto;
 }
 
@@ -34,7 +35,6 @@
 }
 
 .desktopNav > a,
-.homeGroup > a,
 .practiceGroup > a,
 .pageGroup > a {
   display: inline-flex;
@@ -62,7 +62,6 @@
   color: var(--muted-dark);
 }
 
-.homeGroup,
 .practiceGroup,
 .pageGroup {
   position: relative;
@@ -71,7 +70,6 @@
   align-items: center;
 }
 
-.homeGroup:hover > a svg,
 .practiceGroup:hover > a svg,
 .pageGroup:hover > a svg {
   transform: rotate(180deg);
@@ -100,62 +98,10 @@
   content: "";
 }
 
-.homeMenu {
-  padding: 36px;
-  background: #101010;
-  border: 1px solid #383838;
-  border-radius: 28px;
-}
-
-.homeGroup:hover .megaMenu {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translate(-50%, 0);
-}
-
 .practiceGroup:hover .practiceMenu {
   opacity: 1;
   pointer-events: auto;
   transform: translate(-50%, 0);
-}
-
-.demoGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-
-.demoGrid img {
-  width: 100%;
-  aspect-ratio: 0.95;
-  border-radius: 15px;
-  object-fit: cover;
-  object-position: top;
-  transition: transform 320ms ease;
-}
-
-.demoGrid > div {
-  transition: transform 240ms ease;
-}
-
-.demoGrid > div:hover {
-  transform: translateY(-8px);
-}
-
-.demoGrid > div:hover img {
-  transform: scale(1.015);
-}
-
-.demoGrid span {
-  display: block;
-  padding-top: 22px;
-  color: #dcecec;
-  font-size: 20px;
-}
-
-.selectedDemo img {
-  outline: 2px solid var(--gold);
-  outline-offset: 4px;
 }
 
 .practiceMenu {
@@ -468,6 +414,6 @@
     padding-inline: 16px;
   }
   .logo img {
-    width: 108px;
+    width: 60px;
   }
 }

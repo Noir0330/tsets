@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import type { ReactNode } from "react";
+import { ClientPreferences } from "@/components/layout/ClientPreferences";
 import { FloatingContact } from "@/components/layout/FloatingContact";
 import { MotionController } from "@/components/layout/MotionController";
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -40,23 +41,12 @@ export default function RootLayout({
     <html
       className={`${displayFont.variable} ${bodyFont.variable}`}
       data-template="hide"
+      data-theme="burgundy-gold"
       lang="mn"
       suppressHydrationWarning
     >
       <body>
-        {/* Apply the saved palette before the first paint. */}
-        <script
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: Static theme initialization with validated local preference.
-          dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem("tsets-theme");if(["burgundy","forest","navy"].includes(t))document.documentElement.dataset.theme=t}catch{}`,
-          }}
-        />
-        <script
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: Static template-preview initialization with a local boolean preference.
-          dangerouslySetInnerHTML={{
-            __html: `try{var v=localStorage.getItem("tsets-template-sections");document.documentElement.dataset.template=v==="show"?"show":"hide"}catch{}`,
-          }}
-        />
+        <ClientPreferences />
         <PublicI18nProvider>
           <SkipLink />
           <SiteHeader />
