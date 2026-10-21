@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useSiteMessages } from "@/lib/i18n/PublicI18nProvider";
 import { LanguageSelector } from "./LanguageSelector";
 import styles from "./SiteHeader.module.css";
@@ -47,17 +47,21 @@ export function SiteHeader() {
   const { header } = messages;
   const pathname = usePathname().replace(/\/$/, "") || "/";
   const menuRef = useRef<HTMLDetailsElement>(null);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const closeMenu = () => {
     if (menuRef.current) menuRef.current.open = false;
+    setMobileServicesOpen(false);
   };
   const links = [
     { href: "/", label: header.nav.home },
-    ...practiceLinks.map((item, index) => ({
-      href: item.href,
-      label: header.practiceLinks[index],
-    })),
+    {
+      children: practiceLinks.map((item, index) => ({
+        href: item.href,
+        label: header.practiceLinks[index],
+      })),
+      label: header.nav.services,
+    },
     { href: "/about", label: header.nav.about },
-    { href: "/team", label: header.nav.team, templateOnly: true },
     { href: "/interview", label: header.nav.interview },
     { href: "/contact", label: header.nav.contact },
   ] as const;
@@ -154,25 +158,58 @@ export function SiteHeader() {
           <LanguageSelector />
         </div>
 
-        <details className={styles.mobileMenu} ref={menuRef}>
+        <details
+          className={styles.mobileMenu}
+          onToggle={(event) => {
+            if (!event.currentTarget.open) setMobileServicesOpen(false);
+          }}
+          ref={menuRef}
+        >
           <summary aria-label={header.openMenu}>
             <Menu className={styles.menuIcon} aria-hidden="true" />
             <X className={styles.closeIcon} aria-hidden="true" />
           </summary>
           <div className={styles.mobilePanel}>
             <nav aria-label={header.mobileNav}>
-              {links.map((item) => (
-                <Link
-                  data-template-only={
-                    "templateOnly" in item && item.templateOnly ? "" : undefined
-                  }
-                  href={item.href}
-                  key={item.href}
-                  onClick={closeMenu}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {links.map((item) =>
+                "children" in item ? (
+                  <div className={styles.mobileServices} key={item.label}>
+                    <button
+                      aria-controls="mobile-services-list"
+                      aria-expanded={mobileServicesOpen}
+                      className={styles.mobileServicesButton}
+                      onClick={() => setMobileServicesOpen((open) => !open)}
+                      type="button"
+                    >
+                      {item.label}
+                      <ChevronIcon />
+                    </button>
+                    <div
+                      aria-hidden={!mobileServicesOpen}
+                      className={styles.mobileServicesList}
+                      data-open={mobileServicesOpen ? "" : undefined}
+                      id="mobile-services-list"
+                    >
+                      <div className={styles.mobileServicesListInner}>
+                        {item.children.map((child) => (
+                          <Link
+                            href={child.href}
+                            key={child.href}
+                            onClick={closeMenu}
+                            tabIndex={mobileServicesOpen ? undefined : -1}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <Link href={item.href} key={item.href} onClick={closeMenu}>
+                    {item.label}
+                  </Link>
+                ),
+              )}
             </nav>
             <div className={styles.mobileMeta}>
               <a href="mailto:Lkhagvalawyer@gmail.com">
