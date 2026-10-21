@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Facebook, Mail, MapPin, Phone } from "lucide-react";
 import { LibraryContact } from "@/components/sections/ThemeSections";
 import { useSiteMessages } from "@/lib/i18n/PublicI18nProvider";
 import styles from "./contact.module.css";
@@ -8,22 +8,70 @@ import styles from "./contact.module.css";
 export default function ContactPage() {
   const { contact } = useSiteMessages();
   const email = "Lkhagvalawyer@gmail.com";
+  const phone = "+976 9909 2918";
   return (
     <>
       <section className={styles.title}>
-        <div>
-          <h1>{contact.title}</h1>
-          <p>
-            <a href="mailto:Lkhagvalawyer@gmail.com">Lkhagvalawyer@gmail.com</a>
-            <span aria-hidden="true"> · </span>
+        <div className="shell">
+          <div className={styles.titleCopy}>
+            <h1>{contact.title}</h1>
+            <p>{contact.intro}</p>
+          </div>
+          <div className={styles.contactGrid}>
+            <a className={styles.contactItem} href="tel:+97699092918">
+              <span className={styles.contactIcon}>
+                <Phone aria-hidden="true" size={20} strokeWidth={1.7} />
+              </span>
+              <span className={styles.contactCopy}>
+                <span className={styles.contactLabel}>
+                  {contact.phoneLabel}
+                </span>
+                <strong>{phone}</strong>
+                <span>{contact.phoneNote}</span>
+              </span>
+            </a>
+            <a className={styles.contactItem} href={`mailto:${email}`}>
+              <span className={styles.contactIcon}>
+                <Mail aria-hidden="true" size={20} strokeWidth={1.7} />
+              </span>
+              <span className={styles.contactCopy}>
+                <span className={styles.contactLabel}>
+                  {contact.emailLabel}
+                </span>
+                <strong>{email}</strong>
+                <span>{contact.emailNote}</span>
+              </span>
+            </a>
             <a
+              className={styles.contactItem}
               href="https://www.facebook.com/LkhagvaLawyer"
               rel="noreferrer"
               target="_blank"
             >
-              Facebook
+              <span className={styles.contactIcon}>
+                <Facebook aria-hidden="true" size={20} strokeWidth={1.7} />
+              </span>
+              <span className={styles.contactCopy}>
+                <span className={styles.contactLabel}>
+                  {contact.facebookLabel}
+                </span>
+                <strong>@LkhagvaLawyer</strong>
+                <span>{contact.facebookNote}</span>
+              </span>
             </a>
-          </p>
+            <div className={styles.contactItem}>
+              <span className={styles.contactIcon}>
+                <MapPin aria-hidden="true" size={20} strokeWidth={1.7} />
+              </span>
+              <span className={styles.contactCopy}>
+                <span className={styles.contactLabel}>
+                  {contact.officeLabel}
+                </span>
+                <strong>{contact.officeValue}</strong>
+                <span>{contact.officeNote}</span>
+              </span>
+            </div>
+          </div>
         </div>
       </section>
       <LibraryContact />

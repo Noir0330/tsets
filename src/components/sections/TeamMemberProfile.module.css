@@ -1,0 +1,191 @@
+.hero {
+  padding: clamp(56px, 5vw, 76px) 0;
+  background: var(--warm);
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.8fr) 1.2fr;
+  align-items: center;
+  gap: clamp(48px, 9vw, 145px);
+}
+
+.image {
+  position: relative;
+  min-height: 590px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #e7dfd8;
+}
+
+.image img {
+  object-fit: cover;
+}
+
+.copy {
+  max-width: 620px;
+}
+
+.backLink {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 46px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+.backLink span {
+  font-size: 1.25rem;
+  transition: transform 200ms ease;
+}
+
+.backLink:hover span,
+.backLink:focus-visible span {
+  transform: translateX(-4px);
+}
+
+.copy :global(.eyebrow) {
+  margin: 0;
+}
+
+.copy h1 {
+  margin: 18px 0 16px;
+  font-size: clamp(3rem, 5.4vw, 5.75rem);
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.role {
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.intro {
+  max-width: 600px;
+  margin: 34px 0 0;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.45vw, 1.28rem);
+  line-height: 1.75;
+}
+
+.information {
+  display: grid;
+  gap: 0;
+  max-width: 620px;
+  margin: 42px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.information > div {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.38fr) 1fr;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.information dt {
+  color: var(--gold);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.information dd {
+  margin: 0;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.contact {
+  padding: clamp(70px, 9vw, 130px) 0;
+  background: var(--forest);
+  color: #fff;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: clamp(48px, 10vw, 160px);
+}
+
+.contactGrid :global(.eyebrow) {
+  margin: 0;
+  color: var(--gold-light);
+}
+
+.contactGrid h2 {
+  margin: 16px 0 0;
+  font-size: clamp(2.5rem, 4vw, 4.4rem);
+  line-height: 1;
+}
+
+.contactGrid > div:last-child > p {
+  max-width: 580px;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  line-height: 1.5;
+}
+
+.contactLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.contactLinks a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  border: 1px solid var(--forest-line);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.contactLinks a:hover,
+.contactLinks a:focus-visible {
+  border-color: var(--gold);
+  background: var(--gold);
+}
+
+@media (max-width: 850px) {
+  .heroGrid,
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroGrid {
+    gap: 48px;
+  }
+
+  .image {
+    min-height: 520px;
+  }
+
+  .backLink {
+    margin-bottom: 48px;
+  }
+}
+
+@media (max-width: 520px) {
+  .image {
+    min-height: 440px;
+  }
+
+  .information > div {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}

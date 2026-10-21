@@ -13,3 +13,18 @@ License: [Pexels License](https://www.pexels.com/license/). Free personal and co
 Files were downloaded as compressed JPEGs from `images.pexels.com/photos/{photo-id}/pexels-photo-{photo-id}.jpeg` at widths of 1200 pixels (litigation and ongoing counsel) and 1400 pixels (business advice), quality 85.
 
 The existing `trusted-counsel.jpg` photo for Гэрээ ба хэлцэл is unchanged. This source list covers only the replacement photos above.
+
+## Team avatars
+
+`team-avatar-jargalan.png`, `team-avatar-dulguun.png`, `team-avatar-byambadorj.png`, and `team-avatar-badamsuren.png` were generated with OpenAI image generation on 2026-10-21. They are illustrative avatars, not photographs or likenesses of Tsets Partners team members.
+
+## Client logos
+
+The following logos were downloaded from the organizations' official websites on 2026-10-21 and are displayed only to identify organizations named as regular clients in the Business.mn interview. Confirm each organization's approval before public release.
+
+| Local file | Organization | Official source |
+| --- | --- | --- |
+| `client-alko-group.svg` | Алко Групп | https://alkogroup.com/ |
+| `client-practical-insurance.png` | Практикал Даатгал | https://www.practical.mn/ |
+| `client-milaya-foods.png` | Милая Фүүдс | https://www.milaya.mn/ |
+| `client-agricorp.png` | Хөдөө аж ахуйн корпораци ТӨХХК | https://www.agricorp.mn/ |

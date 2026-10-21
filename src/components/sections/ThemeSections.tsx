@@ -6,7 +6,32 @@ import { useSiteMessages } from "@/lib/i18n/PublicI18nProvider";
 import { ContactForm } from "./ContactForm";
 import styles from "./ThemeSections.module.css";
 
-const logos = ["03", "04", "05", "06", "07"] as const;
+const clientLogos = [
+  {
+    alt: "Алко Групп",
+    href: "https://alkogroup.com/",
+    src: "/images/client-alko-group.svg",
+    variant: "light",
+  },
+  {
+    alt: "Практикал Даатгал",
+    href: "https://www.practical.mn/",
+    src: "/images/client-practical-insurance.png",
+    variant: "default",
+  },
+  {
+    alt: "Милая Фүүдс",
+    href: "https://www.milaya.mn/",
+    src: "/images/client-milaya-foods.png",
+    variant: "default",
+  },
+  {
+    alt: "Хөдөө аж ахуйн корпораци ТӨХХК",
+    href: "https://www.agricorp.mn/",
+    src: "/images/client-agricorp.png",
+    variant: "default",
+  },
+] as const;
 
 export function TrustedLogos() {
   const { shared } = useSiteMessages();
@@ -14,16 +39,19 @@ export function TrustedLogos() {
     <section className={styles.logos} data-motion-scope data-template-only>
       <div className={`shell ${styles.logoRow}`}>
         <p data-reveal="fade">{shared.clients}</p>
-        {logos.map((logo, index) => (
-          <Image
-            alt={shared.clientLogoAlt}
+        {clientLogos.map((logo, index) => (
+          <a
+            aria-label={logo.alt}
+            className={logo.variant === "light" ? styles.lightLogo : undefined}
             data-reveal="fade"
             data-reveal-delay={(index + 1) * 80}
-            height={42}
-            key={logo}
-            src={`/images/client-logo-${logo}.webp`}
-            width={135}
-          />
+            href={logo.href}
+            key={logo.src}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <Image alt={logo.alt} height={42} src={logo.src} width={135} />
+          </a>
         ))}
       </div>
     </section>

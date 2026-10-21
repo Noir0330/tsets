@@ -1,7 +1,7 @@
 .footer {
   padding: 80px 0 28px;
   background: var(--forest);
-  color: #aebfc0;
+  color: var(--on-dark-muted);
   font-size: 14px;
 }
 
@@ -14,6 +14,7 @@
 .brand img {
   width: 96px;
   height: auto;
+  filter: brightness(0) invert(1);
 }
 .brand p {
   max-width: 390px;

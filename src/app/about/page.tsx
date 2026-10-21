@@ -1,74 +1,144 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import { TeamMemberCards } from "@/components/sections/TeamMemberCards";
 import { TrustedLogos } from "@/components/sections/ThemeSections";
 import { useSiteMessages } from "@/lib/i18n/PublicI18nProvider";
 import styles from "./about.module.css";
 
+function MetricCounter({
+  value,
+  suffix = "",
+}: {
+  value: number;
+  suffix?: string;
+}) {
+  const counterRef = useRef<HTMLSpanElement>(null);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const counter = counterRef.current;
+    if (!counter) return;
+
+    let frameId = 0;
+    let hasPlayed = false;
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    const play = () => {
+      if (reduceMotion) {
+        setCount(value);
+        return;
+      }
+
+      const start = performance.now();
+      const duration = 1350;
+      const tick = (now: number) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const easedProgress = 1 - (1 - progress) ** 4;
+        setCount(Math.round(value * easedProgress));
+
+        if (progress < 1) {
+          frameId = requestAnimationFrame(tick);
+        } else {
+          setCount(value);
+        }
+      };
+
+      frameId = requestAnimationFrame(tick);
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasPlayed) {
+          hasPlayed = true;
+          observer.disconnect();
+          play();
+        }
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(counter);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frameId);
+    };
+  }, [value]);
+
+  return (
+    <strong ref={counterRef}>
+      {count}
+      {suffix}
+    </strong>
+  );
+}
+
 export default function AboutPage() {
-  const { about, common } = useSiteMessages();
+  const { about, common, team } = useSiteMessages();
+  const metrics: { label: string; suffix?: string; value: number }[] = [
+    { label: about.metrics.founded, value: 2017 },
+    { label: about.metrics.branches, value: 2 },
+    { label: about.metrics.serviceAreas, value: 3 },
+    { label: about.metrics.attorneys, value: 4 },
+    { label: about.metrics.assistants, value: 6 },
+    { label: about.metrics.awards, suffix: "%+", value: 70 },
+  ];
+
   return (
     <>
       <section className={styles.intro} id="services">
         <div className={`shell ${styles.introGrid}`}>
           <div className={styles.introImage}>
             <Image
-              alt={about.hero.imageAlt}
+              alt={common.founder}
               fill
               priority
               sizes="(max-width: 850px) 100vw, 50vw"
-              src="/images/about-meeting.jpg"
+              src="/images/tsets-zahiral.jpg"
             />
           </div>
           <div className={styles.introCopy}>
-            <p className="eyebrow">{about.hero.eyebrow}</p>
-            <h1>{about.hero.title}</h1>
-            <p>{about.hero.text}</p>
-            <Link href="/contact">{about.hero.cta}</Link>
-            <h2>{about.hero.principlesTitle}</h2>
-            <p>{about.hero.principlesText}</p>
+            <p className="eyebrow">{common.founderRole}</p>
+            <h1>{common.founder}</h1>
+            <p>{team.founder.bio}</p>
+            <dl className={styles.founderFacts}>
+              {team.founder.facts.map((fact) => (
+                <div key={fact.term}>
+                  <dt>{fact.term}</dt>
+                  <dd>{fact.text}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </section>
 
-      <TrustedLogos />
-
-      <section className={styles.leadership} data-template-only>
-        <div className={`shell ${styles.leadGrid}`}>
-          <div className={styles.leadTitle}>
-            <p className="eyebrow">{about.leadership.eyebrow}</p>
-            <h2>{about.leadership.title}</h2>
-            <p>{about.leadership.text}</p>
+      <section className={styles.metricsSection}>
+        <div className="shell">
+          <div className={styles.metrics}>
+            {metrics.map((metric) => (
+              <div className={styles.metric} key={metric.label}>
+                <MetricCounter suffix={metric.suffix} value={metric.value} />
+                <span>{metric.label}</span>
+              </div>
+            ))}
           </div>
-          <article className={styles.person}>
-            <div className={styles.personImage}>
-              <Image
-                alt={about.leadership.litigationAlt}
-                fill
-                sizes="400px"
-                src="/images/elizabeth-carter.jpg"
-              />
-            </div>
-            <h3>{about.leadership.litigationTitle}</h3>
-            <p>{about.leadership.litigationText}</p>
-          </article>
-          <article className={styles.person}>
-            <div className={styles.personImage}>
-              <Image
-                alt={about.leadership.advisoryAlt}
-                fill
-                sizes="400px"
-                src="/images/sophia-hartman.jpg"
-              />
-            </div>
-            <h3>{about.leadership.advisoryTitle}</h3>
-            <p>{about.leadership.advisoryText}</p>
-          </article>
         </div>
       </section>
 
-      <section className={styles.advantages}>
+      <section className={styles.team} id="team">
+        <div className="shell">
+          <div className={styles.teamHeading}>
+            <h2>{about.team.title}</h2>
+          </div>
+          <TeamMemberCards />
+        </div>
+      </section>
+
+      <section className={styles.advantages} id="advantages">
         <div className={`shell ${styles.advantagesGrid}`}>
           <div>
             <p className="eyebrow">{about.advantages.eyebrow}</p>
@@ -93,76 +163,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className={styles.results}>
-        <div className="shell">
-          <div className={styles.metricsTop}>
-            <div>
-              <h2>{about.metrics.title}</h2>
-              <p>{about.metrics.text}</p>
-            </div>
-            <div className={styles.metric}>
-              <strong>2017</strong>
-              <span>{about.metrics.founded}</span>
-            </div>
-            <div className={styles.metric}>
-              <strong>2</strong>
-              <span>{about.metrics.branches}</span>
-            </div>
-          </div>
-          <div className={styles.metricGrid}>
-            <div>
-              <strong>3</strong>
-              <span>{about.metrics.serviceAreas}</span>
-            </div>
-            <div>
-              <strong>4</strong>
-              <span>{about.metrics.attorneys}</span>
-            </div>
-            <div>
-              <strong>6</strong>
-              <span>{about.metrics.assistants}</span>
-            </div>
-            <div>
-              <strong>70%+</strong>
-              <span>{about.metrics.awards}</span>
-            </div>
-          </div>
-
-          <div className={styles.testimonial} id="testimonials">
-            <div className={styles.testimonialImage}>
-              <Image
-                alt={about.testimonial.imageAlt}
-                fill
-                sizes="(max-width: 850px) 100vw, 40vw"
-                src="/images/client-henry.jpg"
-              />
-            </div>
-            <div className={styles.quote}>
-              <blockquote>{about.testimonial.quote}</blockquote>
-              <div>
-                <strong>{common.founder}</strong>
-                <span>{common.founderRole}</span>
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.faqGrid}>
-            <div>
-              <p className="eyebrow">{about.faq.eyebrow}</p>
-              <h2>{about.faq.title}</h2>
-              <p>{about.faq.intro}</p>
-            </div>
-            <div className={styles.faqs}>
-              {about.faq.items.map((item, index) => (
-                <details key={item.question} open={index === 1}>
-                  <summary>{item.question}</summary>
-                  <p>{item.answer}</p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <TrustedLogos />
     </>
   );
 }

@@ -8,27 +8,11 @@ import { useRef } from "react";
 import { useSiteMessages } from "@/lib/i18n/PublicI18nProvider";
 import { LanguageSelector } from "./LanguageSelector";
 import styles from "./SiteHeader.module.css";
-import { TemplateVisibilityToggle } from "./TemplateVisibilityToggle";
-import { ThemeSelector } from "./ThemeSelector";
-
-const demos = [
-  { image: "/images/demo-lawyer.jpg", selected: false },
-  { image: "/images/demo-law-firm.jpg", selected: true },
-  { image: "/images/demo-legal-bureau.jpg", selected: false },
-] as const;
 
 const practiceLinks = [
   {
-    href: "/practice-areas/civil-disputes",
+    href: "/practice-areas/litigation",
     image: "/images/practice-menu-99.jpg",
-  },
-  {
-    href: "/practice-areas/administrative-disputes",
-    image: "/images/practice-menu-100.jpg",
-  },
-  {
-    href: "/practice-areas/criminal-defense",
-    image: "/images/practice-menu-101.jpg",
   },
   {
     href: "/practice-areas/business-advisory",
@@ -38,19 +22,6 @@ const practiceLinks = [
     href: "/practice-areas/retained-advisory",
     image: "/images/practice-menu-103.jpg",
   },
-] as const;
-
-const pageLinks = [
-  "/about",
-  "/practice-areas",
-  "/team",
-  "/interview",
-  "/about#services",
-  "/contact",
-  "/practice-areas#faq",
-  "/#news",
-  "/practice-areas",
-  "/practice-areas",
 ] as const;
 
 function ChevronIcon() {
@@ -81,66 +52,35 @@ export function SiteHeader() {
   };
   const links = [
     { href: "/", label: header.nav.home },
-    { href: "/practice-areas", label: header.nav.services },
+    ...practiceLinks.map((item, index) => ({
+      href: item.href,
+      label: header.practiceLinks[index],
+    })),
     { href: "/about", label: header.nav.about },
     { href: "/team", label: header.nav.team, templateOnly: true },
     { href: "/interview", label: header.nav.interview },
     { href: "/contact", label: header.nav.contact },
   ] as const;
-  const smallMenuLabels = [
-    header.nav.about,
-    header.nav.services,
-    header.nav.team,
-    header.pageLinks[0],
-    header.pageLinks[1],
-    header.nav.contact,
-    ...header.pageLinks.slice(2),
-  ];
-
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
         <Link className={styles.logo} href="/" aria-label={header.logoLabel}>
           <Image
             alt="Tsets Partners"
-            height={724}
+            height={1254}
             priority
-            src="/images/tsets-logo-horizontal.png"
-            width={2172}
+            src="/images/tsets-logo-transparent.png"
+            width={1254}
           />
         </Link>
 
         <nav className={styles.desktopNav} aria-label={header.mainNav}>
-          <div className={styles.homeGroup}>
-            <Link href="/">
-              {header.nav.home}
-              <span data-template-only>
-                <ChevronIcon />
-              </span>
-            </Link>
-            <div
-              className={`${styles.megaMenu} ${styles.homeMenu}`}
-              data-template-only
-            >
-              <div className={styles.demoGrid}>
-                {demos.map((demo, index) => (
-                  <div
-                    className={demo.selected ? styles.selectedDemo : undefined}
-                    key={demo.image}
-                  >
-                    <Image
-                      alt={header.demos[index]}
-                      height={869}
-                      sizes="340px"
-                      src={demo.image}
-                      width={740}
-                    />
-                    <span>{header.demos[index]}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <Link
+            className={pathname === "/" ? styles.active : undefined}
+            href="/"
+          >
+            {header.nav.home}
+          </Link>
 
           <div className={styles.practiceGroup}>
             <Link
@@ -149,7 +89,7 @@ export function SiteHeader() {
                   ? styles.active
                   : undefined
               }
-              href="/practice-areas"
+              href={practiceLinks[0].href}
             >
               {header.nav.services}
               <span>
@@ -182,28 +122,12 @@ export function SiteHeader() {
             </div>
           </div>
 
-          <div className={styles.pageGroup}>
-            <Link
-              className={
-                pathname === "/about" || pathname === "/team"
-                  ? styles.active
-                  : undefined
-              }
-              href="/about"
-            >
-              {header.nav.about}
-              <span data-template-only>
-                <ChevronIcon />
-              </span>
-            </Link>
-            <div className={styles.smallMenu} data-template-only>
-              {pageLinks.map((href, index) => (
-                <Link href={href} key={smallMenuLabels[index]}>
-                  {smallMenuLabels[index]}
-                </Link>
-              ))}
-            </div>
-          </div>
+          <Link
+            className={pathname === "/about" ? styles.active : undefined}
+            href="/about"
+          >
+            {header.nav.about}
+          </Link>
 
           <Link
             className={pathname === "/interview" ? styles.active : undefined}
@@ -228,8 +152,6 @@ export function SiteHeader() {
 
         <div className={styles.viewTools}>
           <LanguageSelector />
-          <ThemeSelector />
-          <TemplateVisibilityToggle />
         </div>
 
         <details className={styles.mobileMenu} ref={menuRef}>

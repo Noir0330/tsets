@@ -1,65 +1,154 @@
 .hero {
   position: relative;
   display: grid;
-  min-height: 703px;
-  grid-template-columns: 1fr 1fr;
-  padding-top: 50px;
-  background: var(--warm);
-}
-.heroImage {
-  position: relative;
+  min-height: max(760px, calc(100svh - 88px));
+  grid-template-rows: 1fr auto;
   overflow: hidden;
-  border-radius: 0 15px 15px 0;
+  padding: 0 clamp(24px, 4vw, 70px);
+  background: var(--forest);
+  color: #fff;
 }
-.heroImage img {
+.hero::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(2, 15, 22, 0.76) 0%,
+      rgba(2, 15, 22, 0.4) 58%,
+      rgba(2, 15, 22, 0.25) 100%
+    ),
+    linear-gradient(0deg, rgba(2, 15, 22, 0.62) 0%, transparent 64%);
+  content: "";
+}
+.heroMedia {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.heroMedia video {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center;
 }
 .heroCopy {
+  position: relative;
+  z-index: 2;
   display: flex;
+  max-width: 780px;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 9vw;
-  padding: 100px 70px 70px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(135px, 18vh, 180px) 0 clamp(48px, 6vh, 70px);
 }
 .heroCopy h1 {
-  width: 35vw;
-  max-width: 35vw;
-  margin: 0;
-  font-size: 3.4vw;
-  line-height: 1.16;
-}
-.heroCopy u {
-  background:
-    linear-gradient(currentColor, currentColor) 0 96% / 0 3px no-repeat;
-  text-decoration: none;
-  transition: background-size 2s ease 500ms;
-}
-.heroCopy h1:global(.isVisible) u {
-  background-size: 100% 3px;
+  max-width: 780px;
+  margin: 0 0 20px;
+  font-size: clamp(2rem, 2.55vw, 3.2rem);
+  line-height: 1.14;
+  text-wrap: balance;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.24);
 }
 .heroCopy p {
   display: flex;
-  max-width: 200px;
+  max-width: 480px;
   align-items: center;
-  gap: 17px;
-  align-self: flex-end;
-  margin: 0;
+  gap: 14px;
+  margin: 0 0 27px;
   font-family: var(--font-display);
-  line-height: 1.25;
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  line-height: 1.4;
 }
-.heroTitle {
-  position: absolute;
-  bottom: 70px;
-  left: 70px;
+.heroCopy p svg {
+  flex: 0 0 auto;
+  color: var(--gold-light);
+}
+.heroCta {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  padding: 12px 23px;
+  background: var(--forest);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.heroCta:hover {
+  background: var(--gold);
+  color: var(--forest);
+  transform: translateY(-2px);
+}
+.heroServices {
+  position: relative;
   z-index: 2;
-  color: var(--gold);
-  font-family: var(--font-display);
-  font-size: 10vw;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  white-space: nowrap;
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 2px solid var(--gold);
+}
+.heroServiceCard {
+  display: flex;
+  min-width: 0;
+  min-height: 225px;
+  flex-direction: column;
+  padding: 22px clamp(20px, 2vw, 32px) 21px;
+  background: color-mix(in srgb, var(--forest) 48%, transparent);
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(3px);
+  transition:
+    background-color 220ms ease,
+    transform 220ms ease;
+}
+.heroServiceCard:last-child {
+  border-right: 0;
+  background: color-mix(in srgb, var(--forest) 91%, transparent);
+}
+.heroServiceCard:hover {
+  background: var(--forest-soft);
+  transform: translateY(-8px);
+}
+.heroServiceNumber {
+  margin-bottom: 15px;
+  color: var(--gold-light);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+.heroServiceCard h2 {
+  max-width: 380px;
+  margin: 0 0 10px;
+  font-size: clamp(1.05rem, 1.25vw, 1.35rem);
+  line-height: 1.3;
+}
+.heroServiceCard p {
+  display: -webkit-box;
+  max-width: 410px;
+  margin: 0 0 18px;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.heroServiceAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.heroServiceAction svg {
+  color: var(--gold-light);
+  transition: transform 180ms ease;
+}
+.heroServiceCard:hover .heroServiceAction svg {
+  transform: translate(3px, -3px);
 }
 
 .strengths {
@@ -174,12 +263,12 @@
 .darkIntro p {
   max-width: 550px;
   margin: 0;
-  color: #aec0c0;
+  color: var(--on-dark-muted);
   line-height: 1.8;
 }
 .gallery {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 .gallery > div {
   position: relative;
@@ -193,9 +282,6 @@
 
 .gallery > div:hover img {
   transform: scale(1.055);
-}
-.gallery::after {
-  content: "";
 }
 .gallery span {
   position: absolute;
@@ -236,7 +322,7 @@
   font-size: 13px;
 }
 .testimonial span {
-  color: #9cb0b0;
+  color: var(--on-dark-muted);
   font-size: 11px;
 }
 .leaders {
@@ -253,7 +339,7 @@
 }
 .leaders > div p:last-child {
   max-width: 230px;
-  color: #9cb0b0;
+  color: var(--on-dark-muted);
 }
 .leaders article {
   position: relative;
@@ -315,31 +401,34 @@
 
 @media (max-width: 900px) {
   .hero {
-    min-height: 0;
-    grid-template-columns: 1fr;
-    padding-top: 28px;
-  }
-  .heroImage {
-    min-height: 610px;
-    border-radius: 0 0 14px 14px;
+    min-height: calc(100svh - 78px);
+    padding-inline: 24px;
   }
   .heroCopy {
-    min-height: 500px;
-    padding: 65px 24px 55px;
+    max-width: 760px;
+    padding: clamp(120px, 18vh, 155px) 0 52px;
   }
   .heroCopy h1 {
-    width: 100%;
-    max-width: 100%;
-    font-size: 7.5vw;
+    font-size: clamp(2rem, 5.8vw, 3.25rem);
   }
-  .heroCopy p {
-    align-self: flex-start;
+  .heroServices {
+    grid-template-columns: 1fr;
   }
-  .heroTitle {
-    top: 520px;
-    bottom: auto;
-    left: 20px;
-    font-size: 11vw;
+  .heroServiceCard {
+    min-height: 0;
+    padding: 24px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  .heroServiceCard:last-child {
+    border-bottom: 0;
+  }
+  .heroServiceCard p {
+    max-width: 680px;
+    -webkit-line-clamp: 3;
+  }
+  .heroServiceAction {
+    margin-top: 5px;
   }
   .strengthIntro,
   .expertiseGrid,
@@ -373,15 +462,27 @@
 }
 
 @media (max-width: 560px) {
-  .heroImage {
-    min-height: 470px;
+  .hero {
+    padding-inline: 18px;
   }
   .heroCopy {
-    min-height: 430px;
-    padding-top: 75px;
+    padding: 112px 0 45px;
   }
-  .heroTitle {
-    top: 420px;
+  .heroCopy h1 {
+    font-size: clamp(1.75rem, 7vw, 2.25rem);
+  }
+  .heroCopy p {
+    margin-bottom: 25px;
+    font-size: 0.96rem;
+  }
+  .heroServiceCard {
+    padding: 22px 18px;
+  }
+  .heroServiceCard h2 {
+    font-size: 1.18rem;
+  }
+  .heroServiceCard p {
+    font-size: 0.78rem;
   }
   .strengths {
     padding-top: 90px;
@@ -399,5 +500,19 @@
   .expertiseImage,
   .homeContactImage {
     min-height: 450px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroMedia {
+    background:
+      url("/images/hero-modern-courtroom.jpg") center / cover no-repeat;
+  }
+  .heroMedia video {
+    display: none;
+  }
+  .heroServiceCard,
+  .heroServiceAction svg {
+    transition: none;
   }
 }

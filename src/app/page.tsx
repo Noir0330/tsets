@@ -1,9 +1,8 @@
 "use client";
 
-import { Gavel, Quote } from "lucide-react";
+import { ArrowUpRight, Gavel, Quote } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import type { CSSProperties } from "react";
 import { ContactForm } from "@/components/sections/ContactForm";
 import {
   LegalMarquee,
@@ -14,51 +13,72 @@ import styles from "./page.module.css";
 
 const galleryImages = [
   "/images/litigation.jpg",
-  "/images/trusted-counsel.jpg",
   "/images/business-advice.jpg",
   "/images/ongoing-counsel.jpg",
 ] as const;
 
-const heroTitleCharacters = Array.from("Tsets Partners", (character, index) => [
-  `hero-title-${index}`,
-  character === " " ? "\u00a0" : character,
-]);
+const serviceRoutes = [
+  "/practice-areas/litigation",
+  "/practice-areas/business-advisory",
+  "/practice-areas/retained-advisory",
+] as const;
 
 export default function HomePage() {
-  const { common, home, shared } = useSiteMessages();
+  const { common, home, practice, shared } = useSiteMessages();
+
   return (
     <>
       <section className={styles.hero} data-motion-scope>
-        <div className={styles.heroImage} data-reveal="up">
-          <Image
-            alt={home.hero.imageAlt}
-            fill
-            priority
-            sizes="(max-width: 800px) 100vw, 50vw"
-            src="/images/tsets-zahiral.jpg"
-          />
+        <div aria-hidden="true" className={styles.heroMedia}>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/images/hero-modern-courtroom.jpg"
+            preload="auto"
+          >
+            <source src="/videos/tsets-hero.mp4" type="video/mp4" />
+          </video>
         </div>
         <div className={styles.heroCopy}>
           <h1 data-reveal="up" data-reveal-delay="100">
             {home.hero.before}
             {home.hero.beforeSeparator}
-            <u>{home.hero.emphasis}</u>
+            {home.hero.emphasis}
             {home.hero.afterSeparator}
             {home.hero.after}
           </h1>
           <p data-reveal="popup" data-reveal-delay="400">
             <Gavel aria-hidden="true" size={31} /> {home.hero.tagline}
           </p>
+          <Link
+            className={styles.heroCta}
+            data-reveal="up"
+            data-reveal-delay="500"
+            href="/contact"
+          >
+            {common.consultation}
+            <ArrowUpRight aria-hidden="true" size={18} />
+          </Link>
         </div>
-        <div className={styles.heroTitle} data-reveal="chars">
-          {heroTitleCharacters.map(([id, character], index) => (
-            <span
-              className="motionChar"
-              key={id}
-              style={{ "--char-index": index } as CSSProperties}
+        <div className={styles.heroServices}>
+          {practice.areas.map((area, index) => (
+            <Link
+              className={styles.heroServiceCard}
+              data-reveal="up"
+              data-reveal-delay={index * 100}
+              href={serviceRoutes[index]}
+              key={area.title}
             >
-              {character}
-            </span>
+              <span className={styles.heroServiceNumber}>0{index + 1}</span>
+              <h2>{area.title}</h2>
+              <p>{area.text}</p>
+              <span className={styles.heroServiceAction}>
+                {home.hero.viewServices}
+                <ArrowUpRight aria-hidden="true" size={18} />
+              </span>
+            </Link>
           ))}
         </div>
       </section>
@@ -124,7 +144,7 @@ export default function HomePage() {
         <div className={styles.gallery}>
           {galleryImages.map((image, index) => (
             <div data-reveal="up" data-reveal-delay={index * 100} key={image}>
-              <Image alt="" fill sizes="25vw" src={image} />
+              <Image alt="" fill sizes="33vw" src={image} />
               <span>{home.showcase.gallery[index]}</span>
             </div>
           ))}

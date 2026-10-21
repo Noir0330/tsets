@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import type { ReactNode } from "react";
+import { ClientPreferences } from "@/components/layout/ClientPreferences";
 import { FloatingContact } from "@/components/layout/FloatingContact";
 import { MotionController } from "@/components/layout/MotionController";
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -24,6 +25,12 @@ const bodyFont = localFont({
   variable: "--font-work-sans",
 });
 
+const manropeFont = localFont({
+  src: "./fonts/manrope-variable.ttf",
+  weight: "200 800",
+  variable: "--font-manrope",
+});
+
 export const metadata: Metadata = {
   title: {
     default: "Цэц Партнерс — Хуулийн фирм",
@@ -38,25 +45,14 @@ export default function RootLayout({
 }: Readonly<{ children: ReactNode }>) {
   return (
     <html
-      className={`${displayFont.variable} ${bodyFont.variable}`}
+      className={`${displayFont.variable} ${bodyFont.variable} ${manropeFont.variable}`}
       data-template="hide"
+      data-theme="burgundy-gold"
       lang="mn"
       suppressHydrationWarning
     >
       <body>
-        {/* Apply the saved palette before the first paint. */}
-        <script
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: Static theme initialization with validated local preference.
-          dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem("tsets-theme");if(["burgundy","forest","navy"].includes(t))document.documentElement.dataset.theme=t}catch{}`,
-          }}
-        />
-        <script
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: Static template-preview initialization with a local boolean preference.
-          dangerouslySetInnerHTML={{
-            __html: `try{var v=localStorage.getItem("tsets-template-sections");document.documentElement.dataset.template=v==="show"?"show":"hide"}catch{}`,
-          }}
-        />
+        <ClientPreferences />
         <PublicI18nProvider>
           <SkipLink />
           <SiteHeader />

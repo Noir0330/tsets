@@ -12,7 +12,6 @@ export function FloatingContact() {
       className={styles.chat}
       href="mailto:Lkhagvalawyer@gmail.com"
     >
-      <span>{floatingContact.text}</span>
       <i>
         <MessageCircle aria-hidden="true" size={22} strokeWidth={1.8} />
       </i>

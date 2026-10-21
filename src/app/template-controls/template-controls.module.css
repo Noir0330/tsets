@@ -1,0 +1,7 @@
+.page {
+  display: grid;
+  min-height: calc(100dvh - 88px);
+  padding: 32px;
+  background: var(--warm);
+  place-items: center;
+}

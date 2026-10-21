@@ -12,11 +12,13 @@ export function ContactForm() {
     const form = new FormData(event.currentTarget);
     const name = String(form.get("name") ?? "");
     const email = String(form.get("email") ?? "");
+    const phone = String(form.get("phone") ?? "");
     const topic = String(form.get("subject") ?? formMessages.defaultSubject);
     const message = String(form.get("message") ?? "");
     const body = [
       `${formMessages.name}: ${name}`,
       `${formMessages.email}: ${email}`,
+      `${formMessages.phone}: ${phone}`,
       "",
       message,
     ].join("\n");
@@ -40,6 +42,14 @@ export function ContactForm() {
         placeholder={formMessages.email}
         required
         type="email"
+      />
+      <input
+        autoComplete="tel"
+        inputMode="tel"
+        name="phone"
+        placeholder={formMessages.phone}
+        required
+        type="tel"
       />
       <input name="subject" placeholder={formMessages.subject} required />
       <textarea
