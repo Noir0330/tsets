@@ -35,7 +35,9 @@ export function MotionController() {
             ? "motionPopup"
             : animation === "chars"
               ? "motionChars"
-              : "motionUp",
+              : animation === "ribbons"
+                ? "motionRibbons"
+                : "motionUp",
       );
       element.style.setProperty("--motion-delay", `${delay}ms`);
     }

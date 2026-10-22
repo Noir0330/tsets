@@ -1,6 +1,6 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -25,7 +25,7 @@
 .imageLink {
   position: relative;
   display: block;
-  aspect-ratio: 0.77;
+  aspect-ratio: 0.9;
   overflow: hidden;
   background: var(--warm);
 }
@@ -44,7 +44,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 36px 22px 32px;
+  padding: 30px 22px 28px;
   text-align: center;
 }
 
@@ -52,16 +52,16 @@
   margin: 0;
   color: var(--ink);
   font-family: var(--font-body);
-  font-size: clamp(1rem, 1.35vw, 1.35rem);
-  font-weight: 650;
-  letter-spacing: -0.03em;
-  line-height: 1.25;
+  font-size: var(--type-card-title);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 .content p {
-  margin: 24px 0 0;
+  margin: 18px 0 0;
   color: var(--muted);
-  font-size: 0.71rem;
+  font-size: var(--type-caption);
   font-weight: 600;
   letter-spacing: 0.23em;
   line-height: 1.35;
@@ -74,13 +74,13 @@
   gap: 12px;
   margin-top: 18px;
   color: var(--gold);
-  font-size: 0.81rem;
+  font-size: var(--type-label);
   font-weight: 700;
   text-transform: uppercase;
 }
 
 .profileLink span {
-  font-size: 1.5rem;
+  font-size: var(--type-symbol-lg);
   font-weight: 400;
   line-height: 0.6;
   transition: transform 200ms ease;

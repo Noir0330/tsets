@@ -11,22 +11,79 @@
 .logoRow p {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 15px;
+  font-size: var(--type-body);
 }
 .logoRow a {
+  position: relative;
   display: flex;
+  min-height: 78px;
   align-items: center;
   justify-content: center;
+  padding: 14px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: rgb(255 255 255 / 0%);
+  transition:
+    background-color 240ms ease,
+    border-color 240ms ease,
+    box-shadow 240ms ease,
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.logoRow a::after {
+  position: absolute;
+  right: 22%;
+  bottom: 8px;
+  left: 22%;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--gold);
+  content: "";
+  transform: scaleX(0);
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .logoRow img {
   width: 100%;
   max-width: 115px;
   height: 38px;
   object-fit: contain;
-  opacity: 0.48;
+  opacity: 1;
+  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .logoRow .lightLogo img {
   filter: invert(1);
+}
+.logoRow a:focus-visible {
+  border-color: rgb(198 167 94 / 58%);
+  background: var(--warm);
+  box-shadow: 0 14px 28px rgb(61 16 29 / 10%);
+  transform: translateY(-4px);
+}
+.logoRow a:focus-visible::after {
+  transform: scaleX(1);
+}
+.logoRow a:focus-visible img {
+  transform: scale(1.025);
+}
+.logoRow .lightLogo:focus-visible img {
+  filter: invert(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .logoRow a:hover {
+    border-color: rgb(198 167 94 / 58%);
+    background: var(--warm);
+    box-shadow: 0 14px 28px rgb(61 16 29 / 10%);
+    transform: translateY(-4px);
+  }
+  .logoRow a:hover::after {
+    transform: scaleX(1);
+  }
+  .logoRow a:hover img {
+    transform: scale(1.025);
+  }
+  .logoRow .lightLogo:hover img {
+    filter: invert(1);
+  }
 }
 
 .marquee {
@@ -47,7 +104,7 @@
   min-width: 100vw;
   padding-inline: 2.5vw;
   font-family: var(--font-display);
-  font-size: clamp(1.65rem, 3vw, 3rem);
+  font-size: var(--type-marquee);
   text-align: center;
   word-spacing: 18px;
 }
@@ -75,13 +132,24 @@
 }
 .contactCard {
   width: min(100%, 520px);
-  padding: 48px 34px 55px;
+  padding: 40px 34px 44px;
   background: #fff;
   border-radius: 15px;
 }
 .contactCard h2 {
-  margin: 0 0 30px;
-  font-size: clamp(2rem, 3vw, 3rem);
+  margin: 0 0 24px;
+  font-size: var(--type-section-title);
+}
+.contactCard form {
+  gap: 15px;
+}
+.contactCard form > input,
+.contactCard form button {
+  min-height: 48px;
+  height: 48px;
+}
+.contactCard form textarea {
+  min-height: 112px;
 }
 
 @media (max-width: 800px) {
@@ -114,5 +182,11 @@
 @media (prefers-reduced-motion: reduce) {
   .marqueeTrack {
     animation-play-state: paused;
+  }
+  .logoRow a,
+  .logoRow a::after,
+  .logoRow img {
+    transition: none;
+    animation: none;
   }
 }

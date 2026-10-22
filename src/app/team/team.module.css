@@ -18,8 +18,8 @@
   object-fit: cover;
 }
 .heroCopy h1 {
-  margin: 22px 0 28px;
-  font-size: clamp(3rem, 4.6vw, 5.2rem);
+  margin: 0 0 28px;
+  font-size: var(--type-page-title);
   line-height: 1.15;
 }
 .heroCopy > p:not(.eyebrow) {
@@ -46,7 +46,7 @@
 
 .founderGrid > div > p:not(.eyebrow) {
   max-width: 470px;
-  color: var(--muted);
+  color: var(--ink);
   line-height: 1.75;
 }
 
@@ -75,7 +75,7 @@
 .founderGrid dt {
   color: var(--gold);
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: var(--type-body-lg);
 }
 
 .founderGrid dd {
@@ -90,7 +90,7 @@
   padding: 130px 0 145px;
 }
 .awards h2 {
-  margin: 20px 0 50px;
+  margin: 0 0 50px;
 }
 .awardRow {
   display: grid;

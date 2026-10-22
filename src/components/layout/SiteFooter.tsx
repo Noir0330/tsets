@@ -24,19 +24,15 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h3>{footer.contactTitle}</h3>
+          <h3 className={styles.footerTitle}>{footer.contactTitle}</h3>
+          <strong className={styles.legalName}>{footer.legalName}</strong>
           <a href="mailto:Lkhagvalawyer@gmail.com">Lkhagvalawyer@gmail.com</a>
-          <address>
-            {footer.city}
-            <br />
-            {footer.offices}
-            <br />
-            {footer.appointment}
-          </address>
+          <address>{footer.address}</address>
+          <a href="tel:+97675997599">{footer.phone}</a>
         </div>
 
         <div>
-          <h3>{footer.linksTitle}</h3>
+          <h3 className={styles.footerTitle}>{footer.linksTitle}</h3>
           <nav className={styles.links} aria-label={footer.linksLabel}>
             <Link href="/">{header.nav.home}</Link>
             <Link href="/practice-areas/litigation">{header.nav.services}</Link>
@@ -50,7 +46,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h3>{footer.socialTitle}</h3>
+          <h3 className={styles.footerTitle}>{footer.socialTitle}</h3>
           <div className={styles.socials}>
             <a
               aria-label="Facebook"

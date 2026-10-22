@@ -11,7 +11,7 @@
   background: var(--nav-bg);
   color: var(--nav-ink);
   cursor: pointer;
-  font-size: 11px;
+  font-size: var(--type-caption);
 }
 
 .toggle i {

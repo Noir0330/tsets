@@ -31,7 +31,7 @@
 
 .current,
 .code {
-  font-size: 13px;
+  font-size: var(--type-label);
   font-weight: 600;
   letter-spacing: 0.05em;
   line-height: 1;
@@ -85,7 +85,7 @@
   border-radius: 8px;
   color: var(--nav-ink);
   cursor: pointer;
-  font-size: 13px;
+  font-size: var(--type-label);
   text-align: left;
   transition:
     background-color 160ms ease,

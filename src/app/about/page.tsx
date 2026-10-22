@@ -1,106 +1,46 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
 import { TeamMemberCards } from "@/components/sections/TeamMemberCards";
 import { TrustedLogos } from "@/components/sections/ThemeSections";
 import { useSiteMessages } from "@/lib/i18n/PublicI18nProvider";
 import styles from "./about.module.css";
 
-function MetricCounter({
-  value,
-  suffix = "",
-}: {
-  value: number;
-  suffix?: string;
-}) {
-  const counterRef = useRef<HTMLSpanElement>(null);
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const counter = counterRef.current;
-    if (!counter) return;
-
-    let frameId = 0;
-    let hasPlayed = false;
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
-    const play = () => {
-      if (reduceMotion) {
-        setCount(value);
-        return;
-      }
-
-      const start = performance.now();
-      const duration = 1350;
-      const tick = (now: number) => {
-        const progress = Math.min((now - start) / duration, 1);
-        const easedProgress = 1 - (1 - progress) ** 4;
-        setCount(Math.round(value * easedProgress));
-
-        if (progress < 1) {
-          frameId = requestAnimationFrame(tick);
-        } else {
-          setCount(value);
-        }
-      };
-
-      frameId = requestAnimationFrame(tick);
-    };
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasPlayed) {
-          hasPlayed = true;
-          observer.disconnect();
-          play();
-        }
-      },
-      { threshold: 0.35 },
-    );
-
-    observer.observe(counter);
-    return () => {
-      observer.disconnect();
-      cancelAnimationFrame(frameId);
-    };
-  }, [value]);
-
+function RibbonTrack({ text }: { text: string }) {
   return (
-    <strong ref={counterRef}>
-      {count}
-      {suffix}
-    </strong>
+    <div aria-hidden="true" className={styles.ribbonTrack}>
+      {[0, 1].map((group) => (
+        <div className={styles.ribbonGroup} key={group}>
+          {[0, 1, 2].map((copy) => (
+            <span key={copy}>{text}</span>
+          ))}
+        </div>
+      ))}
+    </div>
   );
 }
 
 export default function AboutPage() {
   const { about, common, team } = useSiteMessages();
-  const metrics: { label: string; suffix?: string; value: number }[] = [
-    { label: about.metrics.founded, value: 2017 },
-    { label: about.metrics.branches, value: 2 },
-    { label: about.metrics.serviceAreas, value: 3 },
-    { label: about.metrics.attorneys, value: 4 },
-    { label: about.metrics.assistants, value: 6 },
-    { label: about.metrics.awards, suffix: "%+", value: 70 },
-  ];
 
   return (
     <>
-      <section className={styles.intro} id="services">
+      <section className={styles.intro} data-motion-scope id="services">
         <div className={`shell ${styles.introGrid}`}>
-          <div className={styles.introImage}>
+          <div className={styles.introImage} data-reveal="up">
             <Image
               alt={common.founder}
               fill
               priority
               sizes="(max-width: 850px) 100vw, 50vw"
-              src="/images/tsets-zahiral.jpg"
+              src="/images/client-henry.jpg"
             />
           </div>
-          <div className={styles.introCopy}>
+          <div
+            className={styles.introCopy}
+            data-reveal="up"
+            data-reveal-delay="120"
+          >
             <p className="eyebrow">{common.founderRole}</p>
             <h1>{common.founder}</h1>
             <p>{team.founder.bio}</p>
@@ -112,19 +52,6 @@ export default function AboutPage() {
                 </div>
               ))}
             </dl>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.metricsSection}>
-        <div className="shell">
-          <div className={styles.metrics}>
-            {metrics.map((metric) => (
-              <div className={styles.metric} key={metric.label}>
-                <MetricCounter suffix={metric.suffix} value={metric.value} />
-                <span>{metric.label}</span>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -156,10 +83,17 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className={styles.ribbons} aria-label={about.ribbon}>
-        <div className={styles.ribbon}>{about.ribbon}</div>
+      <section
+        className={styles.ribbons}
+        aria-label={about.ribbon}
+        data-motion-scope
+        data-reveal="ribbons"
+      >
+        <div className={styles.ribbon}>
+          <RibbonTrack text={about.ribbon} />
+        </div>
         <div className={`${styles.ribbon} ${styles.ribbonGold}`}>
-          {about.ribbon}
+          <RibbonTrack text={about.ribbon} />
         </div>
       </section>
 

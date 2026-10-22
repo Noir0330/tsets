@@ -1,7 +1,6 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useSiteMessages } from "@/lib/i18n/PublicI18nProvider";
 import styles from "./ServiceDetailPage.module.css";
@@ -12,27 +11,6 @@ export type ServicePageKey =
   | "retained-advisory";
 
 type ParentServiceKey = "litigation" | "advisory" | "retained";
-
-const serviceOptions = [
-  {
-    areaIndex: 0,
-    image: "/images/practice-menu-99.jpg",
-    key: "litigation",
-    labelIndex: 0,
-  },
-  {
-    areaIndex: 1,
-    image: "/images/practice-menu-102.jpg",
-    key: "advisory",
-    labelIndex: 1,
-  },
-  {
-    areaIndex: 2,
-    image: "/images/practice-menu-103.jpg",
-    key: "retained",
-    labelIndex: 2,
-  },
-] as const;
 
 const parentServiceByRoute: Record<ServicePageKey, ParentServiceKey> = {
   "business-advisory": "advisory",
@@ -45,18 +23,13 @@ type ServiceDetailPageProps = {
 };
 
 export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
-  const { common, header, practice } = useSiteMessages();
+  const { common, practice } = useSiteMessages();
   const parentService = parentServiceByRoute[service];
-  const selectedIndex = serviceOptions.findIndex(
-    (item) => item.key === parentService,
-  );
-  const selected = serviceOptions[selectedIndex];
-  const area = practice.areas[selected.areaIndex];
 
   const content = (() => {
     if (parentService === "advisory") {
       return {
-        description: null,
+        description: practice.areas[1].text,
         items: practice.oneTime,
         title: practice.full.oneTimeTitle,
       };
@@ -69,97 +42,72 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
       };
     }
 
-    return null;
+    return {
+      description: practice.areas[0].text,
+      items: null,
+      title: practice.full.litigationTitle,
+    };
   })();
 
+  const renderServiceCards = (items: readonly string[]) => (
+    <ul className={styles.serviceCards}>
+      {items.map((item, itemIndex) => (
+        <li className={styles.serviceCard} key={item}>
+          <span aria-hidden="true" className={styles.cardNumber}>
+            {String(itemIndex + 1).padStart(2, "0")}
+          </span>
+          <span className={styles.cardText}>{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+
   return (
-    <>
-      <section className={styles.hero}>
-        <div className={`shell ${styles.heroPanel}`}>
-          <div className={styles.heroImage}>
-            <Image
-              alt={header.practiceLinks[selected.labelIndex]}
-              fill
-              priority
-              sizes="(max-width: 900px) 100vw, 46vw"
-              src={selected.image}
-            />
+    <section className={styles.contentSection}>
+      <div className={`shell ${styles.contentGrid}`}>
+        <header className={styles.pageIntro}>
+          <div className={styles.introTitle}>
+            <h1>{content.title}</h1>
           </div>
-          <div className={styles.heroCopy}>
-            <p className={styles.serviceNumber}>
-              0{selectedIndex + 1} <span>/ 03</span>
-            </p>
-            <h1>{header.practiceLinks[selected.labelIndex]}</h1>
-            <p className={styles.heroText}>{area.text}</p>
-            <Link className={styles.heroCta} href="/contact">
+          <div className={styles.introAside}>
+            <p>{content.description}</p>
+            <Link className={styles.introCta} href="/contact">
               {common.consultation}
               <ArrowUpRight aria-hidden="true" size={17} />
             </Link>
           </div>
-        </div>
-      </section>
+        </header>
 
-      <section className={styles.contentSection}>
-        <div className={`shell ${styles.contentGrid}`}>
-          <article className={styles.article}>
-            {parentService === "litigation" ? (
-              <div className={styles.serviceAccordions}>
-                {practice.litigation.map((group, groupIndex) => (
-                  <details
-                    className={styles.litigationGroup}
-                    key={group.title}
-                    open={groupIndex === 0}
-                  >
-                    <summary className={styles.groupSummary}>
-                      <span className={styles.groupNumber}>
-                        {String(groupIndex + 1).padStart(2, "0")}
-                      </span>
-                      <span className={styles.groupQuestion}>
-                        {group.title}
-                      </span>
-                      <span aria-hidden="true" className={styles.groupToggle} />
-                    </summary>
-                    <div className={styles.groupBody}>
-                      <div className={styles.groupBodyInner}>
-                        <p>{group.description}</p>
-                        <ul className={styles.groupList}>
-                          {group.items.map((item) => (
-                            <li key={item}>{item}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </details>
-                ))}
-              </div>
-            ) : (
-              <div className={styles.serviceAccordions}>
-                <details className={styles.litigationGroup} open>
+        <article className={styles.article}>
+          {parentService === "litigation" ? (
+            <div className={styles.serviceAccordions}>
+              {practice.litigation.map((group, groupIndex) => (
+                <details
+                  className={styles.litigationGroup}
+                  key={group.title}
+                  open={groupIndex === 0}
+                >
                   <summary className={styles.groupSummary}>
-                    <span className={styles.groupNumber}>01</span>
-                    <span className={styles.groupQuestion}>
-                      {content?.title}
+                    <span className={styles.groupNumber}>
+                      {String(groupIndex + 1).padStart(2, "0")}
                     </span>
+                    <span className={styles.groupQuestion}>{group.title}</span>
                     <span aria-hidden="true" className={styles.groupToggle} />
                   </summary>
                   <div className={styles.groupBody}>
                     <div className={styles.groupBodyInner}>
-                      {content?.description ? (
-                        <p>{content.description}</p>
-                      ) : null}
-                      <ul className={styles.groupList}>
-                        {content?.items.map((item) => (
-                          <li key={item}>{item}</li>
-                        ))}
-                      </ul>
+                      <p>{group.description}</p>
+                      {renderServiceCards(group.items)}
                     </div>
                   </div>
                 </details>
-              </div>
-            )}
-          </article>
-        </div>
-      </section>
-    </>
+              ))}
+            </div>
+          ) : content.items ? (
+            renderServiceCards(content.items)
+          ) : null}
+        </article>
+      </div>
+    </section>
   );
 }

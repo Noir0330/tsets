@@ -24,7 +24,7 @@ export function TeamMemberCards() {
               <Image
                 alt=""
                 fill
-                sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 25vw"
+                sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 33vw"
                 src={member.image}
               />
             </Link>

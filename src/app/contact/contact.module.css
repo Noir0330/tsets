@@ -11,7 +11,7 @@
 }
 .title h1 {
   margin: 0;
-  font-size: clamp(3.2rem, 5vw, 5rem);
+  font-size: var(--type-page-title);
 }
 .titleCopy p {
   max-width: 580px;
@@ -71,7 +71,7 @@ a.contactItem:hover {
 
 .contactLabel {
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: var(--type-caption);
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -79,18 +79,18 @@ a.contactItem:hover {
 
 .contactCopy strong {
   font-family: var(--font-display);
-  font-size: clamp(1.02rem, 1.3vw, 1.2rem);
+  font-size: var(--type-body-lg);
   font-weight: 400;
   line-height: 1.35;
 }
 
 .contactItem:nth-child(2) .contactCopy strong {
-  font-size: clamp(0.88rem, 1.08vw, 1.05rem);
+  font-size: var(--type-body);
 }
 
 .contactCopy > span:last-child {
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: var(--type-label);
   line-height: 1.5;
 }
 .offices {
@@ -119,7 +119,6 @@ a.contactItem:hover {
 }
 .office h3 {
   margin: 0;
-  font-size: clamp(1.8rem, 2.5vw, 2.6rem);
 }
 .office address {
   font-style: normal;

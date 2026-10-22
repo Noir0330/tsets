@@ -56,9 +56,9 @@
   "footer": {
     "description": "Tsets Partners Law Firm has provided legal representation, advocacy, and legal advisory services to individuals and organizations since 2017.",
     "contactTitle": "Contact",
-    "city": "Ulaanbaatar, Mongolia",
-    "offices": "2 branch offices",
-    "appointment": "Meetings by appointment",
+    "legalName": "“Өмгөөллийн Цэц Партнерс” ХХК",
+    "address": "Office 6-601, Old City Tower, Peace Avenue, 7th Khoroo, Bayanzürkh District, Ulaanbaatar, Mongolia",
+    "phone": "75997599",
     "linksTitle": "Links",
     "linksLabel": "Footer links",
     "socialTitle": "Social Links",
@@ -83,7 +83,7 @@
     "submit": "Send Email"
   },
   "shared": {
-    "clients": "Organizations We Work With",
+    "clients": "Client Organizations",
     "clientLogoAlt": "Client organization logo",
     "valuesLabel": "Tsets Partners values",
     "marquee": [
@@ -414,24 +414,18 @@
     "emailNote": "Send an inquiry or details",
     "facebookLabel": "Facebook",
     "facebookNote": "Visit our page",
-    "officeLabel": "Meeting",
-    "officeValue": "Ulaanbaatar, Mongolia",
-    "officeNote": "By prior appointment",
-    "officesTitle": "Our Offices:",
+    "officeLabel": "Address",
+    "officeValue": "Office 6-601, Old City Tower",
+    "officeNote": "Peace Avenue, 7th Khoroo, Bayanzürkh District",
+    "officesTitle": "Our Office:",
     "appointment": "Schedule a Meeting",
     "appointmentSubject": "meeting request",
     "offices": [
       {
         "city": "Head Office",
-        "lineOne": "Ulaanbaatar, Mongolia",
-        "lineTwo": "Detailed address to be confirmed before publication",
-        "note": "Meetings are arranged by email in advance"
-      },
-      {
-        "city": "Branch Office",
-        "lineOne": "Ulaanbaatar, Mongolia",
-        "lineTwo": "Detailed address to be confirmed before publication",
-        "note": "Meetings are arranged by email in advance"
+        "lineOne": "Peace Avenue, 7th Khoroo, Bayanzürkh District, Ulaanbaatar, Mongolia",
+        "lineTwo": "Office 6-601, Old City Tower",
+        "note": "Phone: 75997599"
       }
     ]
   },

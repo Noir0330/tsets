@@ -21,13 +21,13 @@
 }
 
 .hero :global(.eyebrow) {
-  color: var(--gold-light);
+  color: var(--white);
 }
 
 .hero h1 {
   max-width: 660px;
-  margin: 22px 0 30px;
-  font-size: clamp(2.65rem, 3.85vw, 4.35rem);
+  margin: 0 0 30px;
+  font-size: var(--type-feature-title);
   line-height: 1.1;
   overflow-wrap: break-word;
 }
@@ -35,7 +35,7 @@
 .intro {
   max-width: 650px;
   color: #c0cece;
-  font-size: 0.98rem;
+  font-size: var(--type-body);
   line-height: 1.8;
 }
 
@@ -88,13 +88,13 @@
 
 .photoCaption strong {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: var(--type-lead);
   font-weight: 400;
 }
 
 .photoCaption span {
   color: #d5dddd;
-  font-size: 0.75rem;
+  font-size: var(--type-caption);
 }
 
 .article {
@@ -111,29 +111,43 @@
 .article aside {
   position: sticky;
   top: 110px;
+  display: flex;
+  max-height: calc(100svh - 140px);
   height: fit-content;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .article aside > p {
   padding-bottom: 18px;
   border-bottom: 1px solid var(--line);
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: var(--type-body-lg);
 }
 
 .article aside nav {
   display: grid;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: var(--line) transparent;
+  scrollbar-width: thin;
 }
 
 .article aside a {
+  position: relative;
   display: grid;
-  grid-template-columns: 34px 1fr;
+  grid-template-columns: 26px 1fr;
   gap: 10px;
-  padding: 13px 0;
+  padding: 13px 0 13px 8px;
   border-bottom: 1px solid var(--line);
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: var(--type-label);
   line-height: 1.45;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
 }
 
 .article aside a:hover {
@@ -143,6 +157,25 @@
 .article aside a span {
   color: var(--gold);
   font-family: var(--font-display);
+}
+
+.article aside a.activeSection {
+  background: color-mix(in srgb, var(--gold) 10%, var(--warm));
+  border-bottom-color: color-mix(in srgb, var(--gold) 38%, var(--line));
+  border-radius: 8px;
+  color: var(--ink);
+}
+
+.article aside a.activeSection::before {
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: 0;
+  width: 3px;
+  background: var(--gold);
+  border-radius: 999px;
+  box-shadow: 0 0 12px color-mix(in srgb, var(--gold) 42%, transparent);
+  content: "";
 }
 
 .content > section {
@@ -162,12 +195,14 @@
 }
 
 .content h2 {
-  margin: 0 0 35px;
+  margin: 0 0 28px;
+  font-size: clamp(1.5rem, 1.8vw, 2rem);
+  line-height: 1.25;
 }
 
 .content section > p:not(.sectionNumber) {
   color: var(--muted-dark);
-  font-size: 1.02rem;
+  font-size: var(--type-body);
   line-height: 1.9;
 }
 
@@ -185,13 +220,13 @@
 .content blockquote p {
   margin: 18px 0;
   font-family: var(--font-display);
-  font-size: 1.45rem;
-  line-height: 1.55;
+  font-size: clamp(1.2rem, 1.45vw, 1.65rem);
+  line-height: 1.65;
 }
 
 .content blockquote cite {
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: var(--type-label);
   font-style: normal;
 }
 
@@ -204,7 +239,7 @@
 
 .note strong {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: var(--type-lead);
   font-weight: 400;
 }
 
@@ -261,16 +296,23 @@
 
   .article aside {
     position: static;
+    display: block;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .article aside nav {
+    overflow: visible;
   }
 }
 
 @media (max-width: 600px) {
   .hero h1 {
-    font-size: clamp(2.15rem, 9vw, 2.75rem);
+    font-size: var(--type-feature-title-mobile);
   }
 
   .intro {
-    font-size: 0.9rem;
+    font-size: var(--type-small);
   }
 
   .heroActions {

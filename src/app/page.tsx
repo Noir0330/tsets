@@ -1,6 +1,13 @@
 "use client";
 
-import { ArrowUpRight, Gavel, Quote } from "lucide-react";
+import {
+  ArrowUpRight,
+  Gavel,
+  LockKeyhole,
+  Quote,
+  Scale,
+  ShieldCheck,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ContactForm } from "@/components/sections/ContactForm";
@@ -22,6 +29,8 @@ const serviceRoutes = [
   "/practice-areas/business-advisory",
   "/practice-areas/retained-advisory",
 ] as const;
+
+const strengthIcons = [ShieldCheck, Scale, LockKeyhole] as const;
 
 export default function HomePage() {
   const { common, home, practice, shared } = useSiteMessages();
@@ -95,17 +104,27 @@ export default function HomePage() {
             </p>
           </div>
           <div className={styles.strengthGrid}>
-            {home.strengths.map((item, index) => (
-              <article
-                data-reveal="up"
-                data-reveal-delay={index * 100}
-                key={item.title}
-              >
-                <span>{item.kicker}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </article>
-            ))}
+            {home.strengths.map((item, index) => {
+              const Icon = strengthIcons[index] ?? ShieldCheck;
+
+              return (
+                <article
+                  data-reveal="up"
+                  data-reveal-delay={index * 100}
+                  key={item.title}
+                >
+                  <div className={styles.strengthCardHeader}>
+                    <span className={styles.strengthNumber}>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <Icon aria-hidden="true" className={styles.strengthIcon} />
+                  </div>
+                  <span className={styles.strengthKicker}>{item.kicker}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>

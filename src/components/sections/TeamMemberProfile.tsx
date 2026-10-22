@@ -24,7 +24,7 @@ export function TeamMemberProfile({ slug }: { slug: TeamMemberSlug }) {
               alt=""
               fill
               priority
-              sizes="(max-width: 850px) 100vw, 46vw"
+              sizes="(max-width: 850px) 100vw, 50vw"
               src={member.image}
             />
           </div>

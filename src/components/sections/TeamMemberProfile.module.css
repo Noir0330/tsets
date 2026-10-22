@@ -5,14 +5,14 @@
 
 .heroGrid {
   display: grid;
-  grid-template-columns: minmax(300px, 0.8fr) 1.2fr;
-  align-items: center;
-  gap: clamp(48px, 9vw, 145px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(32px, 5vw, 72px);
 }
 
 .image {
   position: relative;
-  min-height: 590px;
+  aspect-ratio: 1;
   overflow: hidden;
   border-radius: 12px;
   background: #e7dfd8;
@@ -33,12 +33,12 @@
   gap: 9px;
   margin-bottom: 46px;
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: var(--type-label);
   font-weight: 650;
 }
 
 .backLink span {
-  font-size: 1.25rem;
+  font-size: var(--type-symbol-sm);
   transition: transform 200ms ease;
 }
 
@@ -48,12 +48,12 @@
 }
 
 .copy :global(.eyebrow) {
-  margin: 0;
+  margin: 0 0 var(--space-eyebrow-title);
 }
 
 .copy h1 {
-  margin: 18px 0 16px;
-  font-size: clamp(3rem, 5.4vw, 5.75rem);
+  margin: 0 0 16px;
+  font-size: var(--type-profile-title);
   letter-spacing: -0.055em;
   line-height: 0.98;
 }
@@ -61,7 +61,7 @@
 .role {
   margin: 0;
   color: var(--gold);
-  font-size: 0.82rem;
+  font-size: var(--type-label);
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -71,7 +71,7 @@
   max-width: 600px;
   margin: 34px 0 0;
   color: var(--muted);
-  font-size: clamp(1.05rem, 1.45vw, 1.28rem);
+  font-size: var(--type-lead);
   line-height: 1.75;
 }
 
@@ -93,7 +93,7 @@
 
 .information dt {
   color: var(--gold);
-  font-size: 0.76rem;
+  font-size: var(--type-caption);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -118,13 +118,13 @@
 }
 
 .contactGrid :global(.eyebrow) {
-  margin: 0;
-  color: var(--gold-light);
+  margin: 0 0 var(--space-eyebrow-title);
+  color: var(--white);
 }
 
 .contactGrid h2 {
-  margin: 16px 0 0;
-  font-size: clamp(2.5rem, 4vw, 4.4rem);
+  margin: 0;
+  font-size: var(--type-feature-title);
   line-height: 1;
 }
 
@@ -132,7 +132,7 @@
   max-width: 580px;
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-size: var(--type-quote);
   line-height: 1.5;
 }
 
@@ -150,7 +150,7 @@
   padding: 13px 16px;
   border: 1px solid var(--forest-line);
   color: #fff;
-  font-size: 0.78rem;
+  font-size: var(--type-label);
   font-weight: 700;
 }
 
@@ -170,20 +170,12 @@
     gap: 48px;
   }
 
-  .image {
-    min-height: 520px;
-  }
-
   .backLink {
     margin-bottom: 48px;
   }
 }
 
 @media (max-width: 520px) {
-  .image {
-    min-height: 440px;
-  }
-
   .information > div {
     grid-template-columns: 1fr;
     gap: 6px;

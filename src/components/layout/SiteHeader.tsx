@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRef, useState } from "react";
 import { useSiteMessages } from "@/lib/i18n/PublicI18nProvider";
+import { businessInterviews } from "@/lib/interviews";
 import { LanguageSelector } from "./LanguageSelector";
 import styles from "./SiteHeader.module.css";
 
@@ -44,17 +45,36 @@ function PhoneIcon() {
 
 export function SiteHeader() {
   const messages = useSiteMessages();
-  const { header } = messages;
+  const { header, interview } = messages;
   const pathname = usePathname().replace(/\/$/, "") || "/";
   const menuRef = useRef<HTMLDetailsElement>(null);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileOpenGroup, setMobileOpenGroup] = useState<
+    "interviews" | "services" | null
+  >(null);
   const closeMenu = () => {
     if (menuRef.current) menuRef.current.open = false;
-    setMobileServicesOpen(false);
+    setMobileOpenGroup(null);
   };
+  const interviewLinks = [
+    {
+      href: "/interview",
+      image: "/images/tsets-lkhagvasuren-interview.jpg",
+      menuDate: "2025.06.10",
+      sourceName: "Business.mn",
+      title: interview.title,
+    },
+    ...businessInterviews.map((item) => ({
+      href: `/interview/${item.slug}`,
+      image: item.image,
+      menuDate: item.menuDate,
+      sourceName: item.sourceName,
+      title: item.title,
+    })),
+  ] as const;
   const links = [
     { href: "/", label: header.nav.home },
     {
+      id: "services",
       children: practiceLinks.map((item, index) => ({
         href: item.href,
         label: header.practiceLinks[index],
@@ -62,7 +82,14 @@ export function SiteHeader() {
       label: header.nav.services,
     },
     { href: "/about", label: header.nav.about },
-    { href: "/interview", label: header.nav.interview },
+    {
+      id: "interviews",
+      children: interviewLinks.map((item) => ({
+        href: item.href,
+        label: item.title,
+      })),
+      label: header.nav.interview,
+    },
     { href: "/contact", label: header.nav.contact },
   ] as const;
   return (
@@ -133,12 +160,39 @@ export function SiteHeader() {
             {header.nav.about}
           </Link>
 
-          <Link
-            className={pathname === "/interview" ? styles.active : undefined}
-            href="/interview"
-          >
-            {header.nav.interview}
-          </Link>
+          <div className={styles.interviewGroup}>
+            <Link
+              className={
+                pathname.startsWith("/interview") ? styles.active : undefined
+              }
+              href="/interview"
+            >
+              {header.nav.interview}
+              <span>
+                <ChevronIcon />
+              </span>
+            </Link>
+            <div className={`${styles.megaMenu} ${styles.interviewMenu}`}>
+              <div className={styles.interviewMenuInner}>
+                <p>{header.nav.interview}</p>
+                <div className={styles.interviewCards}>
+                  {interviewLinks.map((item) => (
+                    <Link href={item.href} key={item.href}>
+                      <span className={styles.interviewImage}>
+                        <Image alt="" fill sizes="130px" src={item.image} />
+                      </span>
+                      <span>
+                        <small>
+                          {item.sourceName} · {item.menuDate}
+                        </small>
+                        <strong>{item.title}</strong>
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
           <Link
             className={pathname === "/contact" ? styles.active : undefined}
             href="/contact"
@@ -161,7 +215,7 @@ export function SiteHeader() {
         <details
           className={styles.mobileMenu}
           onToggle={(event) => {
-            if (!event.currentTarget.open) setMobileServicesOpen(false);
+            if (!event.currentTarget.open) setMobileOpenGroup(null);
           }}
           ref={menuRef}
         >
@@ -174,35 +228,48 @@ export function SiteHeader() {
               {links.map((item) =>
                 "children" in item ? (
                   <div className={styles.mobileServices} key={item.label}>
-                    <button
-                      aria-controls="mobile-services-list"
-                      aria-expanded={mobileServicesOpen}
-                      className={styles.mobileServicesButton}
-                      onClick={() => setMobileServicesOpen((open) => !open)}
-                      type="button"
-                    >
-                      {item.label}
-                      <ChevronIcon />
-                    </button>
-                    <div
-                      aria-hidden={!mobileServicesOpen}
-                      className={styles.mobileServicesList}
-                      data-open={mobileServicesOpen ? "" : undefined}
-                      id="mobile-services-list"
-                    >
-                      <div className={styles.mobileServicesListInner}>
-                        {item.children.map((child) => (
-                          <Link
-                            href={child.href}
-                            key={child.href}
-                            onClick={closeMenu}
-                            tabIndex={mobileServicesOpen ? undefined : -1}
+                    {(() => {
+                      const isOpen = mobileOpenGroup === item.id;
+                      const listId = `mobile-${item.id}-list`;
+
+                      return (
+                        <>
+                          <button
+                            aria-controls={listId}
+                            aria-expanded={isOpen}
+                            className={styles.mobileServicesButton}
+                            onClick={() =>
+                              setMobileOpenGroup((group) =>
+                                group === item.id ? null : item.id,
+                              )
+                            }
+                            type="button"
                           >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
+                            {item.label}
+                            <ChevronIcon />
+                          </button>
+                          <div
+                            aria-hidden={!isOpen}
+                            className={styles.mobileServicesList}
+                            data-open={isOpen ? "" : undefined}
+                            id={listId}
+                          >
+                            <div className={styles.mobileServicesListInner}>
+                              {item.children.map((child) => (
+                                <Link
+                                  href={child.href}
+                                  key={child.href}
+                                  onClick={closeMenu}
+                                  tabIndex={isOpen ? undefined : -1}
+                                >
+                                  {child.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        </>
+                      );
+                    })()}
                   </div>
                 ) : (
                   <Link href={item.href} key={item.href} onClick={closeMenu}>

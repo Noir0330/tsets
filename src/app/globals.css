@@ -16,6 +16,36 @@
   --gold-light: #c5aa5c;
   --font-display: var(--font-manrope), "Helvetica Neue", Arial, sans-serif;
   --font-body: var(--font-manrope), "Helvetica Neue", Arial, sans-serif;
+  /* Shared type scale: change these tokens to tune typography site-wide. */
+  --type-caption: 0.8125rem;
+  --type-label: 0.8125rem;
+  --space-eyebrow-title: 0.875rem;
+  --type-small: 0.9375rem;
+  --type-body: 1rem;
+  --type-body-lg: clamp(1.0625rem, 1.2vw, 1.125rem);
+  --type-lead: clamp(1.125rem, 1.4vw, 1.25rem);
+  --type-nav: 1.125rem;
+  --type-card-title: clamp(1.125rem, 1.35vw, 1.35rem);
+  --type-card-heading: 1.875rem;
+  --type-quote: clamp(1.5rem, 2.2vw, 2.35rem);
+  --type-section-title: clamp(1.75rem, 2.5vw, 2.6rem);
+  --type-section-title-mobile: 1.55rem;
+  --type-feature-title: clamp(2.5rem, 4vw, 4.35rem);
+  --type-feature-title-mobile: clamp(2rem, 10vw, 3rem);
+  --type-page-title: clamp(3rem, 4.6vw, 5.2rem);
+  --type-profile-title: clamp(3rem, 5.4vw, 5.75rem);
+  --type-home-hero: clamp(2rem, 2.55vw, 3.2rem);
+  --type-home-hero-tablet: clamp(2rem, 5.8vw, 3.25rem);
+  --type-home-hero-mobile: clamp(1.75rem, 7vw, 2.25rem);
+  --type-menu-primary: clamp(1.125rem, 4.5vw, 1.8rem);
+  --type-menu-secondary: clamp(1rem, 3.8vw, 1.35rem);
+  --type-marquee: clamp(1.65rem, 3vw, 3rem);
+  --type-symbol-sm: 1.25rem;
+  --type-symbol: 1.35rem;
+  --type-symbol-lg: 1.5rem;
+  --type-h1: 3.5625rem;
+  --type-h2: 2.9375rem;
+  --type-h3: 2.1875rem;
   --shadow-soft: 0 22px 65px rgba(4, 36, 39, 0.1);
 }
 
@@ -117,7 +147,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: var(--type-body);
   font-synthesis: none;
   line-height: 1.625;
   text-rendering: optimizeLegibility;
@@ -171,26 +201,30 @@ p {
   margin-top: 0;
 }
 
+p {
+  font-size: var(--type-body);
+}
+
 h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0;
 }
 
 h1 {
-  font-size: 57px;
+  font-size: var(--type-h1);
   line-height: 1.1052;
 }
 
 h2 {
-  font-size: 47px;
+  font-size: var(--type-h2);
   line-height: 1.1276;
 }
 
 h3 {
-  font-size: 35px;
+  font-size: var(--type-h3);
   line-height: 1.1142;
 }
 
@@ -226,17 +260,24 @@ h3 {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  margin-bottom: 1.35rem;
-  color: var(--ink);
+  margin-bottom: var(--space-eyebrow-title);
+  color: var(--forest);
   font-family: var(--font-display);
-  font-size: 0.78rem;
-  font-weight: 400;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: var(--type-label);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.eyebrow::before {
+  width: 26px;
+  height: 1px;
+  flex: 0 0 auto;
+  background: var(--gold);
+  content: "";
 }
 
 .eyebrowLight {
-  color: var(--gold-light);
+  color: var(--white);
 }
 
 .button {
@@ -248,7 +289,7 @@ h3 {
   padding: 0.85rem 1.35rem;
   border: 1px solid transparent;
   border-radius: 11px;
-  font-size: 0.9rem;
+  font-size: var(--type-small);
   font-weight: 500;
   transition:
     background-color 180ms ease,
@@ -414,16 +455,10 @@ h3 {
 }
 
 @media (max-width: 760px) {
-  h1 {
-    font-size: 36px;
-  }
-
-  h2 {
-    font-size: 31px;
-  }
-
-  h3 {
-    font-size: 26px;
+  :root {
+    --type-h1: 2.25rem;
+    --type-h2: 1.9375rem;
+    --type-h3: 1.625rem;
   }
 
   .shell {
@@ -436,16 +471,10 @@ h3 {
 }
 
 @media (min-width: 761px) and (max-width: 1024px) {
-  h1 {
-    font-size: 45px;
-  }
-
-  h2 {
-    font-size: 36px;
-  }
-
-  h3 {
-    font-size: 28px;
+  :root {
+    --type-h1: 2.8125rem;
+    --type-h2: 2.25rem;
+    --type-h3: 1.75rem;
   }
 }
 

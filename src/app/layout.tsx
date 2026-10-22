@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import type { ReactNode } from "react";
 import { ClientPreferences } from "@/components/layout/ClientPreferences";
-import { FloatingContact } from "@/components/layout/FloatingContact";
 import { MotionController } from "@/components/layout/MotionController";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -59,7 +58,6 @@ export default function RootLayout({
           <main id="main-content">{children}</main>
           <MotionController />
           <SiteFooter />
-          <FloatingContact />
         </PublicI18nProvider>
       </body>
     </html>

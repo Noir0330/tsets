@@ -56,9 +56,9 @@
   "footer": {
     "description": "自2017年以来，Tsets Partners律师事务所持续为个人及机构提供诉讼代理、法律援助及法律顾问服务。",
     "contactTitle": "联系方式",
-    "city": "蒙古国乌兰巴托",
-    "offices": "2家分支机构",
-    "appointment": "会面须提前预约",
+    "legalName": "“Өмгөөллийн Цэц Партнерс” ХХК",
+    "address": "蒙古国乌兰巴托市巴彦珠尔赫区第7分区和平大道，Old City Tower 6-601室",
+    "phone": "75997599",
     "linksTitle": "快速链接",
     "linksLabel": "页脚链接",
     "socialTitle": "社交媒体",
@@ -80,7 +80,7 @@
     "submit": "发送邮件"
   },
   "shared": {
-    "clients": "合作机构",
+    "clients": "客户机构",
     "clientLogoAlt": "合作机构标识",
     "valuesLabel": "Tsets Partners的价值观",
     "marquee": ["权利", "保障", "信任", "咨询", "代理", "解决方案"],
@@ -373,24 +373,18 @@
     "emailNote": "发送咨询或相关资料",
     "facebookLabel": "Facebook",
     "facebookNote": "访问我们的主页",
-    "officeLabel": "会面",
-    "officeValue": "蒙古国乌兰巴托",
-    "officeNote": "须提前预约",
+    "officeLabel": "地址",
+    "officeValue": "Old City Tower 6-601室",
+    "officeNote": "巴彦珠尔赫区第7分区和平大道",
     "officesTitle": "办公地点：",
     "appointment": "预约会面",
     "appointmentSubject": "会面申请",
     "offices": [
       {
         "city": "总部办公室",
-        "lineOne": "蒙古国乌兰巴托",
-        "lineTwo": "详细地址将在发布前确认",
-        "note": "请通过电子邮件提前预约会面"
-      },
-      {
-        "city": "分支办公室",
-        "lineOne": "蒙古国乌兰巴托",
-        "lineTwo": "详细地址将在发布前确认",
-        "note": "请通过电子邮件提前预约会面"
+        "lineOne": "蒙古国乌兰巴托市巴彦珠尔赫区第7分区和平大道",
+        "lineTwo": "Old City Tower 6-601室",
+        "note": "电话：75997599"
       }
     ]
   },

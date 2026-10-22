@@ -8,7 +8,7 @@ import styles from "./contact.module.css";
 export default function ContactPage() {
   const { contact } = useSiteMessages();
   const email = "Lkhagvalawyer@gmail.com";
-  const phone = "+976 9909 2918";
+  const phone = "75997599";
   return (
     <>
       <section className={styles.title}>
@@ -18,7 +18,7 @@ export default function ContactPage() {
             <p>{contact.intro}</p>
           </div>
           <div className={styles.contactGrid}>
-            <a className={styles.contactItem} href="tel:+97699092918">
+            <a className={styles.contactItem} href="tel:+97675997599">
               <span className={styles.contactIcon}>
                 <Phone aria-hidden="true" size={20} strokeWidth={1.7} />
               </span>
