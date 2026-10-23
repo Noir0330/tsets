@@ -38,7 +38,9 @@
       "Legal Advisory Services",
       "Retained Legal Advisory Services",
       "Enforcement Proceedings",
-      "Arbitration and Other Institutions"
+      "Arbitration and Other Institutions",
+      "Comprehensive Financial, Tax and Legal Advisory Services for Foreign Investors",
+      "Debt Recovery Services Representing Non-Bank Financial Institutions in Court Proceedings"
     ],
     "advantages": "Our Advantages"
   },
@@ -153,6 +155,24 @@
     "contactImageAlt": "Legal documents with a judge's gavel and scales of justice"
   },
   "about": {
+    "identity": {
+      "visionTitle": "Vision",
+      "visionText": "To be a nationally recognized law firm providing standardized legal services to clients.",
+      "items": [
+        {
+          "title": "Mission",
+          "text": "We uphold the highest standards of legal ethics and integrity, deliver quality legal services aligned with our clients’ needs and expectations, and ensure their satisfaction."
+        },
+        {
+          "title": "Core Values",
+          "text": "We uphold justice, the rule of law, and professional ethics as the core values of our practice."
+        },
+        {
+          "title": "Principles",
+          "text": "In our work, we adhere to the rule of law, professional competence, quality, accountability, and standards."
+        }
+      ]
+    },
     "hero": {
       "imageAlt": "Attorneys meeting with a client",
       "eyebrow": "Since 2017",
@@ -297,6 +317,25 @@
         "Acting as legal representative and counsel in court decision enforcement proceedings",
         "Preparing legal opinions and conducting legal due diligence"
       ]
+    },
+    "foreignInvestment": {
+      "title": "Comprehensive Financial, Tax and Legal Advisory Services for Foreign Investors",
+      "description": "Comprehensive financial, tax, and legal advisory services relating to foreign investment, projects, and business operations.",
+      "items": [
+        "Research on legislation and regulations relating to foreign investment",
+        "Legal analysis tailored to specific projects",
+        "Drafting of investment and cooperation agreements",
+        "Establishment of foreign-invested legal entities and preparation of related documentation",
+        "Advisory services regarding the acquisition and transfer of mineral exploration and mining licences",
+        "Financial and tax advisory services relating to foreign investment and business operations"
+      ]
+    },
+    "debtRecovery": {
+      "title": "Debt Recovery Services Representing Non-Bank Financial Institutions in Court Proceedings",
+      "description": "Representation of non-bank financial institutions in debt recovery matters during court proceedings and the enforcement of court judgments.",
+      "items": [
+        "Representing clients in court proceedings and at the enforcement stage of court judgments"
+      ]
     }
   },
   "team": {
@@ -368,36 +407,38 @@
       },
       "erdenebold-tsegmid": {
         "name": "Ts. Erdenebold",
-        "role": "Academic Counsel (PhD)",
+        "role": "Consulting Lawyer / Legal Advisor",
         "bio": [
           {
             "type": "paragraph",
-            "text": "Erdenebold Tsegmid graduated from Kyiv State University (USSR) as an International Lawyer and from the University of Leeds (UK) as an English Translator. He holds Ph.D. degrees from the Institute of State and Law of the Russian Academy of Sciences and The George Washington University (USA)."
+            "text": "Tsagandorjiin Erdenebold graduated from Kyiv State University of the Russian Federation (the Soviet Union at that time) as an International Lawyer, and from the University of Leeds in the United Kingdom as an English Translator. He also holds doctorate degrees from the Institute of State and Law of the Russian Federation and The George Washington University in the United States."
           },
           { "type": "heading", "text": "Work Experience" },
           {
             "type": "paragraph",
-            "text": "He brings extensive expertise from working in legal advisory and executive management roles across public, private, and international sectors:"
+            "text": "He has rich experience working in legal counsel and management positions across the public sector, private sector, and international organizations."
           },
           {
             "type": "bullet",
-            "text": "Public & International Sectors: He served in key roles including Referent at the Secretariat of the Presidium of the People's Great Hural, Foreign Policy Advisor to the Parliament (State Great Hural) of Mongolia, Head of the Foreign Relations Department of the Governor's Office of Ulaanbaatar City, and Advisor to the Minister of Mining and Heavy Industry. Additionally, he managed international trade, GATT, and UNCITRAL projects for the World Bank, Asian Development Bank, European Bank for Reconstruction and Development (EBRD), and the United Nations Development Programme (UNDP), where he continues to serve as a contracted translator."
+            "text": "Government Sector: Served as a Referent at the Executive Office of the Presidium of the People's Great Hural, Foreign Policy Advisor to the State Great Hural (Parliament) of Mongolia, Head of the Foreign Relations Department of the Governor's Office of the Capital City, and Advisor to the Minister of Mining and Heavy Industry. He has also managed projects related to international trade, GATT, and UNCITRAL for the World Bank, Asian Development Bank, European Bank for Reconstruction and Development, and the United Nations Development Programme (UNDP), and continues to serve as a contracted translator for UNDP to this day."
           },
           {
             "type": "bullet",
-            "text": "Legal Sector & Consulting: He represented the U.S. law firm \"Buxbaum & Choy,\" pioneering international consulting services in Mongolia. He co-founded the international law firm \"New Grata JLPV\" with foreign lawyers and served as its Executive Director. His track record includes assisting \"Energy Resources\" LLC with its IPO on the Hong Kong Stock Exchange, aiding Mongolian companies in listing on the U.S. NASDAQ, and serving as an international legal advisor for the power plant project of \"Erdenes Tavan Tolgoi\" JSC. Most recently, he served as Head of the Legal Department at \"New Ulaanbaatar International Airport\" LLC."
+            "text": "Private Sector: Worked as a representative of the U.S. law firm \"Buxbaum & Choy,\" pioneering international consulting services in Mongolia. Subsequently, he co-founded the international law firm \"New Grata JLPV\" with foreign lawyers and served as its Executive Director. His experience includes assisting \"Energy Resources\" company with its listing on the Hong Kong Stock Exchange, helping Mongolian companies trade shares on the U.S. NASDAQ exchange, and serving as an international legal advisor for the Power Plant project of \"Erdenes Tavan Tolgoi\" company. Most recently, he worked as the Head of the Legal Department at \"New Ulaanbaatar International Airport\" LLC."
           },
           {
             "type": "bullet",
-            "text": "Academic & Research Work: He has served as Director of the School of Humanities at the Mongolian University of Science and Technology (MUST), Visiting Professor at Mahidol University in Thailand, and Professor at both the National University of Mongolia and City University, contributing significantly to training the next generation of lawyers. Over his career, he has published more than 20 books, textbooks, and academic articles."
+            "text": "University & Research: Contributed to training future lawyers by serving as Director of the School of Humanities at the Mongolian University of Science and Technology, Visiting Professor at Mahidol University in Thailand, and Professor at the National University of Mongolia and CITY University. During this time, he has published over 20 books, textbooks, and research articles."
           },
+          { "type": "heading", "text": "Awards" },
           {
             "type": "paragraph",
-            "text": "Awards: He was awarded the state honor \"Order of the Polar Star\" (Altan Gadas) and the title of \"Leading Worker of Education.\""
+            "text": "Awarded Mongolia's State Supreme Honor, the \"Order of the Polar Star\" (Altan Gadas), and the title of \"Leading Worker in Education.\""
           },
+          { "type": "heading", "text": "Languages" },
           {
             "type": "paragraph",
-            "text": "He is fluent in Mongolian, Russian, and English, and has working knowledge of French."
+            "text": "Fully proficient in Mongolian, Russian, and English, with knowledge of French."
           }
         ]
       },

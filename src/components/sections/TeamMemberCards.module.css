@@ -53,32 +53,19 @@
 }
 
 .placeholder {
-  position: relative;
   display: grid;
   width: 100%;
   height: 100%;
   overflow: hidden;
   place-items: center;
-  background:
-    linear-gradient(145deg, transparent 48%, rgb(255 255 255 / 3%) 100%),
-    radial-gradient(circle at 50% 50%, rgb(198 167 94 / 13%), transparent 34%),
-    var(--forest);
-  color: var(--gold-light);
-}
-
-.placeholder::before {
-  position: absolute;
-  inset: clamp(18px, 5%, 28px);
-  border: 1px solid color-mix(in srgb, var(--gold-light) 58%, transparent);
-  content: "";
+  background: #e4e6eb;
+  color: #bcc0c4;
 }
 
 .placeholder svg {
-  z-index: 1;
-  width: clamp(58px, 16%, 82px);
-  height: auto;
-  filter: drop-shadow(0 3px 16px rgb(0 0 0 / 16%));
-  opacity: 0.82;
+  width: min(72%, 240px);
+  height: 82%;
+  align-self: end;
 }
 
 .card:hover .imageLink img,
