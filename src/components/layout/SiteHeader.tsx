@@ -94,6 +94,7 @@ export function SiteHeader() {
       })),
       label: header.nav.interview,
     },
+    { href: "/news", label: header.nav.news },
     { href: "/contact", label: header.nav.contact },
   ] as const;
   return (
@@ -197,6 +198,12 @@ export function SiteHeader() {
               </div>
             </div>
           </div>
+          <Link
+            className={pathname === "/news" ? styles.active : undefined}
+            href="/news"
+          >
+            {header.nav.news}
+          </Link>
           <Link
             className={pathname === "/contact" ? styles.active : undefined}
             href="/contact"

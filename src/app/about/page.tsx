@@ -60,7 +60,7 @@ export default function AboutPage() {
           <div className={styles.teamHeading}>
             <h2>{about.team.title}</h2>
           </div>
-          <TeamMemberCards hiddenSlug="lkhagvasuren-ganbold" />
+          <TeamMemberCards />
         </div>
       </section>
 

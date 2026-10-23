@@ -15,9 +15,19 @@ Files were downloaded as compressed JPEGs from `images.pexels.com/photos/{photo-
 
 The service menu reuses the human-free `litigation.jpg`, `business-advice.avif`, and `ongoing-counsel.jpg` photos listed above. This source list covers only the replacement photos above.
 
-## Team avatars
+## Team portraits
 
-`team-avatar-badamsuren.avif` was generated with OpenAI image generation on 2026-10-21. It is an illustrative avatar, not a photograph or likeness of a Tsets Partners team member.
+`team-namuungoo.jpg` was extracted from the client-provided team CV PDF on 2026-10-23.
+
+`team-namuungoo-enhanced.jpg` is an identity-preserving resolution enhancement of `team-namuungoo.jpg`, generated with OpenAI image generation on 2026-10-23.
+
+## News images
+
+`news-building-rule-invalidated.jpg` was supplied by the client from the Tsets Partners Facebook post published on 2026-10-08: https://www.facebook.com/photo?fbid=122144679345039916&set=a.122099410641039916
+
+`news-building-rule-invalidated-enhanced.jpg` is an identity- and layout-preserving quality enhancement of the client-supplied image, generated with OpenAI image generation on 2026-10-23 and exported as an optimized JPEG. The original file remains available alongside it.
+
+`news-building-rule-invalidated-hero.jpg` is the optimized 16:9 top crop used on the news list and detail page; it preserves the subject and removes only the lower poster copy already rendered as accessible HTML on the page.
 
 ## Client logos
 

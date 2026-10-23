@@ -70,8 +70,10 @@
   scroll-margin-top: 104px;
 }
 .teamHeading {
-  max-width: 560px;
+  display: flex;
+  justify-content: center;
   margin-bottom: 46px;
+  text-align: center;
 }
 .teamHeading h2 {
   margin: 0;
